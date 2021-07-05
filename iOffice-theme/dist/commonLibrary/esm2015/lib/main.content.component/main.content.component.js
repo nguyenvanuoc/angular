@@ -30,7 +30,7 @@ MainContentComponent.ɵcmp = i0.ɵɵdefineComponent({ type: MainContentComponent
         i0.ɵɵproperty("vBordered", false);
         i0.ɵɵadvance(1);
         i0.ɵɵproperty("ngIf", ctx.title);
-    } }, directives: [i1.VCardComponent, i2.NgIf, i3.VTypographyComponent], styles: [".close-btn[_ngcontent-%COMP%]{border:none;background:#f5f5f5;position:fixed;right:60px;margin-top:75px;padding:0 10px;cursor:pointer}.close-btn[_ngcontent-%COMP%]:hover{background-color:#fafafa}.page-title[_ngcontent-%COMP%]{margin-bottom:2.2rem}"] });
+    } }, directives: [i1.VCardComponent, i2.NgIf, i3.VTypographyComponent], styles: [".close-btn[_ngcontent-%COMP%]{border:none;background:#f5f5f5;position:fixed;right:60px;padding:0 10px;margin-top:0;cursor:pointer}.close-btn[_ngcontent-%COMP%]:hover{background-color:#fafafa}.page-title[_ngcontent-%COMP%]{margin-bottom:2.2rem}"] });
 /*@__PURE__*/ (function () { i0.ɵsetClassMetadata(MainContentComponent, [{
         type: Component,
         args: [{

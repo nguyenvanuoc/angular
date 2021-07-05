@@ -1,7 +1,5 @@
-import * as i1$1 from '@angular/common/http';
-import { HttpParams, HttpResponse, HTTP_INTERCEPTORS } from '@angular/common/http';
 import * as i0 from '@angular/core';
-import { Component, Input, Injectable, Pipe, EventEmitter, Output, HostListener, NgModule } from '@angular/core';
+import { Component, Input, Pipe, EventEmitter, Output, HostListener, NgModule } from '@angular/core';
 import * as i2$1 from '@vnpt/oneui-ui/affix';
 import { VAffixModule } from '@vnpt/oneui-ui/affix';
 import * as i2 from '@vnpt/oneui-ui/button';
@@ -12,23 +10,17 @@ import { VLayoutModule } from '@vnpt/oneui-ui/layout';
 import * as i1 from '@angular/common';
 import { CommonModule } from '@angular/common';
 import * as i3 from '@vnpt/oneui-ui/core/transition-patch';
-import * as i6 from '@vnpt/oneui-core';
-import { Cache, Base, md5, OneuiCoreModule } from '@vnpt/oneui-core';
-import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/catch';
 import * as i3$1 from '@vnpt/oneui-ui/grid';
 import { VGridModule } from '@vnpt/oneui-ui/grid';
 import * as i4 from '@vnpt/oneui-ui/tooltip';
 import { VToolTipModule } from '@vnpt/oneui-ui/tooltip';
-import * as i1$2 from '@vnpt/oneui-ui/card';
+import * as i1$1 from '@vnpt/oneui-ui/card';
 import { VCardModule } from '@vnpt/oneui-ui/card';
 import * as i3$2 from '@vnpt/oneui-ui/typography';
 import { VTypographyModule } from '@vnpt/oneui-ui/typography';
 import * as i3$3 from '@vnpt/oneui-ui/menu';
 import { VMenuModule } from '@vnpt/oneui-ui/menu';
-import * as i1$3 from '@angular/router';
+import * as i1$2 from '@angular/router';
 import { NavigationEnd, RouterModule } from '@angular/router';
 import * as i7 from '@vnpt/oneui-ui/divider';
 import { VDividerModule } from '@vnpt/oneui-ui/divider';
@@ -68,7 +60,7 @@ BlankPageComponent.ɵcmp = i0.ɵɵdefineComponent({ type: BlankPageComponent, se
         i0.ɵɵprojection(1);
     } if (rf & 2) {
         i0.ɵɵproperty("ngIf", ctx.close);
-    } }, directives: [i1.NgIf, i2.VButtonComponent, i3.ɵVTransitionPatchDirective], styles: [".close-btn[_ngcontent-%COMP%]{border:none;background:#f5f5f5;position:fixed;right:60px;margin-top:75px;padding:0 10px;cursor:pointer;z-index:98}.close-btn[_ngcontent-%COMP%]:hover{background-color:#fafafa}@media only screen and (max-width:992px){.close-btn[_ngcontent-%COMP%]{position:fixed;right:10px;top:49px;margin-top:0;background:#fff}}"] });
+    } }, directives: [i1.NgIf, i2.VButtonComponent, i3.ɵVTransitionPatchDirective], styles: [".close-btn[_ngcontent-%COMP%]{border:none;background:#f5f5f5;position:fixed;right:60px;padding:0 10px;cursor:pointer;z-index:98}.close-btn[_ngcontent-%COMP%]:hover{background-color:#fafafa}@media only screen and (max-width:992px){.close-btn[_ngcontent-%COMP%]{position:fixed;right:10px;top:0;margin-top:0;background:#fff}}"] });
 /*@__PURE__*/ (function () { i0.ɵsetClassMetadata(BlankPageComponent, [{
         type: Component,
         args: [{
@@ -79,274 +71,6 @@ BlankPageComponent.ɵcmp = i0.ɵɵdefineComponent({ type: BlankPageComponent, se
     }], null, { close: [{
             type: Input
         }] }); })();
-
-class Constants {
-}
-Constants.DEVICE_MOBILE = 1;
-Constants.DEVICE_TABLET = 2;
-Constants.DEVICE_DESKTOP = 3;
-Constants.CACHE_ALL_API = 'list:api:all';
-Constants.CACHE_ALL_GROUP = 'list:group:all';
-Constants.CACHE_ALL_REGION = 'list:region:all';
-Constants.CACHE_ALL_SERVICE_TYPE = 'list:service_type:all';
-Constants.CACHE_USER_DETAIL = 'user:detail';
-Constants.CACHE_TOKEN = 'user:token';
-Constants.CACHE_FEATURED_APPS = 'list:featured:apps';
-Constants.CACHE_NOTIFICATION_LIST = 'list:notifications';
-Constants.CACHE_REQUESTS_LIST = 'list:cached-requests';
-Constants.CACHE_REQUESTS_TTL = 600000; // in milisec, 600 000 ms = 10 minutes
-
-class AuthService {
-    constructor(http) {
-        this.http = http;
-    }
-    /**
-     * Login
-     * @param email
-     * @param password
-     */
-    login(email, password) {
-        const obj = {
-            username: email,
-            password: password,
-        };
-        return this.http.post(this.apiURL + `/auth/login`, JSON.stringify(obj));
-    }
-    /***
-     * check login mỗi lần vào ứng dụng
-     * */
-    getUserInfo() {
-        return this.http.get(this.apiURL + '/api/user/profile');
-    }
-    /**
-     * Logout
-     */
-    logout() {
-        Cache.clearAll();
-        setTimeout(() => {
-            Base.navigateTo('/login');
-        }, 300);
-    }
-    errorPage(error_code, data) {
-        Base.navigateTo('/errorpage?error_code=' + error_code + "&message='" + data + "'");
-    }
-    backtoDashboard() {
-        Base.navigateTo('/home');
-    }
-    static checkLogin() {
-        let accessToken = Cache.getCache(Constants.CACHE_TOKEN);
-        if (!accessToken) {
-            try {
-                const currentUserStr = Cache.getCache(Constants.CACHE_USER_DETAIL, Cache.COOKIE);
-                if (currentUserStr) {
-                    const currentUser = JSON.parse(currentUserStr);
-                    if (currentUser) {
-                        accessToken = currentUser.accessToken;
-                        if (accessToken)
-                            Cache.addCache(Constants.CACHE_TOKEN, accessToken);
-                    }
-                }
-            }
-            catch (e) { }
-        }
-        if (!accessToken)
-            Base.navigateTo('/login');
-    }
-    isLogin() {
-        if (this.getUserToken()) {
-            return true;
-        }
-        else
-            return false;
-    }
-    getCurrentUser() {
-        try {
-            const currentUserStr = Cache.getCache(Constants.CACHE_USER_DETAIL, Cache.COOKIE);
-            if (currentUserStr) {
-                const currentUser = JSON.parse(currentUserStr);
-                return currentUser;
-            }
-        }
-        catch (e) { }
-        return null;
-    }
-    storeUserDetail(obj, ttl = 60 * 60 * 1000) {
-        Cache.addCache(Constants.CACHE_USER_DETAIL, JSON.stringify(obj), Cache.COOKIE, ttl);
-    }
-    getUserToken() {
-        let accessToken = Cache.getCache(Constants.CACHE_TOKEN);
-        if (!accessToken) {
-            const currentUser = this.getCurrentUser();
-            if (currentUser) {
-                accessToken = currentUser.accessToken;
-                if (accessToken)
-                    Cache.addCache(Constants.CACHE_TOKEN, accessToken);
-            }
-        }
-        return accessToken;
-    }
-}
-AuthService.ɵfac = function AuthService_Factory(t) { return new (t || AuthService)(i0.ɵɵinject(i1$1.HttpClient)); };
-AuthService.ɵprov = i0.ɵɵdefineInjectable({ token: AuthService, factory: AuthService.ɵfac, providedIn: 'root' });
-/*@__PURE__*/ (function () { i0.ɵsetClassMetadata(AuthService, [{
-        type: Injectable,
-        args: [{ providedIn: 'root' }]
-    }], function () { return [{ type: i1$1.HttpClient }]; }, null); })();
-
-class RequestOptions extends HttpParams {
-    constructor(cache = false, ttl = Constants.CACHE_REQUESTS_TTL, errorPassing = false, noToken = false) {
-        super();
-        this.cache = cache;
-        this.ttl = ttl;
-        this.errorPassing = errorPassing;
-        this.noToken = noToken;
-    }
-}
-
-// import {ConnectionBackend, RequestOptions, Request, HttpRequest, Response, Http, Headers} from '@angular/http';
-class InterceptedHttp {
-    constructor(auth) {
-        this.auth = auth;
-        this.apiURL = localStorage.getItem('api:url:base');
-        this.origin = localStorage.getItem('enviroment:origin');
-    }
-    intercept(req, next) {
-        if (!/^(http|https):/i.test(req.url)) {
-            req = req.clone({ url: this.apiURL + req.url });
-        }
-        else {
-            req = req.clone({
-                setHeaders: {
-                    'Content-Type': 'application/json; charset=utf-8',
-                },
-            });
-        }
-        if (this.isCacheEnabled(req)) {
-            const cachedResponse = this.getCache(req);
-            return cachedResponse
-                ? Observable.of(cachedResponse)
-                : this.sendRequest(req, next);
-        }
-        return this.sendRequest(req, next);
-    }
-    sendRequest(req, next) {
-        //get token
-        if (!this.isNoToken(req)) {
-            let accessToken = this.auth.getUserToken();
-            if (accessToken) {
-                if (req.headers == null || req.headers === undefined) {
-                    req = req.clone({
-                        setHeaders: {
-                            'Content-Type': 'application/json; charset=utf-8',
-                            Authorization: 'Bearer ' + accessToken,
-                        },
-                    });
-                }
-                else {
-                    req = req.clone({
-                        setHeaders: {
-                            'Content-Type': 'application/json; charset=utf-8',
-                            Authorization: 'Bearer ' + accessToken,
-                        },
-                    });
-                }
-            }
-        }
-        if (!/^(http|https):/i.test(req.url)) {
-            req = req.clone({ url: this.apiURL + req.url });
-        }
-        else {
-            req = req.clone({
-                setHeaders: {
-                    'Content-Type': 'application/json; charset=utf-8',
-                },
-            });
-        }
-        return next
-            .handle(req)
-            .pipe(tap((event) => {
-            if (event instanceof HttpResponse) {
-                if (this.isCacheEnabled(req)) {
-                    this.putCache(req, event);
-                }
-            }
-        }))
-            .catch((error) => {
-            Base.hideLoading();
-            if (error.status || (error.error && error.error.code)) {
-                if (error.status === 401 || error.error.code === 401) {
-                    Base.showNotification('Bạn chưa đăng nhập, vui lòng đăng nhập', Base.NOTI_ERROR, 'Lỗi đăng nhập');
-                    this.auth.logout();
-                    return Observable.throw(error);
-                }
-                else if (error.status === 403 || error.error.code === 403) {
-                    Base.showNotification('Bạn không có quyền truy cập vào chức năng này', Base.NOTI_ERROR, 'Lỗi truy nhập');
-                    this.auth.backtoDashboard();
-                    return Observable.throw(error);
-                }
-                else {
-                    if (error.error && error.error.code) {
-                        Base.showNotification('Lỗi: ' + error.error.code + ': ' + error.error.message + '', Base.NOTI_ERROR, 'Lỗi kết nối');
-                    }
-                    else {
-                        if (error.status && !this.isErrorPassing(req)) {
-                            this.auth.errorPage(error.status, req.url + ' Response: ' + error.message);
-                        }
-                    }
-                    return Observable.throw(error);
-                }
-            }
-            else {
-                if (!this.isErrorPassing(req)) {
-                    if (error.message)
-                        this.auth.errorPage(0, req.url + ' Response: ' + error.message);
-                    else
-                        this.auth.errorPage(0, 'Lỗi không xác định');
-                }
-                return Observable.throw(error);
-            }
-        });
-    }
-    isCacheEnabled(req) {
-        return req.params instanceof RequestOptions && req.params.cache;
-    }
-    isErrorPassing(req) {
-        return req.params instanceof RequestOptions && req.params.errorPassing;
-    }
-    isNoToken(req) {
-        return req.params instanceof RequestOptions && req.params.noToken;
-    }
-    generateCacheKey(url) {
-        let str = [];
-        str.push(url.urlWithParams);
-        if (!!url.body) {
-            str.push(JSON.stringify(url.body));
-        }
-        return md5(str.join(':'));
-    }
-    getCache(req) {
-        let cacheData = Cache.getCache(this.generateCacheKey(req));
-        if (cacheData) {
-            let cachedResponse = new HttpResponse();
-            Object.assign(cachedResponse, JSON.parse(cacheData));
-            return cachedResponse;
-        }
-        return undefined;
-    }
-    putCache(req, response) {
-        let cacheTtl = 10 * 60 * 1000;
-        if (req.params instanceof RequestOptions && req.params.ttl > 0) {
-            cacheTtl = req.params.ttl;
-        }
-        Cache.addCache(this.generateCacheKey(req), JSON.stringify(response), Cache.STORAGE, new Date().getTime() + cacheTtl);
-    }
-}
-InterceptedHttp.ɵfac = function InterceptedHttp_Factory(t) { return new (t || InterceptedHttp)(i0.ɵɵinject(AuthService)); };
-InterceptedHttp.ɵprov = i0.ɵɵdefineInjectable({ token: InterceptedHttp, factory: InterceptedHttp.ɵfac, providedIn: 'root' });
-/*@__PURE__*/ (function () { i0.ɵsetClassMetadata(InterceptedHttp, [{
-        type: Injectable,
-        args: [{ providedIn: 'root' }]
-    }], function () { return [{ type: AuthService }]; }, null); })();
 
 function ContexualActionBarComponent_vnpt_affix_0_ng_container_3_Template(rf, ctx) { if (rf & 1) {
     i0.ɵɵelementContainer(0);
@@ -599,7 +323,7 @@ MainContentComponent.ɵcmp = i0.ɵɵdefineComponent({ type: MainContentComponent
         i0.ɵɵproperty("vBordered", false);
         i0.ɵɵadvance(1);
         i0.ɵɵproperty("ngIf", ctx.title);
-    } }, directives: [i1$2.VCardComponent, i1.NgIf, i3$2.VTypographyComponent], styles: [".close-btn[_ngcontent-%COMP%]{border:none;background:#f5f5f5;position:fixed;right:60px;margin-top:75px;padding:0 10px;cursor:pointer}.close-btn[_ngcontent-%COMP%]:hover{background-color:#fafafa}.page-title[_ngcontent-%COMP%]{margin-bottom:2.2rem}"] });
+    } }, directives: [i1$1.VCardComponent, i1.NgIf, i3$2.VTypographyComponent], styles: [".close-btn[_ngcontent-%COMP%]{border:none;background:#f5f5f5;position:fixed;right:60px;padding:0 10px;margin-top:0;cursor:pointer}.close-btn[_ngcontent-%COMP%]:hover{background-color:#fafafa}.page-title[_ngcontent-%COMP%]{margin-bottom:2.2rem}"] });
 /*@__PURE__*/ (function () { i0.ɵsetClassMetadata(MainContentComponent, [{
         type: Component,
         args: [{
@@ -925,12 +649,12 @@ class SubMenuComponent {
         this.itemClick.emit(event);
     }
 }
-SubMenuComponent.ɵfac = function SubMenuComponent_Factory(t) { return new (t || SubMenuComponent)(i0.ɵɵdirectiveInject(i1$3.Router)); };
+SubMenuComponent.ɵfac = function SubMenuComponent_Factory(t) { return new (t || SubMenuComponent)(i0.ɵɵdirectiveInject(i1$2.Router)); };
 SubMenuComponent.ɵcmp = i0.ɵɵdefineComponent({ type: SubMenuComponent, selectors: [["submenu-comp"]], inputs: { menuConfig: "menuConfig" }, outputs: { itemClick: "itemClick" }, decls: 1, vars: 1, consts: [["vnpt-menu", "", "vMode", "inline", "style", "padding: 10px 2px 20px 20px;", 4, "ngIf"], ["vnpt-menu", "", "vMode", "inline", 2, "padding", "10px 2px 20px 20px"], [4, "ngFor", "ngForOf"], ["vnpt-submenu", "", "vOpen", "", 3, "vTitle", "vIcon", 4, "ngIf"], [4, "ngIf"], ["vnpt-submenu", "", "vOpen", "", 3, "vTitle", "vIcon"], ["vnpt-menu-item", "", 3, "routerLink", "title", "vSelected", "click", 4, "ngIf"], ["vnpt-menu-item", "", 3, "vRouterLink", "title", "vSelected", "click", 4, "ngIf"], ["vnpt-menu-item", "", 3, "vSelected", 4, "ngIf"], ["vnpt-menu-item", "", 3, "routerLink", "title", "vSelected", "click"], ["vnpt-icon", "", 3, "vSrc", "vType", "vSize", 4, "ngIf"], ["vnpt-icon", "", 3, "vSrc", "vType", "vSize"], ["vnpt-menu-item", "", 3, "vRouterLink", "title", "vSelected", "click"], ["vnpt-menu-item", "", 3, "vSelected"], ["target", "_blank", 3, "href", "title"]], template: function SubMenuComponent_Template(rf, ctx) { if (rf & 1) {
         i0.ɵɵtemplate(0, SubMenuComponent_ul_0_Template, 2, 1, "ul", 0);
     } if (rf & 2) {
         i0.ɵɵproperty("ngIf", ctx.menuConfig && ctx.menuConfig.length > 0);
-    } }, directives: [i1.NgIf, i3$3.VMenuDirective, i1.NgForOf, i3.ɵVTransitionPatchDirective, i3$3.VSubMenuComponent, i3$3.VMenuItemDirective, i1$3.RouterLink, i5.VIconDirective, i6.VNPTRouterLinkDirective], pipes: [ActiveUrlCheckPipe, AssetUrlPipe], styles: ["[_nghost-%COMP%]     .oneui-menu-inline .oneui-menu-item{margin-bottom:15px;margin-top:6px;padding-right:35px;padding-left:20px!important}[_nghost-%COMP%]     .oneui-menu-inline .oneui-menu-item i{margin-right:12px}[_nghost-%COMP%]     .oneui-menu:not(.oneui-menu-horizontal) .oneui-menu-item-selected{background-color:#e7e8e9}[_nghost-%COMP%]     .oneui-menu-inline>.oneui-menu-submenu>.oneui-menu-submenu-title{font-weight:600;padding-left:10px!important}"] });
+    } }, directives: [i1.NgIf, i3$3.VMenuDirective, i1.NgForOf, i3.ɵVTransitionPatchDirective, i3$3.VSubMenuComponent, i3$3.VMenuItemDirective, i1$2.RouterLink, i5.VIconDirective], pipes: [ActiveUrlCheckPipe, AssetUrlPipe], styles: ["[_nghost-%COMP%]     .oneui-menu-inline .oneui-menu-item{margin-bottom:15px;margin-top:6px;padding-right:35px;padding-left:20px!important}[_nghost-%COMP%]     .oneui-menu-inline .oneui-menu-item i{margin-right:12px}[_nghost-%COMP%]     .oneui-menu:not(.oneui-menu-horizontal) .oneui-menu-item-selected{background-color:#e7e8e9}[_nghost-%COMP%]     .oneui-menu-inline>.oneui-menu-submenu>.oneui-menu-submenu-title{font-weight:600;padding-left:10px!important}"] });
 /*@__PURE__*/ (function () { i0.ɵsetClassMetadata(SubMenuComponent, [{
         type: Component,
         args: [{
@@ -938,7 +662,7 @@ SubMenuComponent.ɵcmp = i0.ɵɵdefineComponent({ type: SubMenuComponent, select
                 templateUrl: './menu.component.html',
                 styleUrls: ['./menu.component.css'],
             }]
-    }], function () { return [{ type: i1$3.Router }]; }, { menuConfig: [{
+    }], function () { return [{ type: i1$2.Router }]; }, { menuConfig: [{
             type: Input
         }], itemClick: [{
             type: Output
@@ -1318,7 +1042,7 @@ const _c1 = ["*"];
 class BottombarComponent {
     constructor() {
         this.position = 0;
-        this.bgColor = '#fafafa';
+        this.bgColor = '#fff';
     }
     ngOnInit() {
         setTimeout(() => {
@@ -1327,7 +1051,7 @@ class BottombarComponent {
     }
 }
 BottombarComponent.ɵfac = function BottombarComponent_Factory(t) { return new (t || BottombarComponent)(); };
-BottombarComponent.ɵcmp = i0.ɵɵdefineComponent({ type: BottombarComponent, selectors: [["bottom-bar"]], inputs: { position: "position", bgColor: "bgColor" }, ngContentSelectors: _c1, decls: 4, vars: 4, consts: [[3, "vOffsetBottom"], ["vnpt-row", "", 1, "fixed-bottom-bar", 3, "ngStyle"], ["vnpt-col", "", "vSpan", "24", 1, "px-3", "px-md-8", "py-3", "py-md-5"]], template: function BottombarComponent_Template(rf, ctx) { if (rf & 1) {
+BottombarComponent.ɵcmp = i0.ɵɵdefineComponent({ type: BottombarComponent, selectors: [["bottom-bar"]], inputs: { position: "position", bgColor: "bgColor" }, ngContentSelectors: _c1, decls: 4, vars: 4, consts: [[3, "vOffsetBottom"], ["vnpt-row", "", 1, "fixed-bottom-bar", 3, "ngStyle"], ["vnpt-col", "", "vSpan", "24"]], template: function BottombarComponent_Template(rf, ctx) { if (rf & 1) {
         i0.ɵɵprojectionDef();
         i0.ɵɵelementStart(0, "vnpt-affix", 0);
         i0.ɵɵelementStart(1, "div", 1);
@@ -1340,7 +1064,7 @@ BottombarComponent.ɵcmp = i0.ɵɵdefineComponent({ type: BottombarComponent, se
         i0.ɵɵproperty("vOffsetBottom", ctx.position);
         i0.ɵɵadvance(1);
         i0.ɵɵproperty("ngStyle", i0.ɵɵpureFunction1(2, _c0, ctx.bgColor));
-    } }, directives: [i2$1.VAffixComponent, i3$1.VRowDirective, i1.NgStyle, i3$1.VColDirective], styles: [".fixed-bottom-bar[_ngcontent-%COMP%]{border-top:1px solid rgb(0 0 0/10%)}"] });
+    } }, directives: [i2$1.VAffixComponent, i3$1.VRowDirective, i1.NgStyle, i3$1.VColDirective], styles: [""] });
 /*@__PURE__*/ (function () { i0.ɵsetClassMetadata(BottombarComponent, [{
         type: Component,
         args: [{
@@ -1357,19 +1081,12 @@ BottombarComponent.ɵcmp = i0.ɵɵdefineComponent({ type: BottombarComponent, se
 class CommonLibraryModule {
     static forRoot() {
         return {
-            ngModule: CommonLibraryModule,
-            providers: [AuthService],
+            ngModule: CommonLibraryModule
         };
     }
 }
 CommonLibraryModule.ɵmod = i0.ɵɵdefineNgModule({ type: CommonLibraryModule });
-CommonLibraryModule.ɵinj = i0.ɵɵdefineInjector({ factory: function CommonLibraryModule_Factory(t) { return new (t || CommonLibraryModule)(); }, providers: [
-        {
-            provide: HTTP_INTERCEPTORS,
-            useClass: InterceptedHttp,
-            multi: true,
-        },
-    ], imports: [[
+CommonLibraryModule.ɵinj = i0.ɵɵdefineInjector({ factory: function CommonLibraryModule_Factory(t) { return new (t || CommonLibraryModule)(); }, providers: [], imports: [[
             CommonModule,
             VGridModule,
             VAffixModule,
@@ -1380,7 +1097,6 @@ CommonLibraryModule.ɵinj = i0.ɵɵdefineInjector({ factory: function CommonLibr
             VCardModule,
             VMenuModule,
             RouterModule,
-            OneuiCoreModule,
             VDividerModule,
             VListModule,
             VLayoutModule,
@@ -1407,7 +1123,6 @@ CommonLibraryModule.ɵinj = i0.ɵɵdefineInjector({ factory: function CommonLibr
         VCardModule,
         VMenuModule,
         RouterModule,
-        OneuiCoreModule,
         VDividerModule,
         VListModule,
         VLayoutModule,
@@ -1451,7 +1166,6 @@ CommonLibraryModule.ɵinj = i0.ɵɵdefineInjector({ factory: function CommonLibr
                     VCardModule,
                     VMenuModule,
                     RouterModule,
-                    OneuiCoreModule,
                     VDividerModule,
                     VListModule,
                     VLayoutModule,
@@ -1471,13 +1185,7 @@ CommonLibraryModule.ɵinj = i0.ɵɵdefineInjector({ factory: function CommonLibr
                     ToolbarItemComponent,
                     BottombarComponent,
                 ],
-                providers: [
-                    {
-                        provide: HTTP_INTERCEPTORS,
-                        useClass: InterceptedHttp,
-                        multi: true,
-                    },
-                ],
+                providers: [],
             }]
     }], null, null); })();
 
@@ -1508,5 +1216,5 @@ function demoValid(control) {
  * Generated bundle index. Do not edit.
  */
 
-export { ActionItemComponent, ActiveUrlCheckPipe, AssetUrlPipe, AuthService, BlankPageComponent, BottombarComponent, ChangeDateTimePipe, CommonLibraryModule, Constants, ContexualActionBarComponent, DrawerContentComponent, InterceptedHttp, MainContentComponent, MyValidator, RequestOptions, SubMenuComponent, ToolbarComponent, ToolbarItemComponent, Utilities, demoValid };
+export { ActionItemComponent, ActiveUrlCheckPipe, AssetUrlPipe, BlankPageComponent, BottombarComponent, ChangeDateTimePipe, CommonLibraryModule, ContexualActionBarComponent, DrawerContentComponent, MainContentComponent, MyValidator, SubMenuComponent, ToolbarComponent, ToolbarItemComponent, Utilities, demoValid };
 //# sourceMappingURL=commonLibrary.js.map

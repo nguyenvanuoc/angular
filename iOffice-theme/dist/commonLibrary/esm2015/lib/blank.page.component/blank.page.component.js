@@ -35,7 +35,7 @@ BlankPageComponent.ɵcmp = i0.ɵɵdefineComponent({ type: BlankPageComponent, se
         i0.ɵɵprojection(1);
     } if (rf & 2) {
         i0.ɵɵproperty("ngIf", ctx.close);
-    } }, directives: [i1.NgIf, i2.VButtonComponent, i3.ɵVTransitionPatchDirective], styles: [".close-btn[_ngcontent-%COMP%]{border:none;background:#f5f5f5;position:fixed;right:60px;margin-top:75px;padding:0 10px;cursor:pointer;z-index:98}.close-btn[_ngcontent-%COMP%]:hover{background-color:#fafafa}@media only screen and (max-width:992px){.close-btn[_ngcontent-%COMP%]{position:fixed;right:10px;top:49px;margin-top:0;background:#fff}}"] });
+    } }, directives: [i1.NgIf, i2.VButtonComponent, i3.ɵVTransitionPatchDirective], styles: [".close-btn[_ngcontent-%COMP%]{border:none;background:#f5f5f5;position:fixed;right:60px;padding:0 10px;cursor:pointer;z-index:98}.close-btn[_ngcontent-%COMP%]:hover{background-color:#fafafa}@media only screen and (max-width:992px){.close-btn[_ngcontent-%COMP%]{position:fixed;right:10px;top:0;margin-top:0;background:#fff}}"] });
 /*@__PURE__*/ (function () { i0.ɵsetClassMetadata(BlankPageComponent, [{
         type: Component,
         args: [{

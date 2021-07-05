@@ -5,8 +5,6 @@ import { VButtonModule } from '@vnpt/oneui-ui/button';
 import { VIconModule } from '@vnpt/oneui-ui/icon';
 import { VLayoutModule } from '@vnpt/oneui-ui/layout';
 import { BlankPageComponent } from './blank.page.component/blank.page.component';
-import { AuthService } from './auth.service';
-import { InterceptedHttp } from './http.interceptor';
 import { BrowserModule } from '@angular/platform-browser';
 import { ContexualActionBarComponent } from './contex.action.bar/action.bar.component';
 import { ActionItemComponent } from './contex.action.bar/action.item.component/action.item.component';
@@ -21,7 +19,6 @@ import { VMenuModule } from '@vnpt/oneui-ui/menu';
 import { SubMenuComponent } from './menu.component/menu.component';
 import { AssetUrlPipe } from './assert.pipe';
 import { RouterModule } from '@angular/router';
-import { OneuiCoreModule } from '@vnpt/oneui-core';
 import { ChangeDateTimePipe } from './changedatetime.pipe';
 import { VDividerModule } from '@vnpt/oneui-ui/divider';
 import { VListModule } from '@vnpt/oneui-ui/list';
@@ -57,7 +54,6 @@ import { BottombarComponent } from './bottombar/bottombar.component';
     VCardModule,
     VMenuModule,
     RouterModule,
-    OneuiCoreModule,
     VDividerModule,
     VListModule,
     VLayoutModule,
@@ -78,18 +74,12 @@ import { BottombarComponent } from './bottombar/bottombar.component';
     BottombarComponent,
   ],
   providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: InterceptedHttp,
-      multi: true,
-    },
   ],
 })
 export class CommonLibraryModule {
   public static forRoot(): ModuleWithProviders<CommonLibraryModule> {
     return {
-      ngModule: CommonLibraryModule,
-      providers: [AuthService],
+      ngModule: CommonLibraryModule
     };
   }
 }
