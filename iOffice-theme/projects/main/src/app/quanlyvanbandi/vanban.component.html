@@ -67,26 +67,135 @@
     </ng-template>
     
 </div>
+<div class="fixed-bottom-bar">
+    <vnpt-affix [vOffsetBottom]="0">
+        <div class="group-actions text-center" style="background-color: #fff;">
+            <button class="btn" vnpt-button vType="primary">LẤY LẠI</button>
+            <button class="btn" vnpt-button vType="primary">XỬ LÝ LẠI</button>
+            <button class="btn" vnpt-button vType="primary">QUÊN XỬ LÝ</button>
+            <button class="btn" vnpt-button vType="primary">XEM</button>
+            <button class="btn" vnpt-button vType="primary">LƯU HỒ SƠ</button>
+            <button class="btn" vnpt-button vType="primary">TẠO VIỆC</button>
+            <button class="btn" vnpt-button vType="primary">BỎ ĐÁNH DẤU</button>
+            <button class="btn" vnpt-button vType="primary">LƯU HỒ SƠ LƯU TRỮ</button>
+            <button class="btn" vnpt-button vType="primary">TRẠNG THÁI LIÊN THÔNG</button>
+            <button class="btn" vnpt-button vType="primary" vDanger>XÓA</button>
+        </div>
+    </vnpt-affix>
+</div>
 
-<vnpt-affix [vOffsetBottom]="0">
-    <div vnpt-row class="fixed-bottom-bar">
-        <div vnpt-col vSpan="24">
-            <div class="group-actions text-center" style="background-color: #fff;">
-                <button class="btn" vnpt-button vType="primary">LẤY LẠI</button>
-                <button class="btn" vnpt-button vType="primary">XỬ LÝ LẠI</button>
-                <button class="btn" vnpt-button vType="primary">QUÊN XỬ LÝ</button>
-                <button class="btn" vnpt-button vType="primary">XEM</button>
-                <button class="btn" vnpt-button vType="primary">LƯU HỒ SƠ</button>
-                <button class="btn" vnpt-button vType="primary">TẠO VIỆC</button>
-                <button class="btn" vnpt-button vType="primary">BỎ ĐÁNH DẤU</button>
-                <button class="btn" vnpt-button vType="primary">LƯU HỒ SƠ LƯU TRỮ</button>
-                <button class="btn" vnpt-button vType="primary">TRẠNG THÁI LIÊN THÔNG</button>
-                <button class="btn" vnpt-button vType="primary" vDanger>XÓA</button>
-            </div>
+<h4 vnpt-typography class="mt-4">THÔNG TIN VĂN BẢN ĐẾN</h4>
+
+<vnpt-divider></vnpt-divider>
+
+<div class="file-canvas" style="height:500px;border: 1px solid #d9d9d9;">
+
+</div>
+
+<div class="table-vb-info mt-4">
+    <vnpt-table class="table-info" vBordered vTemplateMode>
+        
+        <tbody>
+            <tr>
+                <td class="key">Trích yếu</td>
+                <td class="value" colspan="3">
+                    Test vb đến check full log1
+                </td>
+            </tr>
+            <tr>
+                <td class="key">Số ký hiệu</td>
+                <td class="value">
+                    Test vb đến check full log1
+                </td>
+                <td class="key">Đơn vị ban hành</td>
+                <td class="value">
+                    Hà Nội
+                </td>
+            </tr>
+            <tr>
+                <td class="key">Ngày đến</td>
+                <td class="value">
+                    02/04/2020
+                </td>
+                <td class="key">Số văn bản</td>
+                <td class="value">
+                    Số VB đến ITKV@
+                </td>
+            </tr>
+            <tr>
+                <td class="key">Văn bản</td>
+                <td class="value">
+                    Vừa là văn bản nội tỉnh, vừa là văn bản ngoại tỉnh
+                </td>
+                <td class="key">Văn bản giấy</td>
+                <td class="value">
+                    Không có văn bản giấy
+                </td>
+            </tr>
+            <tr>
+                <td class="key">Loại văn bản</td>
+                <td class="value">
+                    Văn bản mới
+                </td>
+                <td class="key">Hình thức</td>
+                <td class="value">
+                    Công văn
+                </td>
+            </tr>
+            <tr>
+                <td class="key">Ngày hết hạn</td>
+                <td class="value">
+                    
+                    <span vnpt-typography vType="danger">14/05/2020</span>
+                </td>
+                <td class="key">Văn bản liên quan</td>
+                <td class="value">
+                    <span vnpt-typography vType="text">Công văn</span>
+                </td>
+            </tr>
+        </tbody>
+    </vnpt-table>
+</div>
+
+<vnpt-divider vText="File đính kèm"></vnpt-divider>
+
+<div class="group-buttons">
+    <button vnpt-button vType="primary" vGhost>
+        <span vnpt-icon vType="Upload"></span>  Nén và tải tất cả
+    </button>
+</div>
+<div class="list-files">
+    <div class="item">
+        <div class="file-inner">
+            <span class="icon" vnpt-icon vSrc="../assets/icons/pdf.svg">
+                
+            </span>
+            <span vnpt-typography class="text-m" style="font-style:italic;">apple_core_pouch_pattern.pdf</span>
+            <a href="#" class="act">
+                <span vnpt-icon vTyp="View"></span>
+            </a>
         </div>
     </div>
-
-</vnpt-affix>
-
-
-<h4 vnpt-typography class="mt-2">THÔNG TIN VĂN BẢN ĐẾN</h4>
+    <div class="item">
+        <div class="file-inner">
+            <span class="icon" vnpt-icon vSrc="../assets/icons/word.svg">
+                
+            </span>
+            <span vnpt-typography class="text-m" style="font-style:italic;">apple_core_pouch_pattern.pdf</span>
+            <a href="#" class="act">
+                <span vnpt-icon vType="View"></span>
+            </a>
+        </div>
+    </div>
+    <div class="item">
+        <div class="file-inner">
+            <span class="icon" vnpt-icon vSrc="../assets/icons/pdf.svg">
+                
+            </span>
+            <span vnpt-typography class="text-m" style="font-style:italic;">apple_core_pouch_pattern.pdf</span>
+            <a href="#" class="act">
+                <span vnpt-icon vType="View"></span>
+            </a>
+        </div>
+    </div>
+</div>

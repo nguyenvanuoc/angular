@@ -34,12 +34,11 @@
 }
 
 .main-wrapper{
-    position: absolute;
-    top: 79px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
+    position: relative;
+    padding-top: 79px;
     display: flex;
+    height: 100vh;
+    width: 100%;
 
 }
 .main-menu{
@@ -186,5 +185,25 @@
 .group-actions{
     .btn{
         margin: 3px;
+    }
+}
+
+.table-info{
+    .key{
+        background: #FAFAFA;
+    }
+}
+
+.list-files{
+    .item{
+        display: inline-block;
+        width: 400px;
+    }
+    .file-inner{
+        
+        border: 1px solid @border;
+        padding: 1rem;
+        display: flex;
+
     }
 }
