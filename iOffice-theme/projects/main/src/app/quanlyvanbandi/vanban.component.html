@@ -1,0 +1,92 @@
+<h4 vnpt-typography>DANH SÁCH</h4>
+<button class="close-button" vnpt-button vType="text">
+    <span vnpt-icon vType="ChromeClose"></span>
+</button>
+<div vnpt-row class="top-info mb-3">
+    <div vnpt-col [vMd]="{ span: 10 }" [vXs]="{ span: 24 }">
+        <div class="list-status mt-2">
+            <div class="item">
+                <vnpt-badge vColor="#B11226" vText="Hỏa tốc"></vnpt-badge>
+            </div>
+            <div class="item">
+                <vnpt-badge vColor="#F05A05" vText="Khẩn"></vnpt-badge>
+            </div>
+            <div class="item">
+                <vnpt-badge vColor="#1363B9" vText="Chỉ đạo"></vnpt-badge>
+            </div>
+        </div>
+    </div>
+    <div vnpt-col [vMd]="{ span: 14 }" [vXs]="{ span: 24 }">
+        <div class="box-top-search">
+            <vnpt-input-group vPrefixIcon="Search" class="input-search">
+                <input vnpt-input placeholder="Nhập thông tin tìm kiếm" />
+            </vnpt-input-group>
+            <button vnpt-button vType="primary" class="search-btn">CÓ BẢN GIẤY</button>
+            <button vnpt-button vType="primary" class="search-btn">ĐÁNH DẤU</button>
+        </div>
+    </div>
+</div>
+
+<div class="table-content">
+    <vnpt-table #rowSelectionTable vShowSizeChanger [vFooter]="tbFooter" [vData]="listOfData"
+        (vCurrentPageDataChange)="onCurrentPageDataChange($event)">
+        <thead>
+            <tr>
+                <th [(vChecked)]="checked" [vIndeterminate]="indeterminate"
+                    (vCheckedChange)="onAllChecked($event)" style="width: 30px;"></th>
+                <th>
+                    <span vnpt-icon class="featured active" vType="FavoriteStarFill"></span>
+                </th>
+                <th>STT</th>
+                <th>TRÍCH YẾU</th>
+                <th 
+                    *ngFor="let column of listOfColumns;"
+                    [(vSortOrder)]="column.sortOrder"
+                    [vSortFn]="column.sortFn">
+                    {{ column.name }}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of rowSelectionTable.data; let i = index">
+                <td [vChecked]="setOfCheckedId.has(data.id)" (vCheckedChange)="onItemChecked(data.id, $event)"></td>
+                <td class="text-center"><span vnpt-icon class="featured" vType="FavoriteStar"></span></td>
+                <td>{{ i }}</td>
+                <td><a>{{ data.name }}</a></td>
+                <td class="text-nowrap">{{ data.kyhieu }}</td>
+                <td>{{ data.hinhthuc }}</td>
+                <td>{{ data.ngaybanhanh }}</td>
+                <td>{{ data.ngaysoanthao }}</td>
+                <td>{{ data.donvisoanthao }}</td>
+                <td>{{ data.nguoiky }}</td>
+            </tr>
+        </tbody>
+    </vnpt-table>
+    <ng-template #tbFooter class="btnsearch-detail">
+        <p class="table-note">Dữ liệu mặc định lấy theo 30 ngày gần nhất. Thực hiện tìm kiếm sẽ tra cứu theo tất cả các năm</p>
+    </ng-template>
+    
+</div>
+
+<vnpt-affix [vOffsetBottom]="0">
+    <div vnpt-row class="fixed-bottom-bar">
+        <div vnpt-col vSpan="24">
+            <div class="group-actions text-center" style="background-color: #fff;">
+                <button class="btn" vnpt-button vType="primary">LẤY LẠI</button>
+                <button class="btn" vnpt-button vType="primary">XỬ LÝ LẠI</button>
+                <button class="btn" vnpt-button vType="primary">QUÊN XỬ LÝ</button>
+                <button class="btn" vnpt-button vType="primary">XEM</button>
+                <button class="btn" vnpt-button vType="primary">LƯU HỒ SƠ</button>
+                <button class="btn" vnpt-button vType="primary">TẠO VIỆC</button>
+                <button class="btn" vnpt-button vType="primary">BỎ ĐÁNH DẤU</button>
+                <button class="btn" vnpt-button vType="primary">LƯU HỒ SƠ LƯU TRỮ</button>
+                <button class="btn" vnpt-button vType="primary">TRẠNG THÁI LIÊN THÔNG</button>
+                <button class="btn" vnpt-button vType="primary" vDanger>XÓA</button>
+            </div>
+        </div>
+    </div>
+
+</vnpt-affix>
+
+
+<h4 vnpt-typography class="mt-2">THÔNG TIN VĂN BẢN ĐẾN</h4>

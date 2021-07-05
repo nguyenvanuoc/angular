@@ -1,0 +1,142 @@
+<header class="header" vnpt-row>
+    <div class="header-left" 
+        vnpt-col 
+        [vLg]="{ span: 6 }" 
+        [vXl]="{ span: 7 }" 
+        [vXs]="{ span: 12 }">
+        <button vnpt-button  vType="text" class="topbar-btn nav-toggle">
+            <span vnpt-icon [vType]="'WaffleOffice365'"></span>
+        </button>
+        <a vRouterLink="/home" class="header-logo">
+            <vnpt-logo [vColor]="'#fff'" [vSize]="{'size':'lg'}" [vTitle]="'eGov'"></vnpt-logo>
+        </a>
+    </div>
+    <div class="header-mid " 
+        vnpt-col 
+        [vLg]="{ span: 10 }" 
+        [vXl]="{ span: 10 }" 
+        [vXs]="{ span: 0 }">
+        <vnpt-input-group vSearch [vPrefix]="prefixIconButton" class="btn-group-search">
+            <input type="text" vnpt-input placeholder="Nhập từ khóa để tìm kiếm" class="btninput-detail" />
+        </vnpt-input-group>
+        <ng-template #prefixIconButton class="btnsearch-detail">
+            <i vnpt-icon vType="Search"></i>
+        </ng-template>
+    </div>
+    <div class="header-right" 
+        vnpt-col 
+        [vLg]="{ span: 8 }" 
+        [vXl]="{ span: 7 }" 
+        [vXs]="{ span: 12 }">
+        <button vnpt-button vType="text" vnpt-dropdown vTrigger="click"  [vDropdownMenu]="addDocument" class="topbar-btn topbar-add-document">
+            <i vnpt-icon vType="PageAdd" class="icon"></i>
+            Tạo văn bản
+        </button>
+        <button vnpt-button vType="text"  (click)="openNoti()" class="topbar-btn topbar-btn-menu-detail" >
+            <i vnpt-icon vType="Ringer"></i>
+            <vnpt-badge vStandalone [vCount]="5" class="number-badge"></vnpt-badge>
+        </button>
+        <button vnpt-button vType="text" class="topbar-btn topbar-btn-menu-detail">
+            <i vnpt-icon vType="Mail"></i>
+            <vnpt-badge vStandalone [vCount]="5" class="number-badge"></vnpt-badge>
+        </button>
+        <button vnpt-button vType="text" class="topbar-btn topbar-btn-menu-detail">
+            <i vnpt-icon vType="Settings"></i>
+        </button>
+        <button vnpt-button vType="text" class="topbar-btn topbar-btn-menu-detail">
+            <i vnpt-icon vType="WaffleOffice365"></i>
+        </button>
+        <button vnpt-button vnpt-dropdown vTrigger="click"  [vDropdownMenu]="userdropdown" vType="text" class="topbar-btn topbar-btn-avatar">
+            <vnpt-avatar [vSize]="26" vSrc="http://storage-stagging.vnpt.vn/oneui/docs/imgs/ODTLcjxAfvqbxHnVXCYX.png">
+                
+            </vnpt-avatar>
+            <vnpt-badge vDot class="avatar-dot" vPlacement="bottom"></vnpt-badge>
+        </button>
+        
+    </div>
+
+</header>
+<!---Dropdown User-->
+<vnpt-dropdown-menu #userdropdown="vDropdownMenu" >
+    <ul vnpt-menu  >
+        <li vnpt-menu-item>
+            <div class="user-info">
+                <vnpt-avatar [vSize]="56" class="menu-avatar"
+                    vSrc="http://storage-stagging.vnpt.vn/oneui/docs/imgs/ODTLcjxAfvqbxHnVXCYX.png"></vnpt-avatar>
+                <div class="username">
+                    <h5 vnpt-typography class="truncate">Uoc Nguyen</h5>
+                    <span vnpt-typography vType="secondary" class="email">uocnv@vnpt.vn</span>
+                </div>
+            </div>
+        </li>
+        <li vnpt-menu-divider></li>
+        <li vnpt-menu-item>
+            <a href="#"><i vnpt-icon vType="Contact"></i>Thiết
+            lập tài khoản</a>
+        </li>
+        <li vnpt-menu-item>
+            <a href="#"><i vnpt-icon vType="SignOut"></i>Thoát</a>
+        </li>
+    </ul>
+</vnpt-dropdown-menu>
+
+<!---End User-->
+<!---add Document-->
+<vnpt-dropdown-menu #addDocument="vDropdownMenu" >
+    <ul vnpt-menu>
+        <li vnpt-menu-item>
+            <a href="#"><i vnpt-icon vType="TextDocument"></i>Tạo văn bản đến </a>
+        </li>
+        <li vnpt-menu-item>
+            <a href="#"><i vnpt-icon vType="TextDocument"></i>Tạo văn bản đi</a>
+        </li>
+    </ul>
+</vnpt-dropdown-menu>
+
+<!---End User-->
+
+<!---Notifications-->
+<vnpt-drawer 
+    [vClosable]="true" 
+    [vVisible]="visibleNoti" 
+    vPlacement="right" 
+    vTitle="Thông báo mới nhất"
+    (vOnClose)="closeNoti()"  
+    [vMaskStyle]="{ opacity: 0, animation: 'none' }" 
+    [vWidth]="485"
+    [vMaskClosable]="true" 
+    [vFooter]="tplFooter">
+
+    <ng-container *vDrawerContent>
+
+        <vnpt-list class="notification-list">
+            <vnpt-list-item class="notification-item" *ngFor="let in of counter(20) ;let i = index">
+                <div class="noti-avatar active">
+                    <vnpt-avatar [vSize]="56" class="noti-avatar"
+                        vSrc="http://storage-stagging.vnpt.vn/oneui/docs/imgs/ODTLcjxAfvqbxHnVXCYX.png"></vnpt-avatar>
+                    <i vnpt-icon class="icon-status-active" [vType]="'SkypeCircleCheck'" [vColor]="'success'" [vSize]="'sm'"></i>
+                </div>
+                
+                <div class="noti-content">
+                    <div class="top">
+                        <h5 vnpt-typography class="username">Uoc Nguyen</h5>
+                        <span vnpt-typography vType="secondary" class="noti-time">3/4/2004</span>
+                    </div>
+                    <div vnpt-typography vType="secondary" class="noti-desc">
+                        Người dân báo cột đèn bị hư lâu nay chưa xử lý Tại 42 phạm ngọc thach,Phường 6, Quận 3,TP.hồ chí minh
+                    </div>
+                    
+                </div>
+                
+            </vnpt-list-item>
+        </vnpt-list>
+        <!-- <vnpt-affix [vOffsetBottom]="0">
+            <a href="#" class="all-notification">Xem tất cả thông báo <span vnpt-icon vType="PageRight"></span></a>
+        </vnpt-affix> -->
+    </ng-container>
+</vnpt-drawer>
+<ng-template #tplFooter>
+    <a href="#" class="all-notification">Xem tất cả thông báo <span vnpt-icon vType="PageRight"></span></a>
+</ng-template>
+
+<!---End Notifications-->

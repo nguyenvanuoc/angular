@@ -1,0 +1,190 @@
+@import "~@vnpt/oneui-ui/oneui-ui.less";
+
+// The prefix to use on all css classes from ant.
+@oneui-prefix: oneui;
+
+// An override for the html selector for theme prefixes
+@html-selector: html;
+
+@main:#1363B9;
+@success:#179C56;
+@border:#D9D9D9;
+@bg:#F5F5F5;
+@textD:#706D6D;
+@text:#000;
+@red:#B11226;
+@warning:#F05A05;
+@info:#1363B9;
+
+.oneui-badge-count{
+    height: 14px;
+    line-height: 14px;
+    box-shadow: none;
+}
+.oneui-badge-dot{
+    bottom: 0px;
+    position: absolute !important;
+    right: 0px;
+    background-color: @success;
+    top: 0px !important;
+}
+
+.oneui-drawer-header{
+    border-bottom: 1px solid @border;
+}
+
+.main-wrapper{
+    position: absolute;
+    top: 79px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    display: flex;
+
+}
+.main-menu{
+    width: 300px;
+    background-color: @bg;
+    height: 100%;
+    overflow: hidden;
+    &:hover{
+        overflow-y: auto;
+    }
+    a{
+        color: @text;
+        display: block;
+        position: relative;
+        &:hover{
+            color: @main;
+        }
+    }
+    .oneui-menu-submenu-expand-icon, .oneui-menu-submenu-arrow{
+        color: @textD;
+    }
+    .oneui-menu-submenu-open{
+        >.oneui-menu-submenu-title >a{
+            font-weight: 600;
+        }
+
+    }
+    .oneui-menu:not(.oneui-menu-horizontal) .oneui-menu-item-selected{
+        background: #E2ECFF;
+    }
+    .menu-child-level2{
+        >li{
+            >.oneui-menu-submenu-title{
+                >a{
+                    &:before{
+                        display: inline-block;
+                        width: 6px;
+                        height: 6px;
+                        border-radius: 50%;
+                        background: #706D6D;
+                        content: "";
+                        margin-right: 7px;
+
+                    }
+                }
+            }
+        }
+    }
+    .menu-child-level3{
+        >li{
+            overflow: visible;
+            >a{
+                &:before{
+                    position: absolute;
+                    content: "";
+                    width: 1px;
+                    bottom: -5px;
+                    left: -20px;
+                    border-left: 1px dashed @main;
+                    top: -5px;
+                }
+                &:after{
+                    height: 1px;
+                    width: 14px;
+                    content: "";
+                    position: absolute;
+                    top: 0px;
+                    bottom: 0px;
+                    border-top: 1px dashed @main;
+                    left: -20px;
+                    margin: auto;
+                }
+            }
+            &:last-child{
+                >a{
+                    &:before{
+                        bottom: 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+.main-content{
+    width: calc(100% - 300px);
+    padding: 28px 70px;
+    height: 100%;
+    overflow: auto;
+}
+
+
+.close-button{
+    width: 32px;
+    height: 32px;
+    background: @bg;
+    padding: 0px;
+    line-height: 32px;
+    position: fixed;
+    top: 100px;
+    right: 40px;
+    color: @textD;
+    z-index: 10;
+    span{
+        font-size: 14px;
+
+    }
+}
+.list-status{
+    .item{
+        display: inline-block;
+        margin-right: 14px;
+        &:last-child{
+            margin-right: 0px;
+        }
+
+    }
+}
+.box-top-search{
+    display: flex;
+    .search-btn{
+        margin-left: 3px;
+    }
+}
+
+.featured{
+    color: @textD;
+    &.active{
+        color: #F0B92D;
+    }
+}
+.table-content{
+    .oneui-table-content{
+        overflow: auto;
+    }
+    th{
+        white-space: nowrap;
+    }
+    .table-note{
+        color: @textD;
+        font-size: 12px;
+    }
+}
+
+.group-actions{
+    .btn{
+        margin: 3px;
+    }
+}
