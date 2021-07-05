@@ -1,8 +1,10 @@
+
+
 <h4 vnpt-typography>DANH SÁCH</h4>
-<button class="close-button" vnpt-button vType="text">
+<!-- <button class="close-button" vnpt-button vType="text">
     <span vnpt-icon vType="ChromeClose"></span>
-</button>
-<div vnpt-row class="top-info mb-3">
+</button> -->
+<div vnpt-row class="top-info mb-4">
     <div vnpt-col [vMd]="{ span: 10 }" [vXs]="{ span: 24 }">
         <div class="list-status mt-2">
             <div class="item">
@@ -32,17 +34,14 @@
         (vCurrentPageDataChange)="onCurrentPageDataChange($event)">
         <thead>
             <tr>
-                <th [(vChecked)]="checked" [vIndeterminate]="indeterminate"
-                    (vCheckedChange)="onAllChecked($event)" style="width: 30px;"></th>
+                <th [(vChecked)]="checked" [vIndeterminate]="indeterminate" (vCheckedChange)="onAllChecked($event)"
+                    style="width: 30px;"></th>
                 <th>
                     <span vnpt-icon class="featured active" vType="FavoriteStarFill"></span>
                 </th>
                 <th>STT</th>
                 <th>TRÍCH YẾU</th>
-                <th 
-                    *ngFor="let column of listOfColumns;"
-                    [(vSortOrder)]="column.sortOrder"
-                    [vSortFn]="column.sortFn">
+                <th *ngFor="let column of listOfColumns;" [(vSortOrder)]="column.sortOrder" [vSortFn]="column.sortFn">
                     {{ column.name }}
                 </th>
             </tr>
@@ -63,27 +62,26 @@
         </tbody>
     </vnpt-table>
     <ng-template #tbFooter class="btnsearch-detail">
-        <p class="table-note">Dữ liệu mặc định lấy theo 30 ngày gần nhất. Thực hiện tìm kiếm sẽ tra cứu theo tất cả các năm</p>
+        <p class="table-note">Dữ liệu mặc định lấy theo 30 ngày gần nhất. Thực hiện tìm kiếm sẽ tra cứu theo tất cả các
+            năm</p>
     </ng-template>
-    
-</div>
-<div class="fixed-bottom-bar">
-    <vnpt-affix [vOffsetBottom]="0">
-        <div class="group-actions text-center" style="background-color: #fff;">
-            <button class="btn" vnpt-button vType="primary">LẤY LẠI</button>
-            <button class="btn" vnpt-button vType="primary">XỬ LÝ LẠI</button>
-            <button class="btn" vnpt-button vType="primary">QUÊN XỬ LÝ</button>
-            <button class="btn" vnpt-button vType="primary">XEM</button>
-            <button class="btn" vnpt-button vType="primary">LƯU HỒ SƠ</button>
-            <button class="btn" vnpt-button vType="primary">TẠO VIỆC</button>
-            <button class="btn" vnpt-button vType="primary">BỎ ĐÁNH DẤU</button>
-            <button class="btn" vnpt-button vType="primary">LƯU HỒ SƠ LƯU TRỮ</button>
-            <button class="btn" vnpt-button vType="primary">TRẠNG THÁI LIÊN THÔNG</button>
-            <button class="btn" vnpt-button vType="primary" vDanger>XÓA</button>
-        </div>
-    </vnpt-affix>
+
 </div>
 
+<bottom-bar>
+    <div class="group-actions text-center" style="background-color: #fff;">
+        <button class="btn m-1" vnpt-button vType="primary">LẤY LẠI</button>
+        <button class="btn m-1" vnpt-button vType="primary">XỬ LÝ LẠI</button>
+        <button class="btn m-1" vnpt-button vType="primary">QUÊN XỬ LÝ</button>
+        <button class="btn m-1" vnpt-button vType="primary">XEM</button>
+        <button class="btn m-1" vnpt-button vType="primary">LƯU HỒ SƠ</button>
+        <button class="btn m-1" vnpt-button vType="primary">TẠO VIỆC</button>
+        <button class="btn m-1" vnpt-button vType="primary">BỎ ĐÁNH DẤU</button>
+        <button class="btn m-1" vnpt-button vType="primary">LƯU HỒ SƠ LƯU TRỮ</button>
+        <button class="btn m-1" vnpt-button vType="primary">TRẠNG THÁI LIÊN THÔNG</button>
+        <button class="btn m-1" vnpt-button vType="primary" vDanger>XÓA</button>
+    </div>
+</bottom-bar>
 <h4 vnpt-typography class="mt-4">THÔNG TIN VĂN BẢN ĐẾN</h4>
 
 <vnpt-divider></vnpt-divider>
@@ -94,7 +92,7 @@
 
 <div class="table-vb-info mt-4">
     <vnpt-table class="table-info" vBordered vTemplateMode>
-        
+
         <tbody>
             <tr>
                 <td class="key">Trích yếu</td>
@@ -145,7 +143,7 @@
             <tr>
                 <td class="key">Ngày hết hạn</td>
                 <td class="value">
-                    
+
                     <span vnpt-typography vType="danger">14/05/2020</span>
                 </td>
                 <td class="key">Văn bản liên quan</td>
@@ -159,16 +157,16 @@
 
 <vnpt-divider vText="File đính kèm"></vnpt-divider>
 
-<div class="group-buttons">
+<div class="group-buttons mb-4">
     <button vnpt-button vType="primary" vGhost>
-        <span vnpt-icon vType="Upload"></span>  Nén và tải tất cả
+        <span vnpt-icon vType="Upload"></span> Nén và tải tất cả
     </button>
 </div>
 <div class="list-files">
     <div class="item">
         <div class="file-inner">
             <span class="icon" vnpt-icon vSrc="../assets/icons/pdf.svg">
-                
+
             </span>
             <span vnpt-typography class="text-m" style="font-style:italic;">apple_core_pouch_pattern.pdf</span>
             <a href="#" class="act">
@@ -179,7 +177,7 @@
     <div class="item">
         <div class="file-inner">
             <span class="icon" vnpt-icon vSrc="../assets/icons/word.svg">
-                
+
             </span>
             <span vnpt-typography class="text-m" style="font-style:italic;">apple_core_pouch_pattern.pdf</span>
             <a href="#" class="act">
@@ -190,7 +188,7 @@
     <div class="item">
         <div class="file-inner">
             <span class="icon" vnpt-icon vSrc="../assets/icons/pdf.svg">
-                
+
             </span>
             <span vnpt-typography class="text-m" style="font-style:italic;">apple_core_pouch_pattern.pdf</span>
             <a href="#" class="act">

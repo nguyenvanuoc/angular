@@ -68,7 +68,7 @@ import { VBackTopModule } from '@vnpt/oneui-ui/back-top';
 import { VAffixModule } from '@vnpt/oneui-ui/affix';
 import { VTimelineModule } from '@vnpt/oneui-ui/timeline';
 import { VLogoModule } from '@vnpt/oneui-ui/logo';
-
+import { CommonLibraryModule } from 'commonLibrary';
 registerLocaleData(localeVi);
 
 @NgModule({
@@ -133,7 +133,8 @@ registerLocaleData(localeVi);
     VAffixModule,
     VTimelineModule,
     VTreeViewModule,
-    VLogoModule
+    VLogoModule,
+    CommonLibraryModule
   ],
   providers: [],
   bootstrap: [AppComponent]
