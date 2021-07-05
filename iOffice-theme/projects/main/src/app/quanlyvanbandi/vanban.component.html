@@ -68,29 +68,16 @@
 
 </div>
 
-<bottom-bar>
-    <div class="group-actions text-center" style="background-color: #fff;">
-        <button class="btn m-1" vnpt-button vType="primary">LẤY LẠI</button>
-        <button class="btn m-1" vnpt-button vType="primary">XỬ LÝ LẠI</button>
-        <button class="btn m-1" vnpt-button vType="primary">QUÊN XỬ LÝ</button>
-        <button class="btn m-1" vnpt-button vType="primary">XEM</button>
-        <button class="btn m-1" vnpt-button vType="primary">LƯU HỒ SƠ</button>
-        <button class="btn m-1" vnpt-button vType="primary">TẠO VIỆC</button>
-        <button class="btn m-1" vnpt-button vType="primary">BỎ ĐÁNH DẤU</button>
-        <button class="btn m-1" vnpt-button vType="primary">LƯU HỒ SƠ LƯU TRỮ</button>
-        <button class="btn m-1" vnpt-button vType="primary">TRẠNG THÁI LIÊN THÔNG</button>
-        <button class="btn m-1" vnpt-button vType="primary" vDanger>XÓA</button>
-    </div>
-</bottom-bar>
-<h4 vnpt-typography class="mt-4">THÔNG TIN VĂN BẢN ĐẾN</h4>
+
+<h4 vnpt-typography class="mt-6">THÔNG TIN VĂN BẢN ĐẾN</h4>
 
 <vnpt-divider></vnpt-divider>
 
-<div class="file-canvas" style="height:500px;border: 1px solid #d9d9d9;">
+<div class="file-canvas mt-6" style="height:500px;border: 1px solid #d9d9d9;">
 
 </div>
 
-<div class="table-vb-info mt-4">
+<div class="table-vb-info mt-6">
     <vnpt-table class="table-info" vBordered vTemplateMode>
 
         <tbody>
@@ -155,7 +142,7 @@
     </vnpt-table>
 </div>
 
-<vnpt-divider vText="File đính kèm"></vnpt-divider>
+<vnpt-divider vText="File đính kèm" class="mt-6"></vnpt-divider>
 
 <div class="group-buttons mb-4">
     <button vnpt-button vType="primary" vGhost>
@@ -163,37 +150,166 @@
     </button>
 </div>
 <div class="list-files">
-    <div class="item">
-        <div class="file-inner">
-            <span class="icon" vnpt-icon vSrc="../assets/icons/pdf.svg">
+    <div class="item mr-3 mb-3">
+        <div class="file-inner oneui-row-middle oneui-row-space-between">
+            <span class="icon d-block mr-3" vnpt-icon vSrc="../assets/icons/pdf.svg">
 
             </span>
-            <span vnpt-typography class="text-m" style="font-style:italic;">apple_core_pouch_pattern.pdf</span>
-            <a href="#" class="act">
-                <span vnpt-icon vTyp="View"></span>
-            </a>
-        </div>
-    </div>
-    <div class="item">
-        <div class="file-inner">
-            <span class="icon" vnpt-icon vSrc="../assets/icons/word.svg">
-
-            </span>
-            <span vnpt-typography class="text-m" style="font-style:italic;">apple_core_pouch_pattern.pdf</span>
-            <a href="#" class="act">
+            <span vnpt-typography class="text-m" vEllipsis style="font-style:italic;">apple_core_pouch_pattern.pdf</span>
+            <a href="#" class="act" vnpt-button vType="text">
                 <span vnpt-icon vType="View"></span>
             </a>
         </div>
     </div>
-    <div class="item">
-        <div class="file-inner">
-            <span class="icon" vnpt-icon vSrc="../assets/icons/pdf.svg">
+    <div class="item mr-3 mb-3">
+        <div class="file-inner oneui-row-middle oneui-row-space-between">
+            <span class="icon d-block mr-3" vnpt-icon vSrc="../assets/icons/word.svg">
 
             </span>
-            <span vnpt-typography class="text-m" style="font-style:italic;">apple_core_pouch_pattern.pdf</span>
-            <a href="#" class="act">
+            <span vnpt-typography vEllipsis class="text-m" style="font-style:italic;">apple_core_pouch_pattern.pdfapple_core_pouch_pattern.pdf</span>
+            <a href="#" class="act" vnpt-button vType="text">
+                <span vnpt-icon vType="View"></span>
+            </a>
+        </div>
+    </div>
+    <div class="item mr-3 mb-3">
+        <div class="file-inner oneui-row-middle oneui-row-space-between">
+            <span class="icon d-block mr-3" vnpt-icon vSrc="../assets/icons/pdf.svg">
+
+            </span>
+            <span vnpt-typography class="text-m" vEllipsis style="font-style:italic;">apple_core_pouch_pattern.pdf</span>
+            <a href="#" class="act" vnpt-button vType="text">
                 <span vnpt-icon vType="View"></span>
             </a>
         </div>
     </div>
 </div>
+<vnpt-divider vText="Tổng hợp ý kiến" class="mt-6"></vnpt-divider>
+<vnpt-collapse>
+    <vnpt-collapse-panel *ngFor="let panel of panels" 
+    [vHeader]="colheader" 
+    [vActive]="panel.active"
+    [vExtra]="extraTpl" 
+    [vDisabled]="panel.disabled">
+        <ng-template #colheader>
+            <span class="font-weight-bold " vnpt-typography>{{panel.name}}</span>
+        </ng-template>
+        <div class="table-content">
+            <vnpt-table vTemplateMode>
+                <thead>
+                    <tr class="text-uppercase font-size-2">
+                        <th>STT</th>
+                        <th>Người gửi</th>
+                        <th>lãnh đạo chỉ dạo</th>
+                        <th>Chưa xử lý</th>
+                        <th>đang xử lý</th>
+                        <th>đã xử lý</th>
+                        <th>nội dung</th>
+                        <th>file văn bản</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Bùi Thị Minh Hải</td>
+                        <td>Bùi Thị Minh Hải</td>
+                        <td class="text-center text-danger">
+                            <div vnpt-typography vType="danger">
+                                <span vnpt-icon vType="CheckMark"></span>
+                                <br/>
+                                <span>30/03/2021 16:29</span>
+                            </div>
+                        
+                        </td>
+                        <td class="text-center">
+                            <div vnpt-typography vType="success">
+                                <span vnpt-icon vType="CheckMark"></span>
+                                <br />
+                                <span>30/03/2021 16:29</span>
+                            </div>
+                        </td>
+
+                        <td class="text-center">
+                            <div vnpt-typography>
+                                <span vnpt-icon vType="CheckMark"></span>
+                                <br />
+                                <span>30/03/2021 16:29</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div vnpt-typography>
+                                Chuyển tới: <span class="font-weight-bold">Lãnh đạo QH(lanhdaoqh.lt@vnpt.vn)</span>
+                                <br/>
+                                Thao tác: <span class="font-weight-bold">Chuyển Lãnh đạo đơn vị</span>
+                                <br/>
+                                <a href="#" class="text-decoration-underline">Nhật ký công việc</a>
+                            </div>
+                            
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Bùi Thị Minh Hải</td>
+                        <td>Bùi Thị Minh Hải</td>
+                        <td class="text-center text-danger">
+                            <div vnpt-typography vType="danger">
+                                <span vnpt-icon vType="CheckMark"></span>
+                                <br/>
+                                <span>30/03/2021 16:29</span>
+                            </div>
+                        
+                        </td>
+                        <td class="text-center">
+                            <div vnpt-typography vType="success">
+                                <span vnpt-icon vType="CheckMark"></span>
+                                <br />
+                                <span>30/03/2021 16:29</span>
+                            </div>
+                        </td>
+
+                        <td class="text-center">
+                            <div vnpt-typography>
+                                <span vnpt-icon vType="CheckMark"></span>
+                                <br />
+                                <span>30/03/2021 16:29</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div vnpt-typography>
+                                Chuyển tới: <span class="font-weight-bold">Lãnh đạo QH(lanhdaoqh.lt@vnpt.vn)</span>
+                                <br/>
+                                Thao tác: <span class="font-weight-bold">Chuyển Lãnh đạo đơn vị</span>
+                                <br/>
+                                <a href="#" class="text-decoration-underline">Nhật ký công việc</a>
+                            </div>
+                            
+                        </td>
+                        <td></td>
+                    </tr>
+                    
+                </tbody>
+            </vnpt-table>
+        </div>
+    </vnpt-collapse-panel>
+</vnpt-collapse>
+
+<ng-template #extraTpl>
+    <!-- You can use stopPropagation if you don't want the panel to toggle -->
+    <a href="#" vType="link" style="text-decoration: none;">Xem toàn bộ</a>
+</ng-template>
+
+<bottom-bar>
+    <div class="group-actions text-center" style="background-color: #fff;">
+        <button class="btn m-1" vnpt-button vType="primary">LẤY LẠI</button>
+        <button class="btn m-1" vnpt-button vType="primary">XỬ LÝ LẠI</button>
+        <button class="btn m-1" vnpt-button vType="primary">QUÊN XỬ LÝ</button>
+        <button class="btn m-1" vnpt-button vType="primary">XEM</button>
+        <button class="btn m-1" vnpt-button vType="primary">LƯU HỒ SƠ</button>
+        <button class="btn m-1" vnpt-button vType="primary">TẠO VIỆC</button>
+        <button class="btn m-1" vnpt-button vType="primary">BỎ ĐÁNH DẤU</button>
+        <button class="btn m-1" vnpt-button vType="primary">LƯU HỒ SƠ LƯU TRỮ</button>
+        <button class="btn m-1" vnpt-button vType="primary">TRẠNG THÁI LIÊN THÔNG</button>
+        <button class="btn m-1" vnpt-button vType="primary" vDanger>XÓA</button>
+    </div>
+</bottom-bar>

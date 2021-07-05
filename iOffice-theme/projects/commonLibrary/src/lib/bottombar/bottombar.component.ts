@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class BottombarComponent implements OnInit {
   @Input() position: number = 0;
-  @Input() bgColor: string = '#fafafa';
+  @Input() bgColor: string = '#fff';
 
   constructor() {}
 

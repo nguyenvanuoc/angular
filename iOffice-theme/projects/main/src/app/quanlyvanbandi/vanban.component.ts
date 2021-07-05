@@ -116,6 +116,23 @@ export class VanBanComponent implements OnInit {
 		this.checked = this.listOfCurrentPageData.every(item => this.setOfCheckedId.has(item.id));
 		this.indeterminate = this.listOfCurrentPageData.some(item => this.setOfCheckedId.has(item.id)) && !this.checked;
 	}
+	panels = [
+		{
+			active: true,
+			name: 'Công ty Công nghệ thông tin VNPT IT/ Điều hành Trung tâm VNPT-IT KV2',
+			disabled: false
+		},
+		{
+			active: false,
+			disabled: false,
+			name: 'Công ty Công nghệ thông tin VNPT IT/ Điều hành Trung tâm VNPT-IT KV2'
+		},
+		{
+			active: false,
+			disabled: false,
+			name: 'Công ty Công nghệ thông tin VNPT IT/ Điều hành Trung tâm VNPT-IT KV2'
+		}
+	];
 	ngOnInit(): void {
 		this.listOfData = new Array(200).fill(0).map((_, index) => {
 			return {

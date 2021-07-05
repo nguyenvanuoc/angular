@@ -11,11 +11,11 @@
             <vnpt-logo [vColor]="'#fff'" [vSize]="{'size':'lg'}" [vTitle]="'eGov'"></vnpt-logo>
         </a>
     </div>
-    <div class="header-mid " 
+    <div class="header-mid {{visibleMobileSearch ? 'show' : 'hidden'}}" 
         vnpt-col 
         [vLg]="{ span: 10 }" 
         [vXl]="{ span: 10 }" 
-        [vXs]="{ span: 0 }">
+        [vXs]="{ span: 0 }" >
         <vnpt-input-group vSearch [vPrefix]="prefixIconButton" class="btn-group-search">
             <input type="text" vnpt-input placeholder="Nhập từ khóa để tìm kiếm" class="btninput-detail" />
         </vnpt-input-group>
@@ -32,20 +32,34 @@
             <i vnpt-icon vType="PageAdd" class="icon"></i>
             Tạo văn bản
         </button>
-        <button vnpt-button vType="text"  (click)="openNoti()" class="topbar-btn topbar-btn-menu-detail" >
-            <i vnpt-icon vType="Ringer"></i>
-            <vnpt-badge vStandalone [vCount]="5" class="number-badge"></vnpt-badge>
+        <button vnpt-button vType="text" class="topbar-btn topbar-btn-menu-search" (click)="openMobileSearch()">
+            <i vnpt-icon vType="Search"></i>
+        
         </button>
-        <button vnpt-button vType="text" class="topbar-btn topbar-btn-menu-detail">
-            <i vnpt-icon vType="Mail"></i>
-            <vnpt-badge vStandalone [vCount]="5" class="number-badge"></vnpt-badge>
+        <button vnpt-button vType="text" class="topbar-btn topbar-btn-menu-more" (click)="openMobileSetting()">
+            <i vnpt-icon vType="More"></i>
         </button>
-        <button vnpt-button vType="text" class="topbar-btn topbar-btn-menu-detail">
-            <i vnpt-icon vType="Settings"></i>
-        </button>
-        <button vnpt-button vType="text" class="topbar-btn topbar-btn-menu-detail">
-            <i vnpt-icon vType="WaffleOffice365"></i>
-        </button>
+        <div class="d-inline header-menu-dropdown {{visibleMobileSetting ? 'show' : 'hidden'}}" >
+            <button vnpt-button vType="text"  (click)="openNoti()" class="topbar-btn topbar-btn-menu-detail" >
+                <i vnpt-icon vType="Ringer"></i>
+                <span class="text-m">Thông báo</span>
+                <vnpt-badge vStandalone [vCount]="5" class="number-badge"></vnpt-badge>
+            </button>
+            
+            <button vnpt-button vType="text" class="topbar-btn topbar-btn-menu-detail">
+                <i vnpt-icon vType="Mail"></i>
+                <span class="text-m">Email</span>
+                <vnpt-badge vStandalone [vCount]="5" class="number-badge"></vnpt-badge>
+            </button>
+            <button vnpt-button vType="text" class="topbar-btn topbar-btn-menu-detail">
+                <i vnpt-icon vType="Settings"></i>
+                <span class="text-m">Cài đặt </span>
+            </button>
+            <button vnpt-button vType="text" class="topbar-btn topbar-btn-menu-detail">
+                <i vnpt-icon vType="WaffleOffice365"></i>
+                <span class="text-m">Ứng dụng </span>
+            </button>
+        </div>
         <button vnpt-button vnpt-dropdown vTrigger="click"  [vDropdownMenu]="userdropdown" vType="text" class="topbar-btn topbar-btn-avatar">
             <vnpt-avatar [vSize]="26" vSrc="http://storage-stagging.vnpt.vn/oneui/docs/imgs/ODTLcjxAfvqbxHnVXCYX.png">
                 
