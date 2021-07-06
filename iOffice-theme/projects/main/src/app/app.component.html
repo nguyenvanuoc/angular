@@ -1,13 +1,15 @@
 <app-header></app-header>
 <breadcrumb-app></breadcrumb-app>
-<div class="main-wrapper">
+<div class="main-wrapper {{visibleSidebar ? '': 'sidebar-collapse'}}">
+    <div class="sidebar-toggle-menu" (click)="closeSidebar()">
+        <span vnpt-icon vType="{{visibleSidebar ? 'IncreaseIndentMirrored': 'DecreaseIndentMirrored'}}"></span>
+    </div>
     <div class="main-menu">
         <app-sidebar></app-sidebar> 
     </div>
     <div class="main-content">
         <vnpt-page>
-            <app-vanban></app-vanban>
+            <router-outlet></router-outlet>
         </vnpt-page>
-        
     </div>
 </div>

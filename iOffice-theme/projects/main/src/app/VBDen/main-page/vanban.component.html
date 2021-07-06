@@ -5,7 +5,7 @@
     <span vnpt-icon vType="ChromeClose"></span>
 </button> -->
 <div vnpt-row class="top-info mb-4">
-    <div vnpt-col [vMd]="{ span: 10 }" [vXs]="{ span: 24 }">
+    <div vnpt-col [vLg]="{ span: 10 }" [vXs]="{ span: 24 }">
         <div class="list-status mt-2">
             <div class="item">
                 <vnpt-badge vColor="#B11226" vText="Hỏa tốc"></vnpt-badge>
@@ -17,8 +17,9 @@
                 <vnpt-badge vColor="#1363B9" vText="Chỉ đạo"></vnpt-badge>
             </div>
         </div>
+
     </div>
-    <div vnpt-col [vMd]="{ span: 14 }" [vXs]="{ span: 24 }">
+    <div vnpt-col [vLg]="{ span: 14 }" [vXs]="{ span: 24 }">
         <div class="box-top-search">
             <vnpt-input-group vPrefixIcon="Search" class="input-search">
                 <input vnpt-input placeholder="Nhập thông tin tìm kiếm" />
@@ -28,7 +29,6 @@
         </div>
     </div>
 </div>
-
 <div class="table-content">
     <vnpt-table #rowSelectionTable vShowSizeChanger [vFooter]="tbFooter" [vData]="listOfData"
         (vCurrentPageDataChange)="onCurrentPageDataChange($event)">
@@ -51,7 +51,7 @@
                 <td [vChecked]="setOfCheckedId.has(data.id)" (vCheckedChange)="onItemChecked(data.id, $event)"></td>
                 <td class="text-center"><span vnpt-icon class="featured" vType="FavoriteStar"></span></td>
                 <td>{{ i }}</td>
-                <td><a>{{ data.name }}</a></td>
+                <td><a routerLink="/thong-tin-van-ban-den">{{ data.name }}</a></td>
                 <td class="text-nowrap">{{ data.kyhieu }}</td>
                 <td>{{ data.hinhthuc }}</td>
                 <td>{{ data.ngaybanhanh }}</td>
@@ -67,16 +67,11 @@
     </ng-template>
 
 </div>
-
-
 <h4 vnpt-typography class="mt-6">THÔNG TIN VĂN BẢN ĐẾN</h4>
-
 <vnpt-divider></vnpt-divider>
 
 <div class="file-canvas mt-6" style="height:500px;border: 1px solid #d9d9d9;">
-
 </div>
-
 <div class="table-vb-info mt-6">
     <vnpt-table class="table-info" vBordered vTemplateMode>
 
@@ -313,3 +308,6 @@
         <button class="btn m-1" vnpt-button vType="primary" vDanger>XÓA</button>
     </div>
 </bottom-bar>
+
+
+<!--Thong Tin Van Ban-->

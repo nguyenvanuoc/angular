@@ -8,7 +8,8 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './navigation/header/header.component';
 import { BreadcrumbComponent } from './navigation/breadcrumb/breadcrumb.component';
 import { SidebarComponent } from './navigation/sidebar/sidebar.component';
-import { VanBanComponent } from './quanlyvanbandi/vanban.component';
+import { VBDenComponent } from './VBDen/main-page/vanban.component';
+import { TTVBDenComponent } from './VBDen/TTVanBan/TTVanBanDen.component';
 
 
 import { registerLocaleData } from '@angular/common';
@@ -73,7 +74,7 @@ registerLocaleData(localeVi);
 
 @NgModule({
   declarations: [
-    AppComponent,HeaderComponent,BreadcrumbComponent,SidebarComponent,VanBanComponent
+    AppComponent,HeaderComponent,BreadcrumbComponent,SidebarComponent,VBDenComponent,TTVBDenComponent
   ],
   imports: [
     BrowserModule,

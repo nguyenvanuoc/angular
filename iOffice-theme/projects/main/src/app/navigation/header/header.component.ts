@@ -18,7 +18,7 @@ export class HeaderComponent {
     this.visibleNoti = false;
   }
   openMobileSearch(): void {
-    this.visibleMobileSearch = true;
+    this.visibleMobileSearch = ! this.visibleMobileSearch;
     this.visibleMobileSetting = false;
   }
 
@@ -28,7 +28,7 @@ export class HeaderComponent {
   }
 
   openMobileSetting(): void {
-    this.visibleMobileSetting = true;
+    this.visibleMobileSetting = ! this.visibleMobileSetting;
     this.visibleMobileSearch = false;
   }
 

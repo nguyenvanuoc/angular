@@ -1,0 +1,291 @@
+
+<h4 vnpt-typography>THÔNG TIN VĂN BẢN ĐẾN</h4>
+
+<vnpt-tabset>
+    <vnpt-tab vTitle="Thông tin văn bản">
+        
+        <vnpt-form-item class="info-row">
+            <div class="key w120">
+                Trích yếu <span vnpt-typography vType="danger">*</span>
+            </div>
+            <div class="value">
+                <textarea vnpt-input style="height: 64px;"></textarea>
+            </div>
+        </vnpt-form-item>
+        <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+            <div vnpt-col [vLg]="8" [vXs]="24">
+                <vnpt-form-item class="info-row">
+                    <div class="key w120">
+                        Số ký hiệu  <span vnpt-typography vType="danger">*</span>
+                    </div>
+                    <div class="value">
+                        <input type="text" vnpt-input>
+                    </div>
+                </vnpt-form-item>
+            </div>
+
+            <div vnpt-col [vLg]="8" [vXs]="24">
+                <vnpt-form-item class="info-row">
+                    <div class="key w130">
+                        Đơn vị ban hành <span vnpt-typography vType="danger">*</span>
+                    </div>
+                    <div class="value">
+                        <input type="text" vnpt-input>
+                    </div>
+                </vnpt-form-item>
+            </div>
+            <div vnpt-col [vLg]="8" [vXs]="24">
+                <vnpt-form-item class="info-row">
+                    <div class="key w120">
+                        Ngày văn bản  <span vnpt-typography vType="danger">*</span>
+                    </div>
+                    <div class="value">
+                        <vnpt-date-picker [vSuffixIcon]="pickerSuffixIcon"></vnpt-date-picker>
+                        <ng-template #pickerSuffixIcon>
+                            <i vnpt-icon vType="Calendar"></i>
+                        </ng-template>
+                    </div>
+                </vnpt-form-item>
+            </div>
+            
+        </div>
+        <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+            <div vnpt-col [vLg]="8" [vXs]="24">
+                <vnpt-form-item class="info-row">
+                    <div class="key w120">
+                        Hình thức
+                    </div>
+                    <div class="value">
+                        <vnpt-select vPlaceHolder="Chọn hình thức">
+                            <vnpt-option vValue="thuong" vLabel="Thường"></vnpt-option>
+                            <vnpt-option vValue="khan" vLabel="Khẩn"></vnpt-option>
+                        </vnpt-select>
+                    </div>
+                </vnpt-form-item>
+            </div>
+            <div vnpt-col [vLg]="8" [vXs]="24">
+                <vnpt-form-item class="info-row">
+                    <div class="key w130">
+                        Độ khẩn
+                    </div>
+                    <div class="value">
+                        <vnpt-select vPlaceHolder="Chọn độ khẩn">
+                            <vnpt-option vValue="thuong" vLabel="Thường"></vnpt-option>
+                            <vnpt-option vValue="khan" vLabel="Khẩn"></vnpt-option>
+                        </vnpt-select>
+                    </div>
+                </vnpt-form-item>
+            </div>
+            <div vnpt-col [vLg]="8" [vXs]="24">
+                <vnpt-form-item class="info-row">
+                    <div class="key w120">
+                        Hạn xử lý
+                    </div>
+                    <div class="value">
+                        <vnpt-date-picker [vSuffixIcon]="pickerSuffixIcon"></vnpt-date-picker>
+                        <ng-template #pickerSuffixIcon>
+                            <i vnpt-icon vType="Calendar"></i>
+                        </ng-template>
+                    </div>
+                </vnpt-form-item>
+            </div>
+            
+        </div>
+        <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+            <div vnpt-col [vLg]="8" [vXs]="24">
+                <vnpt-form-item class="info-row">
+                    <div class="key w120">
+                        Số văn bản
+                    </div>
+                    <div class="value">
+                        <input type="text" vnpt-input>
+                    </div>
+                </vnpt-form-item>
+            </div>
+            <div vnpt-col [vLg]="8" [vXs]="24">
+                <vnpt-form-item class="info-row">
+                    <div class="key w130">
+                        Số đến <span vnpt-typography vType="danger">*</span>
+                    </div>
+                    <div class="value">
+                        <vnpt-input-group vAddOnAfterIcon="Edit">
+                            <input type="text" vnpt-input/>
+                        </vnpt-input-group>
+                    </div>
+                </vnpt-form-item>
+            </div>
+            <div vnpt-col [vLg]="8" [vXs]="24">
+                <vnpt-form-item class="info-row">
+                    <div class="key w120">
+                        Hạn xử lý
+                    </div>
+                    <div class="value">
+                        <vnpt-date-picker [vSuffixIcon]="pickerSuffixIcon"></vnpt-date-picker>
+                        <ng-template #pickerSuffixIcon>
+                            <i vnpt-icon vType="Calendar"></i>
+                        </ng-template>
+                    </div>
+                </vnpt-form-item>
+            </div>
+            
+        </div>
+        <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+            <div vnpt-col [vLg]="8" [vXs]="24">
+                <vnpt-form-item class="info-row">
+                    <div class="key w120">
+                        Phân loại
+                    </div>
+                    <div class="value">
+                        <vnpt-select vPlaceHolder="Chọn ">
+                            <vnpt-option  vValue="1" vLabel="Loại 1">
+                            </vnpt-option>
+                            <vnpt-option  vValue="2" vLabel="Loại 2">
+                            </vnpt-option>
+                        </vnpt-select>
+                    </div>
+                </vnpt-form-item>
+            </div>
+            <div vnpt-col [vLg]="8" [vXs]="24">
+                <vnpt-form-item class="info-row">
+                    <div class="key w130">
+                        Số trang
+                    </div>
+                    <div class="value">
+                        <input type="text" vnpt-input />
+                    </div>
+                </vnpt-form-item>
+            </div>
+            <div vnpt-col [vLg]="8" [vXs]="24">
+                <vnpt-form-item class="info-row">
+                    <div class="key w120">
+                        Lĩnh vực
+                    </div>
+                    <div class="value">
+                        <vnpt-select vPlaceHolder="Chọn ">
+                            <vnpt-option vValue="1" vLabel="Loại 1">
+                            </vnpt-option>
+                            <vnpt-option vValue="2" vLabel="Loại 2">
+                            </vnpt-option>
+                        </vnpt-select>
+                    </div>
+                </vnpt-form-item>
+            </div>
+            
+        </div>
+        <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+            <div vnpt-col [vLg]="8" [vXs]="24">
+                <vnpt-form-item class="info-row">
+                    <div class="key w120">
+                        Độ mật
+                    </div>
+                    <div class="value">
+                        <vnpt-select vPlaceHolder="Chọn ">
+                            <vnpt-option  vValue="1" vLabel="Loại 1">
+                            </vnpt-option>
+                            <vnpt-option  vValue="2" vLabel="Loại 2">
+                            </vnpt-option>
+                        </vnpt-select>
+                    </div>
+                </vnpt-form-item>
+            </div>
+            <div vnpt-col [vLg]="8" [vXs]="24">
+                <vnpt-form-item class="info-row">
+                    <div class="key w130">
+                        Loại văn bản
+                    </div>
+                    <div class="value">
+                        <vnpt-select vPlaceHolder="Chọn ">
+                            <vnpt-option vValue="1" vLabel="Loại 1">
+                            </vnpt-option>
+                            <vnpt-option vValue="2" vLabel="Loại 2">
+                            </vnpt-option>
+                        </vnpt-select>
+                    </div>
+                </vnpt-form-item>
+            </div>
+            <div vnpt-col [vLg]="8" [vXs]="24">
+                <vnpt-form-item class="info-row">
+                    <div class="key w120">
+                        Hình thức chuyển
+                    </div>
+                    <div class="value">
+                        <vnpt-select vPlaceHolder="Chọn ">
+                            <vnpt-option vValue="1" vLabel="Loại 1">
+                            </vnpt-option>
+                            <vnpt-option vValue="2" vLabel="Loại 2">
+                            </vnpt-option>
+                        </vnpt-select>
+                    </div>
+                </vnpt-form-item>
+            </div>
+            
+        </div>
+        <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+            <div vnpt-col [vLg]="8" [vXs]="24">
+                <vnpt-form-item class="info-row">
+                    <div class="key w120">
+                        Lãnh đạo chỉ đạo
+                    </div>
+                    <div class="value">
+                        <vnpt-select vPlaceHolder="Chọn ">
+                            <vnpt-option  vValue="1" vLabel="Loại 1">
+                            </vnpt-option>
+                            <vnpt-option  vValue="2" vLabel="Loại 2">
+                            </vnpt-option>
+                        </vnpt-select>
+                    </div>
+                </vnpt-form-item>
+            </div>
+            <div vnpt-col [vLg]="8" [vXs]="24">
+                <vnpt-form-item class="info-row">
+                    <div class="key w130">
+                        Hình thức sao
+                    </div>
+                    <div class="value">
+                        <vnpt-select vPlaceHolder="Chọn ">
+                            <vnpt-option vValue="1" vLabel="Loại 1">
+                            </vnpt-option>
+                            <vnpt-option vValue="2" vLabel="Loại 2">
+                            </vnpt-option>
+                        </vnpt-select>
+                    </div>
+                </vnpt-form-item>
+            </div>
+            
+            
+        </div>
+        <vnpt-checkbox-group [(ngModel)]="checkOptionsTypeVB">
+        </vnpt-checkbox-group>
+        <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+            <div vnpt-col [vLg]="12" [vXs]="24">
+                <vnpt-divider vText="File đính kèm" class="mt-6"></vnpt-divider>
+                <div class="group-buttons mb-4">
+                    <div class="float-left">
+                        <button vnpt-button class="mr-2 mb-2" vType="primary" vGhost>
+                            <span vnpt-icon vType="GenericScan"></span> Quét tài liệu
+                        </button>
+                        <button vnpt-button class="mr-2 mb-2" vType="primary" vGhost>
+                            <span vnpt-icon vType="Upload"></span> Tải tập tin
+                        </button>
+                        <button vnpt-button class="mr-2 mb-2" vType="primary" vGhost>
+                            <span vnpt-icon vType="Upload"></span> Nén và tải tất cả
+                        </button>
+                    </div>
+                    <div class="float-right">
+                        <span vnpt-button vType="Text" vGhost>
+                            Tối đa 50MB/file
+                        </span>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+
+            </div>
+        </div>
+    </vnpt-tab>
+    <vnpt-tab vTitle="Thông tin nhận">
+        Content of Tab Pane 2
+    </vnpt-tab>
+    <vnpt-tab vTitle="Sơ đồ luồng văn bản">
+        Content of Tab Pane 3
+    </vnpt-tab>
+</vnpt-tabset>

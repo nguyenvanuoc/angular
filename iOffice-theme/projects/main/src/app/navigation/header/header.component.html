@@ -2,7 +2,7 @@
     <div class="header-left" 
         vnpt-col 
         [vLg]="{ span: 6 }" 
-        [vXl]="{ span: 7 }" 
+        [vXl]="{ span: 6 }" 
         [vXs]="{ span: 12 }">
         <button vnpt-button  vType="text" class="topbar-btn nav-toggle">
             <span vnpt-icon [vType]="'WaffleOffice365'"></span>
@@ -13,8 +13,8 @@
     </div>
     <div class="header-mid {{visibleMobileSearch ? 'show' : 'hidden'}}" 
         vnpt-col 
-        [vLg]="{ span: 10 }" 
-        [vXl]="{ span: 10 }" 
+        [vLg]="{ span: 9 }" 
+        [vXl]="{ span: 9 }" 
         [vXs]="{ span: 0 }" >
         <vnpt-input-group vSearch [vPrefix]="prefixIconButton" class="btn-group-search">
             <input type="text" vnpt-input placeholder="Nhập từ khóa để tìm kiếm" class="btninput-detail" />
@@ -25,12 +25,12 @@
     </div>
     <div class="header-right" 
         vnpt-col 
-        [vLg]="{ span: 8 }" 
-        [vXl]="{ span: 7 }" 
+        [vLg]="{ span: 9 }" 
+        [vXl]="{ span: 9 }" 
         [vXs]="{ span: 12 }">
         <button vnpt-button vType="text" vnpt-dropdown vTrigger="click"  [vDropdownMenu]="addDocument" class="topbar-btn topbar-add-document">
-            <i vnpt-icon vType="PageAdd" class="icon"></i>
-            Tạo văn bản
+            <i vnpt-icon vType="TextDocumentEdit" class="icon"></i>
+            <span class="text-name">Tạo văn bản</span>
         </button>
         <button vnpt-button vType="text" class="topbar-btn topbar-btn-menu-search" (click)="openMobileSearch()">
             <i vnpt-icon vType="Search"></i>
@@ -154,3 +154,6 @@
 </ng-template>
 
 <!---End Notifications-->
+
+<div class="overlay-common {{visibleMobileSetting ? 'show' : 'hidden'}} {{visibleMobileSearch ? 'show' : 'hidden' }}" (click)="closeMobileAllMenu()">
+</div>

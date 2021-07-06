@@ -25,7 +25,7 @@ interface ColumnItem {
   styleUrls: ['./vanban.component.less']
 })
 
-export class VanBanComponent implements OnInit {
+export class VBDenComponent implements OnInit {
 	
 	checked = false;
 	indeterminate = false;
