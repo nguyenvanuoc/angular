@@ -9,6 +9,9 @@ export class AppComponent {
     title = 'main';
     visibleSidebar = true;
     closeSidebar(): void {
-        this.visibleSidebar = !this.visibleSidebar;
+      setTimeout(() => {
+        window.dispatchEvent(new Event('resize'));
+      }, 300);
+      this.visibleSidebar = !this.visibleSidebar;
     }
 }
