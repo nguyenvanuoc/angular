@@ -20,6 +20,10 @@
   background-color: #fafafa;
 }
 
+.content-area {
+  min-height: calc(100vh - 147px);;
+}
+
 @media only screen and (max-width: 992px) {
   .close-btn {
     position: fixed;
