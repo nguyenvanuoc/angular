@@ -1,13 +1,21 @@
 <app-header></app-header>
 <breadcrumb-app></breadcrumb-app>
-<div class="main-wrapper {{visibleSidebar ? '': 'sidebar-collapse'}}">
-    <div class="sidebar-toggle-menu" (click)="closeSidebar()">
-        <span vnpt-icon vType="{{visibleSidebar ? 'IncreaseIndentMirrored': 'DecreaseIndentMirrored'}}"></span>
-    </div>
-    <div class="main-menu">
-        <app-sidebar></app-sidebar> 
-    </div>
-    <div class="main-content">
-        <router-outlet></router-outlet>
-    </div>
+<div class="main-wrapper">
+    <vnpt-layout>
+        <vnpt-layout>
+          <vnpt-sider vCollapsible [(vCollapsed)]="menuVisible" vBreakpoint="lg" [vCollapsedWidth]="0" [vWidth]="300" class="vertical-submenu main-menu">
+            <app-sidebar></app-sidebar> 
+          </vnpt-sider>
+          <vnpt-content class="right-content" >
+              <button vnpt-button vType="default" title="Đóng/Mở Menu" (click)="tonggleMenu()" class="menu-tonggle-btn">
+                <i *ngIf="!menuVisible" vnpt-icon vType="IncreaseIndentMirrored" [vColor]="'primary'"></i>
+                <i *ngIf="menuVisible" vnpt-icon vType="NumberedListText" [vColor]="'primary'"></i>
+              </button>
+            <router-outlet></router-outlet>
+          </vnpt-content>
+        </vnpt-layout>
+    </vnpt-layout>
 </div>
+
+
+  
