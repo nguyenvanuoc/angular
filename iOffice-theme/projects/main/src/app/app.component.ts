@@ -10,12 +10,6 @@ export class AppComponent {
     title = 'main';
     visibleSidebar = true;
     menuVisible: boolean = true;
-    closeSidebar(): void {
-      setTimeout(() => {
-        window.dispatchEvent(new Event('resize'));
-      }, 300);
-      this.visibleSidebar = !this.visibleSidebar;
-    }
 
     tonggleMenu() {
       this.menuVisible = !this.menuVisible;

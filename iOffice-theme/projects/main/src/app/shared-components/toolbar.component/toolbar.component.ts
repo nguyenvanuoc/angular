@@ -32,9 +32,7 @@ export class ToolbarComponent implements OnInit {
   }
 
   ngOnInit() {
-    setTimeout(() => {
-      window.dispatchEvent(new Event('resize'));
-    }, 300);
+    
   }
 
   calculateScreen() {
