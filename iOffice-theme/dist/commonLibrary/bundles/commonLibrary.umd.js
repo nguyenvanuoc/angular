@@ -77,7 +77,7 @@
             if (rf & 2) {
                 i0__namespace.ɵɵproperty("ngIf", ctx.close);
             }
-        }, directives: [i1__namespace.NgIf, i2__namespace.VButtonComponent, i3__namespace.ɵVTransitionPatchDirective], styles: [".close-btn[_ngcontent-%COMP%]{border:none;background:#f5f5f5;position:fixed;right:60px;padding:0 10px;cursor:pointer;z-index:98}.close-btn[_ngcontent-%COMP%]:hover{background-color:#fafafa}@media only screen and (max-width:992px){.close-btn[_ngcontent-%COMP%]{position:fixed;right:10px;top:0;margin-top:0;background:#fff}}"] });
+        }, directives: [i1__namespace.NgIf, i2__namespace.VButtonComponent, i3__namespace.ɵVTransitionPatchDirective], styles: [".close-btn[_ngcontent-%COMP%]{border:none;background:#f5f5f5;position:fixed;right:60px;padding:0 10px;cursor:pointer;z-index:98;top:100px}.close-btn[_ngcontent-%COMP%]:hover{background-color:#fafafa}"] });
     /*@__PURE__*/ (function () {
         i0__namespace.ɵsetClassMetadata(BlankPageComponent, [{
                 type: i0.Component,
@@ -1292,7 +1292,7 @@
         BottombarComponent.prototype.ngOnInit = function () {
             setTimeout(function () {
                 window.dispatchEvent(new Event('resize'));
-            }, 300);
+            }, 1000);
         };
         return BottombarComponent;
     }());
