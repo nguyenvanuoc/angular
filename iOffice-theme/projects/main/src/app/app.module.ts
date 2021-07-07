@@ -8,9 +8,11 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './navigation/header/header.component';
 import { BreadcrumbComponent } from './navigation/breadcrumb/breadcrumb.component';
 import { SidebarComponent } from './navigation/sidebar/sidebar.component';
-import { VBDenComponent } from './VBDen/main-page/vanban.component';
+import { VBDenComponent } from './VBDen/danhsach/vanban.component';
 import { TTVBDenComponent } from './VBDen/TTVanBan/TTVanBanDen.component';
-
+import { MainPageQLVBDComponent } from './VBDen/mainpage/mainpage.component';
+import { VBDenActionsComponent } from './VBDen/actions/vbden-actions.component';
+import { HomeComponent } from './home/home.component';
 
 import { registerLocaleData } from '@angular/common';
 import localeVi from '@angular/common/locales/vi';
@@ -97,7 +99,17 @@ registerLocaleData(localeVi);
     ToolbarComponent,
     ToolbarItemComponent,
     BottombarComponent,
-    AppComponent,HeaderComponent,BreadcrumbComponent,SidebarComponent,VBDenComponent,TTVBDenComponent
+    AppComponent,
+    HeaderComponent,
+    BreadcrumbComponent,
+    SidebarComponent,
+    VBDenComponent,
+    TTVBDenComponent,
+    MainPageQLVBDComponent,
+    HomeComponent,
+    VBDenActionsComponent,
+    
+
   ],
   imports: [
     BrowserModule,

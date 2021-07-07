@@ -322,6 +322,7 @@
 }
 .box-top-search{
     display: flex;
+    width: 100%;
     .search-btn{
         margin-left: @padding-1;
     }
@@ -391,6 +392,22 @@
                 object-fit: contain;
             }
         }
+    }
+    .acts{
+        white-space: nowrap;
+        .ms-Icon{
+            font-size: 16px;
+            width: 16px;
+            height: 16px;
+            img{
+                width: 16px;
+                height: 16px;
+                object-fit: contain;
+            }
+        }
+    }
+    .text-m{
+        width: 100%;
     }
     @media(max-width:991px){
         .item{
@@ -538,4 +555,8 @@
         }
 
     }
+}
+
+.bg-gray{
+    background-color: @gray-3 !important;
 }

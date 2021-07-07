@@ -16,12 +16,10 @@
         [vLg]="{ span: 9 }" 
         [vXl]="{ span: 9 }" 
         [vXs]="{ span: 0 }" >
-        <vnpt-input-group vSearch [vPrefix]="prefixIconButton" class="btn-group-search">
+        <vnpt-input-group vSearch vPrefixIcon="Search" class="btn-group-search">
             <input type="text" vnpt-input placeholder="Nhập từ khóa để tìm kiếm" class="btninput-detail" />
         </vnpt-input-group>
-        <ng-template #prefixIconButton class="btnsearch-detail">
-            <i vnpt-icon vType="Search"></i>
-        </ng-template>
+        
     </div>
     <div class="header-right" 
         vnpt-col 

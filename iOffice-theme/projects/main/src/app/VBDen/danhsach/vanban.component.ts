@@ -29,6 +29,7 @@ export class VBDenComponent implements OnInit {
 	
 	checked = false;
 	indeterminate = false;
+	visibleDetail=false;
 	listOfCurrentPageData: ReadonlyArray<ItemData> = [];
 	listOfData: ReadonlyArray<ItemData> = [];
 	setOfCheckedId = new Set<number>();
@@ -147,4 +148,7 @@ export class VBDenComponent implements OnInit {
 			};
 		});
   	}
+	closeVBDetail():void{
+		this.visibleDetail=!this.visibleDetail;
+	}
 }
