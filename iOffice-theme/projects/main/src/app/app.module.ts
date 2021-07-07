@@ -69,11 +69,34 @@ import { VBackTopModule } from '@vnpt/oneui-ui/back-top';
 import { VAffixModule } from '@vnpt/oneui-ui/affix';
 import { VTimelineModule } from '@vnpt/oneui-ui/timeline';
 import { VLogoModule } from '@vnpt/oneui-ui/logo';
-import { CommonLibraryModule } from 'commonLibrary';
+import { BlankPageComponent } from './shared-components/blank.page.component/blank.page.component';
+import { ContexualActionBarComponent } from './shared-components/contex.action.bar/action.bar.component';
+import { ActionItemComponent } from './shared-components/contex.action.bar/action.item.component/action.item.component';
+import { MainContentComponent } from './shared-components/main.content.component/main.content.component';
+import { DrawerContentComponent } from './shared-components/drawer.content.component/drawer.content.component';
+import { ActiveUrlCheckPipe } from './shared-components/menu.pipes';
+import { SubMenuComponent } from './shared-components/menu.component/menu.component';
+import { AssetUrlPipe } from './shared-components/assert.pipe';
+import { ChangeDateTimePipe } from './shared-components/changedatetime.pipe';
+import { ToolbarComponent } from './shared-components/toolbar.component/toolbar.component';
+import { ToolbarItemComponent } from './shared-components/toolbar.component/toolbar.item.component/toolbar.item.component';
+import { BottombarComponent } from './shared-components/bottombar/bottombar.component';
 registerLocaleData(localeVi);
 
 @NgModule({
   declarations: [
+    BlankPageComponent,
+    ContexualActionBarComponent,
+    ActionItemComponent,
+    MainContentComponent,
+    DrawerContentComponent,
+    ActiveUrlCheckPipe,
+    SubMenuComponent,
+    AssetUrlPipe,
+    ChangeDateTimePipe,
+    ToolbarComponent,
+    ToolbarItemComponent,
+    BottombarComponent,
     AppComponent,HeaderComponent,BreadcrumbComponent,SidebarComponent,VBDenComponent,TTVBDenComponent
   ],
   imports: [
@@ -134,8 +157,7 @@ registerLocaleData(localeVi);
     VAffixModule,
     VTimelineModule,
     VTreeViewModule,
-    VLogoModule,
-    CommonLibraryModule
+    VLogoModule
   ],
   providers: [],
   bootstrap: [AppComponent]

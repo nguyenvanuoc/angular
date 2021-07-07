@@ -17,10 +17,7 @@
       "dom"
     ],
     "paths": {
-      "commonLibrary": [
-        "dist/commonLibrary/commonLibrary",
-        "dist/commonLibrary"
-      ]
+      
     }
   }
 }
