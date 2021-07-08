@@ -1,4 +1,5 @@
 import { Component} from '@angular/core';
+import { QuickMenuModel } from './shared-components/models/appmodel';
 
 @Component({
   selector: 'mainapp-root',
@@ -22,5 +23,17 @@ export class AppComponent {
         this.menuVisible = true;
       }
     }
+    menuConfig: QuickMenuModel[] = [
+      {
+        routerLink: '/home',
+        iconName: 'dashboard.png',
+        nameMenu: 'Trang chủ',
+      },
+      {
+        routerLink: '/home/settings',
+        iconName: 'settings.svg',
+        nameMenu: 'Setting',
+      },
+    ];
     
 }

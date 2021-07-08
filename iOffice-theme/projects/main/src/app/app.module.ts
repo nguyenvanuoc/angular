@@ -83,6 +83,7 @@ import { ChangeDateTimePipe } from './shared-components/changedatetime.pipe';
 import { ToolbarComponent } from './shared-components/toolbar.component/toolbar.component';
 import { ToolbarItemComponent } from './shared-components/toolbar.component/toolbar.item.component/toolbar.item.component';
 import { BottombarComponent } from './shared-components/bottombar/bottombar.component';
+import { QuickMenuComponent } from './shared-components/quick-menu/quick-menu.component';
 registerLocaleData(localeVi);
 
 @NgModule({
@@ -108,6 +109,7 @@ registerLocaleData(localeVi);
     MainPageQLVBDComponent,
     HomeComponent,
     VBDenActionsComponent,
+    QuickMenuComponent
     
 
   ],
