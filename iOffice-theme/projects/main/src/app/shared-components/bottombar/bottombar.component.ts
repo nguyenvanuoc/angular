@@ -11,9 +11,5 @@ export class BottombarComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {
-    setTimeout(() => {
-      window.dispatchEvent(new Event('resize'));
-    }, 1000);
-  }
+  ngOnInit(): void {}
 }

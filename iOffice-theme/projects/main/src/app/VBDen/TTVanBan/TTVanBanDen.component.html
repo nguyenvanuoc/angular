@@ -1,254 +1,152 @@
 
-<h4 vnpt-typography class="mb-4 mb-md-6">THÔNG TIN VĂN BẢN ĐẾN</h4>
-
-<vnpt-tabset [vAnimated]="false">
-    <vnpt-tab vTitle="Thông tin văn bản">
+<vnpt-page>
+    <vnpt-layout class="mb-11">
+      <vnpt-main-content [title]="'THÔNG TIN VĂN BẢN ĐẾN'">
+        <vnpt-tabset [vAnimated]="false">
+            <vnpt-tab vTitle="Thông tin văn bản">
+                
+                <vnpt-form-item class="info-row">
+                    <div class="key w120">
+                        Trích yếu <span vnpt-typography vType="danger">*</span>
+                    </div>
+                    <div class="value">
+                        <textarea vnpt-input style="height: 64px;"></textarea>
+                    </div>
+                </vnpt-form-item>
+                <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+                    <div vnpt-col [vLg]="8" [vXs]="24">
+                        <vnpt-form-item class="info-row">
+                            <div class="key w120">
+                                Số ký hiệu  <span vnpt-typography vType="danger">*</span>
+                            </div>
+                            <div class="value">
+                                <input type="text" vnpt-input>
+                            </div>
+                        </vnpt-form-item>
+                    </div>
         
-        <vnpt-form-item class="info-row">
-            <div class="key w120">
-                Trích yếu <span vnpt-typography vType="danger">*</span>
-            </div>
-            <div class="value">
-                <textarea vnpt-input style="height: 64px;"></textarea>
-            </div>
-        </vnpt-form-item>
-        <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
-            <div vnpt-col [vLg]="8" [vXs]="24">
-                <vnpt-form-item class="info-row">
-                    <div class="key w120">
-                        Số ký hiệu  <span vnpt-typography vType="danger">*</span>
+                    <div vnpt-col [vLg]="8" [vXs]="24">
+                        <vnpt-form-item class="info-row">
+                            <div class="key w130">
+                                Đơn vị ban hành <span vnpt-typography vType="danger">*</span>
+                            </div>
+                            <div class="value">
+                                <input type="text" vnpt-input>
+                            </div>
+                        </vnpt-form-item>
                     </div>
-                    <div class="value">
-                        <input type="text" vnpt-input>
+                    <div vnpt-col [vLg]="8" [vXs]="24">
+                        <vnpt-form-item class="info-row">
+                            <div class="key w120">
+                                Ngày văn bản  <span vnpt-typography vType="danger">*</span>
+                            </div>
+                            <div class="value">
+                                <vnpt-date-picker [vSuffixIcon]="pickerSuffixIcon"></vnpt-date-picker>
+                                <ng-template #pickerSuffixIcon>
+                                    <i vnpt-icon vType="Calendar"></i>
+                                </ng-template>
+                            </div>
+                        </vnpt-form-item>
                     </div>
-                </vnpt-form-item>
-            </div>
-
-            <div vnpt-col [vLg]="8" [vXs]="24">
-                <vnpt-form-item class="info-row">
-                    <div class="key w130">
-                        Đơn vị ban hành <span vnpt-typography vType="danger">*</span>
+                    
+                </div>
+                <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+                    <div vnpt-col [vLg]="8" [vXs]="24">
+                        <vnpt-form-item class="info-row">
+                            <div class="key w120">
+                                Hình thức
+                            </div>
+                            <div class="value">
+                                <vnpt-select vPlaceHolder="Chọn hình thức">
+                                    <vnpt-option vValue="thuong" vLabel="Thường"></vnpt-option>
+                                    <vnpt-option vValue="khan" vLabel="Khẩn"></vnpt-option>
+                                </vnpt-select>
+                            </div>
+                        </vnpt-form-item>
                     </div>
-                    <div class="value">
-                        <input type="text" vnpt-input>
+                    <div vnpt-col [vLg]="8" [vXs]="24">
+                        <vnpt-form-item class="info-row">
+                            <div class="key w130">
+                                Độ khẩn
+                            </div>
+                            <div class="value">
+                                <vnpt-select vPlaceHolder="Chọn độ khẩn">
+                                    <vnpt-option vValue="thuong" vLabel="Thường"></vnpt-option>
+                                    <vnpt-option vValue="khan" vLabel="Khẩn"></vnpt-option>
+                                </vnpt-select>
+                            </div>
+                        </vnpt-form-item>
                     </div>
-                </vnpt-form-item>
-            </div>
-            <div vnpt-col [vLg]="8" [vXs]="24">
-                <vnpt-form-item class="info-row">
-                    <div class="key w120">
-                        Ngày văn bản  <span vnpt-typography vType="danger">*</span>
+                    <div vnpt-col [vLg]="8" [vXs]="24">
+                        <vnpt-form-item class="info-row">
+                            <div class="key w120">
+                                Hạn xử lý
+                            </div>
+                            <div class="value">
+                                <vnpt-date-picker [vSuffixIcon]="pickerSuffixIcon"></vnpt-date-picker>
+                                <ng-template #pickerSuffixIcon>
+                                    <i vnpt-icon vType="Calendar"></i>
+                                </ng-template>
+                            </div>
+                        </vnpt-form-item>
                     </div>
-                    <div class="value">
-                        <vnpt-date-picker [vSuffixIcon]="pickerSuffixIcon"></vnpt-date-picker>
-                        <ng-template #pickerSuffixIcon>
-                            <i vnpt-icon vType="Calendar"></i>
-                        </ng-template>
+                    
+                </div>
+                <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+                    <div vnpt-col [vLg]="8" [vXs]="24">
+                        <vnpt-form-item class="info-row">
+                            <div class="key w120">
+                                Số văn bản
+                            </div>
+                            <div class="value">
+                                <input type="text" vnpt-input>
+                            </div>
+                        </vnpt-form-item>
                     </div>
-                </vnpt-form-item>
-            </div>
-            
-        </div>
-        <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
-            <div vnpt-col [vLg]="8" [vXs]="24">
-                <vnpt-form-item class="info-row">
-                    <div class="key w120">
-                        Hình thức
+                    <div vnpt-col [vLg]="8" [vXs]="24">
+                        <vnpt-form-item class="info-row">
+                            <div class="key w130">
+                                Số đến <span vnpt-typography vType="danger">*</span>
+                            </div>
+                            <div class="value">
+                                <vnpt-input-group vAddOnAfterIcon="Edit">
+                                    <input type="text" vnpt-input/>
+                                </vnpt-input-group>
+                            </div>
+                        </vnpt-form-item>
                     </div>
-                    <div class="value">
-                        <vnpt-select vPlaceHolder="Chọn hình thức">
-                            <vnpt-option vValue="thuong" vLabel="Thường"></vnpt-option>
-                            <vnpt-option vValue="khan" vLabel="Khẩn"></vnpt-option>
-                        </vnpt-select>
+                    <div vnpt-col [vLg]="8" [vXs]="24">
+                        <vnpt-form-item class="info-row">
+                            <div class="key w120">
+                                Hạn xử lý
+                            </div>
+                            <div class="value">
+                                <vnpt-date-picker [vSuffixIcon]="pickerSuffixIcon"></vnpt-date-picker>
+                                <ng-template #pickerSuffixIcon>
+                                    <i vnpt-icon vType="Calendar"></i>
+                                </ng-template>
+                            </div>
+                        </vnpt-form-item>
                     </div>
-                </vnpt-form-item>
-            </div>
-            <div vnpt-col [vLg]="8" [vXs]="24">
-                <vnpt-form-item class="info-row">
-                    <div class="key w130">
-                        Độ khẩn
+                    
+                </div>
+                <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+                    <div vnpt-col [vLg]="8" [vXs]="24">
+                        <vnpt-form-item class="info-row">
+                            <div class="key w120">
+                                Phân loại
+                            </div>
+                            <div class="value">
+                                <vnpt-select vPlaceHolder="Chọn ">
+                                    <vnpt-option  vValue="1" vLabel="Loại 1">
+                                    </vnpt-option>
+                                    <vnpt-option  vValue="2" vLabel="Loại 2">
+                                    </vnpt-option>
+                                </vnpt-select>
+                            </div>
+                        </vnpt-form-item>
                     </div>
-                    <div class="value">
-                        <vnpt-select vPlaceHolder="Chọn độ khẩn">
-                            <vnpt-option vValue="thuong" vLabel="Thường"></vnpt-option>
-                            <vnpt-option vValue="khan" vLabel="Khẩn"></vnpt-option>
-                        </vnpt-select>
-                    </div>
-                </vnpt-form-item>
-            </div>
-            <div vnpt-col [vLg]="8" [vXs]="24">
-                <vnpt-form-item class="info-row">
-                    <div class="key w120">
-                        Hạn xử lý
-                    </div>
-                    <div class="value">
-                        <vnpt-date-picker [vSuffixIcon]="pickerSuffixIcon"></vnpt-date-picker>
-                        <ng-template #pickerSuffixIcon>
-                            <i vnpt-icon vType="Calendar"></i>
-                        </ng-template>
-                    </div>
-                </vnpt-form-item>
-            </div>
-            
-        </div>
-        <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
-            <div vnpt-col [vLg]="8" [vXs]="24">
-                <vnpt-form-item class="info-row">
-                    <div class="key w120">
-                        Số văn bản
-                    </div>
-                    <div class="value">
-                        <input type="text" vnpt-input>
-                    </div>
-                </vnpt-form-item>
-            </div>
-            <div vnpt-col [vLg]="8" [vXs]="24">
-                <vnpt-form-item class="info-row">
-                    <div class="key w130">
-                        Số đến <span vnpt-typography vType="danger">*</span>
-                    </div>
-                    <div class="value">
-                        <vnpt-input-group vAddOnAfterIcon="Edit">
-                            <input type="text" vnpt-input/>
-                        </vnpt-input-group>
-                    </div>
-                </vnpt-form-item>
-            </div>
-            <div vnpt-col [vLg]="8" [vXs]="24">
-                <vnpt-form-item class="info-row">
-                    <div class="key w120">
-                        Hạn xử lý
-                    </div>
-                    <div class="value">
-                        <vnpt-date-picker [vSuffixIcon]="pickerSuffixIcon"></vnpt-date-picker>
-                        <ng-template #pickerSuffixIcon>
-                            <i vnpt-icon vType="Calendar"></i>
-                        </ng-template>
-                    </div>
-                </vnpt-form-item>
-            </div>
-            
-        </div>
-        <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
-            <div vnpt-col [vLg]="8" [vXs]="24">
-                <vnpt-form-item class="info-row">
-                    <div class="key w120">
-                        Phân loại
-                    </div>
-                    <div class="value">
-                        <vnpt-select vPlaceHolder="Chọn ">
-                            <vnpt-option  vValue="1" vLabel="Loại 1">
-                            </vnpt-option>
-                            <vnpt-option  vValue="2" vLabel="Loại 2">
-                            </vnpt-option>
-                        </vnpt-select>
-                    </div>
-                </vnpt-form-item>
-            </div>
-            <div vnpt-col [vLg]="8" [vXs]="24">
-                <vnpt-form-item class="info-row">
-                    <div class="key w130">
-                        Số trang
-                    </div>
-                    <div class="value">
-                        <input type="text" vnpt-input />
-                    </div>
-                </vnpt-form-item>
-            </div>
-            <div vnpt-col [vLg]="8" [vXs]="24">
-                <vnpt-form-item class="info-row">
-                    <div class="key w120">
-                        Lĩnh vực
-                    </div>
-                    <div class="value">
-                        <vnpt-select vPlaceHolder="Chọn ">
-                            <vnpt-option vValue="1" vLabel="Loại 1">
-                            </vnpt-option>
-                            <vnpt-option vValue="2" vLabel="Loại 2">
-                            </vnpt-option>
-                        </vnpt-select>
-                    </div>
-                </vnpt-form-item>
-            </div>
-            
-        </div>
-        <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
-            <div vnpt-col [vLg]="8" [vXs]="24">
-                <vnpt-form-item class="info-row">
-                    <div class="key w120">
-                        Độ mật
-                    </div>
-                    <div class="value">
-                        <vnpt-select vPlaceHolder="Chọn ">
-                            <vnpt-option  vValue="1" vLabel="Loại 1">
-                            </vnpt-option>
-                            <vnpt-option  vValue="2" vLabel="Loại 2">
-                            </vnpt-option>
-                        </vnpt-select>
-                    </div>
-                </vnpt-form-item>
-            </div>
-            <div vnpt-col [vLg]="8" [vXs]="24">
-                <vnpt-form-item class="info-row">
-                    <div class="key w130">
-                        Loại văn bản
-                    </div>
-                    <div class="value">
-                        <vnpt-select vPlaceHolder="Chọn ">
-                            <vnpt-option vValue="1" vLabel="Loại 1">
-                            </vnpt-option>
-                            <vnpt-option vValue="2" vLabel="Loại 2">
-                            </vnpt-option>
-                        </vnpt-select>
-                    </div>
-                </vnpt-form-item>
-            </div>
-            <div vnpt-col [vLg]="8" [vXs]="24">
-                <vnpt-form-item class="info-row">
-                    <div class="key w120">
-                        Hình thức chuyển
-                    </div>
-                    <div class="value">
-                        <vnpt-select vPlaceHolder="Chọn ">
-                            <vnpt-option vValue="1" vLabel="Loại 1">
-                            </vnpt-option>
-                            <vnpt-option vValue="2" vLabel="Loại 2">
-                            </vnpt-option>
-                        </vnpt-select>
-                    </div>
-                </vnpt-form-item>
-            </div>
-            
-        </div>
-        <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
-            <div vnpt-col [vLg]="8" [vXs]="24">
-                <vnpt-form-item class="info-row">
-                    <div class="key w120">
-                        Lãnh đạo chỉ đạo
-                    </div>
-                    <div class="value">
-                        <vnpt-select vPlaceHolder="Chọn ">
-                            <vnpt-option  vValue="1" vLabel="Loại 1">
-                            </vnpt-option>
-                            <vnpt-option  vValue="2" vLabel="Loại 2">
-                            </vnpt-option>
-                        </vnpt-select>
-                    </div>
-                </vnpt-form-item>
-            </div>
-            <div vnpt-col [vLg]="8" [vXs]="24">
-                <vnpt-form-item class="info-row">
-                    <div class="key w130">
-                        Hình thức sao
-                    </div>
-                    <div class="value">
-                        <vnpt-select vPlaceHolder="Chọn ">
-                            <vnpt-option vValue="1" vLabel="Loại 1">
-                            </vnpt-option>
-                            <vnpt-option vValue="2" vLabel="Loại 2">
-                            </vnpt-option>
-                        </vnpt-select>
-                    </div>
+<<<<<<< HEAD
                 </vnpt-form-item>
             </div>
             
@@ -275,84 +173,84 @@
                         <span vnpt-button vSize="small" vType="Text" vGhost>
                             Tối đa 50MB/file
                         </span>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="list-files">
-                    <div class="item d-block mb-3" style="max-width: 100%;">
-                        <div class="file-inner oneui-row-middle oneui-row-space-between"  >
-                            <span class="icon d-block mr-3" vnpt-icon vSrc="../assets/icons/pdf.svg">
-                
-                            </span>
-                            <span vnpt-typography class="text-m" vEllipsis
-                                style="font-style:italic;">apple_core_pouch_pattern.pdf</span>
-                            <div class="acts">
-                                <a href="#" class="act pl-1 pr-1" vnpt-tooltip vTooltipTitle="Xóa"  vnpt-button vType="text">
-                                    <span vnpt-icon vType="Delete"></span>
-                                </a>
-                                <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
-                                    <span vnpt-icon vType="CloudDownload"></span>
-                                </a>
-                                <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
-                                    <span vnpt-icon vType="Edit"></span>
-                                </a>
-                                <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
-                                    <span vnpt-icon vType="USB"></span>
-                                </a>
-                                <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
-                                    <span vnpt-icon vSrc="/assets/icons/ca.svg"></span>
-                                </a>
-                                <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
-                                    <span vnpt-icon vType="CellPhone"></span>
-                                </a>
-                                <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
-                                    <span vnpt-icon vType="Admin"></span>
-                                </a>
-                                <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
-                                    <span vnpt-icon vType="View"></span>
-                                </a>
+=======
+                    <div vnpt-col [vLg]="8" [vXs]="24">
+                        <vnpt-form-item class="info-row">
+                            <div class="key w130">
+                                Số trang
                             </div>
-                            
-                        </div>
-                    </div>
-                    <div class="item d-block" style="max-width: 100%;">
-                        <div class="file-inner oneui-row-middle oneui-row-space-between"  >
-                            <span class="icon d-block mr-3" vnpt-icon vSrc="../assets/icons/pdf.svg">
-                
-                            </span>
-                            <span vnpt-typography class="text-m" vEllipsis
-                                style="font-style:italic;">apple_core_pouch_pattern.pdf</span>
-                            <div class="acts">
-                                <a href="#" class="act pl-1 pr-1" vnpt-tooltip vTooltipTitle="Xóa"  vnpt-button vType="text">
-                                    <span vnpt-icon vType="Delete"></span>
-                                </a>
-                                <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
-                                    <span vnpt-icon vType="CloudDownload"></span>
-                                </a>
-                                <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
-                                    <span vnpt-icon vType="Edit"></span>
-                                </a>
-                                <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
-                                    <span vnpt-icon vType="USB"></span>
-                                </a>
-                                <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
-                                    <span vnpt-icon vSrc="/assets/icons/ca.svg"></span>
-                                </a>
-                                <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
-                                    <span vnpt-icon vType="CellPhone"></span>
-                                </a>
-                                <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
-                                    <span vnpt-icon vType="Admin"></span>
-                                </a>
-                                <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
-                                    <span vnpt-icon vType="View"></span>
-                                </a>
+                            <div class="value">
+                                <input type="text" vnpt-input />
                             </div>
-                            
-                        </div>
+                        </vnpt-form-item>
+                    </div>
+                    <div vnpt-col [vLg]="8" [vXs]="24">
+                        <vnpt-form-item class="info-row">
+                            <div class="key w120">
+                                Lĩnh vực
+                            </div>
+                            <div class="value">
+                                <vnpt-select vPlaceHolder="Chọn ">
+                                    <vnpt-option vValue="1" vLabel="Loại 1">
+                                    </vnpt-option>
+                                    <vnpt-option vValue="2" vLabel="Loại 2">
+                                    </vnpt-option>
+                                </vnpt-select>
+                            </div>
+                        </vnpt-form-item>
+>>>>>>> c718ff0552170a8ec7bf06445e81237ce3c375c0
                     </div>
                     
                 </div>
+                <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+                    <div vnpt-col [vLg]="8" [vXs]="24">
+                        <vnpt-form-item class="info-row">
+                            <div class="key w120">
+                                Độ mật
+                            </div>
+                            <div class="value">
+                                <vnpt-select vPlaceHolder="Chọn ">
+                                    <vnpt-option  vValue="1" vLabel="Loại 1">
+                                    </vnpt-option>
+                                    <vnpt-option  vValue="2" vLabel="Loại 2">
+                                    </vnpt-option>
+                                </vnpt-select>
+                            </div>
+                        </vnpt-form-item>
+                    </div>
+                    <div vnpt-col [vLg]="8" [vXs]="24">
+                        <vnpt-form-item class="info-row">
+                            <div class="key w130">
+                                Loại văn bản
+                            </div>
+                            <div class="value">
+                                <vnpt-select vPlaceHolder="Chọn ">
+                                    <vnpt-option vValue="1" vLabel="Loại 1">
+                                    </vnpt-option>
+                                    <vnpt-option vValue="2" vLabel="Loại 2">
+                                    </vnpt-option>
+                                </vnpt-select>
+                            </div>
+                        </vnpt-form-item>
+                    </div>
+                    <div vnpt-col [vLg]="8" [vXs]="24">
+                        <vnpt-form-item class="info-row">
+                            <div class="key w120">
+                                Hình thức chuyển
+                            </div>
+                            <div class="value">
+                                <vnpt-select vPlaceHolder="Chọn ">
+                                    <vnpt-option vValue="1" vLabel="Loại 1">
+                                    </vnpt-option>
+                                    <vnpt-option vValue="2" vLabel="Loại 2">
+                                    </vnpt-option>
+                                </vnpt-select>
+                            </div>
+                        </vnpt-form-item>
+                    </div>
+                    
+                </div>
+<<<<<<< HEAD
             </div>
             <div vnpt-col [vLg]="12" [vXs]="24">
                 <vnpt-divider vText="Văn bản liên quan" class="mt-6 mb-4"></vnpt-divider>
@@ -369,603 +267,757 @@
                         <span vnpt-button vSize="small" vType="Text" vGhost>
                             Tối đa 50MB/file
                         </span>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="list-files">
-                    <div class="item d-block mb-3" style="max-width: 100%;">
-                        <div class="file-inner oneui-row-middle oneui-row-space-between"  >
-                            <span class="icon d-block mr-3" vnpt-icon vSrc="../assets/icons/pdf.svg">
-                
-                            </span>
-                            <span vnpt-typography class="text-m" vEllipsis
-                                style="font-style:italic;">apple_core_pouch_pattern.pdf</span>
-                            <div class="acts">
-                                <a href="#" class="act pl-1 pr-1" vnpt-tooltip vTooltipTitle="Xóa"  vnpt-button vType="text">
-                                    <span vnpt-icon vType="Delete"></span>
-                                </a>
-                                <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
-                                    <span vnpt-icon vType="CloudDownload"></span>
-                                </a>
-                                <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
-                                    <span vnpt-icon vType="Edit"></span>
-                                </a>
-                                <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
-                                    <span vnpt-icon vType="USB"></span>
-                                </a>
-                                <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
-                                    <span vnpt-icon vSrc="/assets/icons/ca.svg"></span>
-                                </a>
-                                <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
-                                    <span vnpt-icon vType="CellPhone"></span>
-                                </a>
-                                <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
-                                    <span vnpt-icon vType="Admin"></span>
-                                </a>
-                                <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
-                                    <span vnpt-icon vType="View"></span>
-                                </a>
+=======
+                <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+                    <div vnpt-col [vLg]="8" [vXs]="24">
+                        <vnpt-form-item class="info-row">
+                            <div class="key w120">
+                                Lãnh đạo chỉ đạo
                             </div>
-                            
-                        </div>
-                    </div>
-                    <div class="item d-block" style="max-width: 100%;">
-                        <div class="file-inner oneui-row-middle oneui-row-space-between"  >
-                            <span class="icon d-block mr-3" vnpt-icon vSrc="../assets/icons/pdf.svg">
-                
-                            </span>
-                            <span vnpt-typography class="text-m" vEllipsis
-                                style="font-style:italic;">apple_core_pouch_pattern.pdf</span>
-                            <div class="acts">
-                                <a href="#" class="act pl-1 pr-1" vnpt-tooltip vTooltipTitle="Xóa"  vnpt-button vType="text">
-                                    <span vnpt-icon vType="Delete"></span>
-                                </a>
-                                <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
-                                    <span vnpt-icon vType="CloudDownload"></span>
-                                </a>
-                                <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
-                                    <span vnpt-icon vType="Edit"></span>
-                                </a>
-                                <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
-                                    <span vnpt-icon vType="USB"></span>
-                                </a>
-                                <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
-                                    <span vnpt-icon vSrc="/assets/icons/ca.svg"></span>
-                                </a>
-                                <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
-                                    <span vnpt-icon vType="CellPhone"></span>
-                                </a>
-                                <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
-                                    <span vnpt-icon vType="Admin"></span>
-                                </a>
-                                <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
-                                    <span vnpt-icon vType="View"></span>
-                                </a>
+                            <div class="value">
+                                <vnpt-select vPlaceHolder="Chọn ">
+                                    <vnpt-option  vValue="1" vLabel="Loại 1">
+                                    </vnpt-option>
+                                    <vnpt-option  vValue="2" vLabel="Loại 2">
+                                    </vnpt-option>
+                                </vnpt-select>
                             </div>
-                            
-                        </div>
+                        </vnpt-form-item>
+                    </div>
+                    <div vnpt-col [vLg]="8" [vXs]="24">
+                        <vnpt-form-item class="info-row">
+                            <div class="key w130">
+                                Hình thức sao
+                            </div>
+                            <div class="value">
+                                <vnpt-select vPlaceHolder="Chọn ">
+                                    <vnpt-option vValue="1" vLabel="Loại 1">
+                                    </vnpt-option>
+                                    <vnpt-option vValue="2" vLabel="Loại 2">
+                                    </vnpt-option>
+                                </vnpt-select>
+                            </div>
+                        </vnpt-form-item>
+>>>>>>> c718ff0552170a8ec7bf06445e81237ce3c375c0
                     </div>
                     
+                    
                 </div>
-            </div>
-        </div>
-        <vnpt-divider vText="Nội dung xử lý (Mẫu nhập)" class="mt-6 mb-4"></vnpt-divider>
-        <textarea name="" vnpt-input style="height:64px;resize: vertical;" id="" cols="30" rows="10"></textarea>
+                <vnpt-checkbox-group [(ngModel)]="checkOptionsTypeVB">
+                </vnpt-checkbox-group>
+                <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+                    <div vnpt-col [vLg]="12" [vXs]="24">
+                        <vnpt-divider vText="File đính kèm" class="mt-6 mb-4"></vnpt-divider>
+                        <div class="group-buttons mb-4">
+                            <div class="float-left">
+                                <button vnpt-button class="mr-2 mb-2" vType="primary" [vSize]="'small'"  vGhost>
+                                    <span vnpt-icon vType="GenericScan"></span> Quét tài liệu
+                                </button>
+                                <button vnpt-button class="mr-2 mb-2" vType="primary" [vSize]="'small'" vGhost>
+                                    <span vnpt-icon vType="Upload"></span> Tải tập tin
+                                </button>
+                                <button vnpt-button class="mr-2 mb-2" vType="primary" [vSize]="'small'" vGhost>
+                                    <span vnpt-icon vType="Upload"></span> Nén và tải tất cả
+                                </button>
+                            </div>
+                            <div class="float-right mt-2">
+                                <span vnpt-button vType="Text" vGhost>
+                                    Tối đa 50MB/file
+                                </span>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="list-files">
+                            <div class="item d-block mb-3" style="max-width: 100%;">
+                                <div class="file-inner oneui-row-middle oneui-row-space-between"  >
+                                    <span class="icon d-block mr-3" vnpt-icon vSrc="../assets/icons/pdf.svg">
+                        
+                                    </span>
+                                    <span vnpt-typography class="text-m" vEllipsis
+                                        style="font-style:italic;">apple_core_pouch_pattern.pdf</span>
+                                    <div class="acts">
+                                        <a href="#" class="act pl-1 pr-1" vnpt-tooltip vTooltipTitle="Xóa"  vnpt-button vType="text">
+                                            <span vnpt-icon vType="Delete"></span>
+                                        </a>
+                                        <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
+                                            <span vnpt-icon vType="CloudDownload"></span>
+                                        </a>
+                                        <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
+                                            <span vnpt-icon vType="Edit"></span>
+                                        </a>
+                                        <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
+                                            <span vnpt-icon vType="USB"></span>
+                                        </a>
+                                        <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
+                                            <span vnpt-icon vSrc="/assets/icons/ca.svg"></span>
+                                        </a>
+                                        <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
+                                            <span vnpt-icon vType="CellPhone"></span>
+                                        </a>
+                                        <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
+                                            <span vnpt-icon vType="Admin"></span>
+                                        </a>
+                                        <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
+                                            <span vnpt-icon vType="View"></span>
+                                        </a>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="item d-block" style="max-width: 100%;">
+                                <div class="file-inner oneui-row-middle oneui-row-space-between"  >
+                                    <span class="icon d-block mr-3" vnpt-icon vSrc="../assets/icons/pdf.svg">
+                        
+                                    </span>
+                                    <span vnpt-typography class="text-m" vEllipsis
+                                        style="font-style:italic;">apple_core_pouch_pattern.pdf</span>
+                                    <div class="acts">
+                                        <a href="#" class="act pl-1 pr-1" vnpt-tooltip vTooltipTitle="Xóa"  vnpt-button vType="text">
+                                            <span vnpt-icon vType="Delete"></span>
+                                        </a>
+                                        <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
+                                            <span vnpt-icon vType="CloudDownload"></span>
+                                        </a>
+                                        <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
+                                            <span vnpt-icon vType="Edit"></span>
+                                        </a>
+                                        <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
+                                            <span vnpt-icon vType="USB"></span>
+                                        </a>
+                                        <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
+                                            <span vnpt-icon vSrc="/assets/icons/ca.svg"></span>
+                                        </a>
+                                        <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
+                                            <span vnpt-icon vType="CellPhone"></span>
+                                        </a>
+                                        <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
+                                            <span vnpt-icon vType="Admin"></span>
+                                        </a>
+                                        <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
+                                            <span vnpt-icon vType="View"></span>
+                                        </a>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div vnpt-col [vLg]="12" [vXs]="24">
+                        <vnpt-divider vText="Văn bản liên quan" class="mt-6 mb-4"></vnpt-divider>
+                        <div class="group-buttons mb-4">
+                            <div class="float-left">
+                                <button vnpt-button class="mr-2 mb-2" vType="primary" [vSize]="'small'" vGhost>
+                                    <span vnpt-icon vType="CircleAddition"></span>Thêm
+                                </button>
+                                <button vnpt-button class="mr-2 mb-2" vType="primary" [vSize]="'small'" vGhost>
+                                    <span vnpt-icon vType="Upload"></span> Tải tập tin
+                                </button>
+                            </div>
+                            <div class="float-right mt-2">
+                                <span vnpt-button vType="Text" vGhost>
+                                    Tối đa 50MB/file
+                                </span>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="list-files">
+                            <div class="item d-block mb-3" style="max-width: 100%;">
+                                <div class="file-inner oneui-row-middle oneui-row-space-between"  >
+                                    <span class="icon d-block mr-3" vnpt-icon vSrc="../assets/icons/pdf.svg">
+                        
+                                    </span>
+                                    <span vnpt-typography class="text-m" vEllipsis
+                                        style="font-style:italic;">apple_core_pouch_pattern.pdf</span>
+                                    <div class="acts">
+                                        <a href="#" class="act pl-1 pr-1" vnpt-tooltip vTooltipTitle="Xóa"  vnpt-button vType="text">
+                                            <span vnpt-icon vType="Delete"></span>
+                                        </a>
+                                        <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
+                                            <span vnpt-icon vType="CloudDownload"></span>
+                                        </a>
+                                        <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
+                                            <span vnpt-icon vType="Edit"></span>
+                                        </a>
+                                        <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
+                                            <span vnpt-icon vType="USB"></span>
+                                        </a>
+                                        <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
+                                            <span vnpt-icon vSrc="/assets/icons/ca.svg"></span>
+                                        </a>
+                                        <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
+                                            <span vnpt-icon vType="CellPhone"></span>
+                                        </a>
+                                        <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
+                                            <span vnpt-icon vType="Admin"></span>
+                                        </a>
+                                        <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
+                                            <span vnpt-icon vType="View"></span>
+                                        </a>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="item d-block" style="max-width: 100%;">
+                                <div class="file-inner oneui-row-middle oneui-row-space-between"  >
+                                    <span class="icon d-block mr-3" vnpt-icon vSrc="../assets/icons/pdf.svg">
+                        
+                                    </span>
+                                    <span vnpt-typography class="text-m" vEllipsis
+                                        style="font-style:italic;">apple_core_pouch_pattern.pdf</span>
+                                    <div class="acts">
+                                        <a href="#" class="act pl-1 pr-1" vnpt-tooltip vTooltipTitle="Xóa"  vnpt-button vType="text">
+                                            <span vnpt-icon vType="Delete"></span>
+                                        </a>
+                                        <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
+                                            <span vnpt-icon vType="CloudDownload"></span>
+                                        </a>
+                                        <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
+                                            <span vnpt-icon vType="Edit"></span>
+                                        </a>
+                                        <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
+                                            <span vnpt-icon vType="USB"></span>
+                                        </a>
+                                        <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
+                                            <span vnpt-icon vSrc="/assets/icons/ca.svg"></span>
+                                        </a>
+                                        <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
+                                            <span vnpt-icon vType="CellPhone"></span>
+                                        </a>
+                                        <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
+                                            <span vnpt-icon vType="Admin"></span>
+                                        </a>
+                                        <a href="#" class="act pl-1 pr-1" vnpt-button vType="text">
+                                            <span vnpt-icon vType="View"></span>
+                                        </a>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <vnpt-divider vText="Nội dung xử lý (Mẫu nhập)" class="mt-6 mb-4"></vnpt-divider>
+                <textarea name="" vnpt-input style="height:64px;resize: vertical;" id="" cols="30" rows="10"></textarea>
+                
+            </vnpt-tab>
+            <vnpt-tab vTitle="Thông tin nhận">
+                <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+                    <div vnpt-col [vLg]="12" [vXs]="24">
+                        <vnpt-form-item>
+                            <vnpt-input-group  [vPrefix]="prefixTemplateUser">
+                                <input type="text" vnpt-input placeholder="Nhập thông tin tìm kiếm" />
+                            </vnpt-input-group>
+                            <ng-template #prefixTemplateUser><i vnpt-icon vType="Search"></i></ng-template>
+                        </vnpt-form-item>
+                        <div class="table-content">
+                            <vnpt-table vBordered vTemplateMode>
         
-    </vnpt-tab>
-    <vnpt-tab vTitle="Thông tin nhận">
-        <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
-            <div vnpt-col [vLg]="12" [vXs]="24">
-                <vnpt-form-item>
-                    <vnpt-input-group  [vPrefix]="prefixTemplateUser">
-                        <input type="text" vnpt-input placeholder="Nhập thông tin tìm kiếm" />
-                    </vnpt-input-group>
-                    <ng-template #prefixTemplateUser><i vnpt-icon vType="Search"></i></ng-template>
-                </vnpt-form-item>
-                <div class="table-content">
-                    <vnpt-table vBordered vTemplateMode>
-
-                        <thead>
-                            <tr class="text-center">
-                                <th rowspan="2" class="bg-gray"></th>
-                                <th rowspan="2" class="bg-gray">Đơn vị</th>
-                                <th rowspan="2" class="bg-gray">Xử lý chính</th>
-                                <th colspan="2" class="bg-gray">Phối hợp xử lý</th>
-                                <th colspan="2" class="bg-gray">Phối hợp xử lý</th>
-                                <th rowspan="2" class="bg-gray">Gửi SMS</th>
-                            </tr>
-                            <tr class="text-center">
-                                <th class="bg-gray">Phòng ban</th>
-                                <th class="bg-gray">Cá nhân</th>
-                                <th class="bg-gray">Phòng ban</th>
-                                <th class="bg-gray">Cá nhân</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td [vShowExpand]="true" style="width: 20px;"></td>
-                                <td><a href="#">   UB MTTQ Việt Nam</a></td>
-                                <td class="text-center">
-                                    <label vnpt-radio vValue=""></label>
-                                </td>
-                                
-                                <td class="text-center">
-                                    <label vnpt-checkbox vValue=""></label>
-                                </td>
-                                
-                                <td class="text-center">
-                                    <label vnpt-checkbox vValue=""></label>
-                                </td>
-                                
-                                <td class="text-center">
-                                    <label vnpt-checkbox vValue=""></label>
-                                </td>
-                                <td class="text-center">
-                                    <label vnpt-checkbox vValue=""></label>
-                                </td>
-                                <td class="text-center">
-                                    <label vnpt-checkbox vValue=""></label>
-                                </td>
-                                
-                            </tr>
-                            <tr>
-                                <td style="width: 20px;"></td>
-                                <td><a href="#"> Lê Tuấn Anh</a></td>
-                                <td class="text-center">
-                                    <label vnpt-radio vValue=""></label>
-                                </td>
-                                
-                                <td class="text-center">
-                                    <label vnpt-checkbox vValue=""></label>
-                                </td>
-                                
-                                <td class="text-center">
-                                    <label vnpt-checkbox vValue=""></label>
-                                </td>
-                                
-                                <td class="text-center">
-                                    <label vnpt-checkbox vValue=""></label>
-                                </td>
-                                <td class="text-center">
-                                    <label vnpt-checkbox vValue=""></label>
-                                </td>
-                                <td class="text-center">
-                                    <label vnpt-checkbox vValue=""></label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td><a href="#"> Lê Tuấn Anh</a></td>
-                                <td class="text-center">
-                                    <label vnpt-radio vValue=""></label>
-                                </td>
-                                
-                                <td class="text-center">
-                                    <label vnpt-checkbox vValue=""></label>
-                                </td>
-                                
-                                <td class="text-center">
-                                    <label vnpt-checkbox vValue=""></label>
-                                </td>
-                                
-                                <td class="text-center">
-                                    <label vnpt-checkbox vValue=""></label>
-                                </td>
-                                <td class="text-center">
-                                    <label vnpt-checkbox vValue=""></label>
-                                </td>
-                                <td class="text-center">
-                                    <label vnpt-checkbox vValue=""></label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td><a href="#"> Lê Tuấn Anh</a></td>
-                                <td class="text-center">
-                                    <label vnpt-radio vValue=""></label>
-                                </td>
-                                
-                                <td class="text-center">
-                                    <label vnpt-checkbox vValue=""></label>
-                                </td>
-                                
-                                <td class="text-center">
-                                    <label vnpt-checkbox vValue=""></label>
-                                </td>
-                                
-                                <td class="text-center">
-                                    <label vnpt-checkbox vValue=""></label>
-                                </td>
-                                <td class="text-center">
-                                    <label vnpt-checkbox vValue=""></label>
-                                </td>
-                                <td class="text-center">
-                                    <label vnpt-checkbox vValue=""></label>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </vnpt-table>
-                </div>
-                <vnpt-divider vText="Đơn vị thông tin nội bộ" class="mt-6 mb-4"></vnpt-divider>
-                <vnpt-form-item>
-                    <vnpt-select vPlaceHolder="Tìm kiếm để chọn dữ liệu">
-                        <vnpt-option vLabel=""></vnpt-option>
-                    </vnpt-select>
-                </vnpt-form-item>
-                <div class="table-content">
-                    <vnpt-table vBordered vTemplateMode>
-                    
-                        <thead >
+                                <thead>
+                                    <tr class="text-center">
+                                        <th rowspan="2" class="bg-gray"></th>
+                                        <th rowspan="2" class="bg-gray">Đơn vị</th>
+                                        <th rowspan="2" class="bg-gray">Xử lý chính</th>
+                                        <th colspan="2" class="bg-gray">Phối hợp xử lý</th>
+                                        <th colspan="2" class="bg-gray">Phối hợp xử lý</th>
+                                        <th rowspan="2" class="bg-gray">Gửi SMS</th>
+                                    </tr>
+                                    <tr class="text-center">
+                                        <th class="bg-gray">Phòng ban</th>
+                                        <th class="bg-gray">Cá nhân</th>
+                                        <th class="bg-gray">Phòng ban</th>
+                                        <th class="bg-gray">Cá nhân</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td [vShowExpand]="true" style="width: 20px;"></td>
+                                        <td><a href="#">   UB MTTQ Việt Nam</a></td>
+                                        <td class="text-center">
+                                            <label vnpt-radio vValue=""></label>
+                                        </td>
+                                        
+                                        <td class="text-center">
+                                            <label vnpt-checkbox vValue=""></label>
+                                        </td>
+                                        
+                                        <td class="text-center">
+                                            <label vnpt-checkbox vValue=""></label>
+                                        </td>
+                                        
+                                        <td class="text-center">
+                                            <label vnpt-checkbox vValue=""></label>
+                                        </td>
+                                        <td class="text-center">
+                                            <label vnpt-checkbox vValue=""></label>
+                                        </td>
+                                        <td class="text-center">
+                                            <label vnpt-checkbox vValue=""></label>
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 20px;"></td>
+                                        <td><a href="#"> Lê Tuấn Anh</a></td>
+                                        <td class="text-center">
+                                            <label vnpt-radio vValue=""></label>
+                                        </td>
+                                        
+                                        <td class="text-center">
+                                            <label vnpt-checkbox vValue=""></label>
+                                        </td>
+                                        
+                                        <td class="text-center">
+                                            <label vnpt-checkbox vValue=""></label>
+                                        </td>
+                                        
+                                        <td class="text-center">
+                                            <label vnpt-checkbox vValue=""></label>
+                                        </td>
+                                        <td class="text-center">
+                                            <label vnpt-checkbox vValue=""></label>
+                                        </td>
+                                        <td class="text-center">
+                                            <label vnpt-checkbox vValue=""></label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td><a href="#"> Lê Tuấn Anh</a></td>
+                                        <td class="text-center">
+                                            <label vnpt-radio vValue=""></label>
+                                        </td>
+                                        
+                                        <td class="text-center">
+                                            <label vnpt-checkbox vValue=""></label>
+                                        </td>
+                                        
+                                        <td class="text-center">
+                                            <label vnpt-checkbox vValue=""></label>
+                                        </td>
+                                        
+                                        <td class="text-center">
+                                            <label vnpt-checkbox vValue=""></label>
+                                        </td>
+                                        <td class="text-center">
+                                            <label vnpt-checkbox vValue=""></label>
+                                        </td>
+                                        <td class="text-center">
+                                            <label vnpt-checkbox vValue=""></label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td><a href="#"> Lê Tuấn Anh</a></td>
+                                        <td class="text-center">
+                                            <label vnpt-radio vValue=""></label>
+                                        </td>
+                                        
+                                        <td class="text-center">
+                                            <label vnpt-checkbox vValue=""></label>
+                                        </td>
+                                        
+                                        <td class="text-center">
+                                            <label vnpt-checkbox vValue=""></label>
+                                        </td>
+                                        
+                                        <td class="text-center">
+                                            <label vnpt-checkbox vValue=""></label>
+                                        </td>
+                                        <td class="text-center">
+                                            <label vnpt-checkbox vValue=""></label>
+                                        </td>
+                                        <td class="text-center">
+                                            <label vnpt-checkbox vValue=""></label>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </vnpt-table>
+                        </div>
+                        <vnpt-divider vText="Đơn vị thông tin nội bộ" class="mt-6 mb-4"></vnpt-divider>
+                        <vnpt-form-item>
+                            <vnpt-select vPlaceHolder="Tìm kiếm để chọn dữ liệu">
+                                <vnpt-option vLabel=""></vnpt-option>
+                            </vnpt-select>
+                        </vnpt-form-item>
+                        <div class="table-content">
+                            <vnpt-table vBordered vTemplateMode>
                             
-                            <tr>
-                                <th  class="bg-gray"></th>
-                                <th class="bg-gray">Đơn vị</th>
-                                <th class="text-center bg-gray">XLC</th>
-                                <th class="text-center bg-gray">PH</th>
-                                <th class="text-center bg-gray">PH</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td [vShowExpand]="true" style="width: 20px;"></td>
-                                <td><a href="#"> UB MTTQ Việt Nam</a></td>
-                                <td class="text-center">
-                                    <label vnpt-radio vValue=""></label>
-                                </td>
-                    
-                                <td class="text-center">
-                                    <label vnpt-checkbox vValue=""></label>
-                                </td>
-                    
-                                <td class="text-center">
-                                    <label vnpt-checkbox vValue=""></label>
-                                </td>
-                    
-                            </tr>
-                            <tr>
-                                <td style="width: 20px;"></td>
-                                <td><a href="#"> UB MTTQ Việt Nam</a></td>
-                                <td class="text-center">
-                                    <label vnpt-radio vValue=""></label>
-                                </td>
-                    
-                                <td class="text-center">
-                                    <label vnpt-checkbox vValue=""></label>
-                                </td>
-                    
-                                <td class="text-center">
-                                    <label vnpt-checkbox vValue=""></label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="width: 20px;"></td>
-                                <td><a href="#"> UB MTTQ Việt Nam</a></td>
-                                <td class="text-center">
-                                    <label vnpt-radio vValue=""></label>
-                                </td>
-                    
-                                <td class="text-center">
-                                    <label vnpt-checkbox vValue=""></label>
-                                </td>
-                    
-                                <td class="text-center">
-                                    <label vnpt-checkbox vValue=""></label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="width: 20px;"></td>
-                                <td><a href="#"> UB MTTQ Việt Nam</a></td>
-                                <td class="text-center">
-                                    <label vnpt-radio vValue=""></label>
-                                </td>
-                    
-                                <td class="text-center">
-                                    <label vnpt-checkbox vValue=""></label>
-                                </td>
-                    
-                                <td class="text-center">
-                                    <label vnpt-checkbox vValue=""></label>
-                                </td>
-                            </tr>
+                                <thead >
+                                    
+                                    <tr>
+                                        <th  class="bg-gray"></th>
+                                        <th class="bg-gray">Đơn vị</th>
+                                        <th class="text-center bg-gray">XLC</th>
+                                        <th class="text-center bg-gray">PH</th>
+                                        <th class="text-center bg-gray">PH</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td [vShowExpand]="true" style="width: 20px;"></td>
+                                        <td><a href="#"> UB MTTQ Việt Nam</a></td>
+                                        <td class="text-center">
+                                            <label vnpt-radio vValue=""></label>
+                                        </td>
                             
-                        </tbody>
-                    </vnpt-table>
-                </div>
-                <vnpt-divider vText="Đơn vị liên thông ngoài" class="mt-6 mb-4"></vnpt-divider>
-                <vnpt-form-item>
-                    <vnpt-select vPlaceHolder="Tìm kiếm để chọn dữ liệu">
-                        <vnpt-option vLabel=""></vnpt-option>
-                    </vnpt-select>
-                </vnpt-form-item>
-                <div class="table-content">
-                    <vnpt-table vBordered vTemplateMode>
-                    
-                        <thead >
+                                        <td class="text-center">
+                                            <label vnpt-checkbox vValue=""></label>
+                                        </td>
                             
-                            <tr>
-                                <th  class="bg-gray"></th>
-                                <th class="bg-gray">Đơn vị</th>
-                                <th class="text-center bg-gray">Xử lý</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td [vShowExpand]="true" style="width: 20px;"></td>
-                                <td><a href="#"> UB MTTQ Việt Nam</a></td>
-                                
-                                <td class="text-center">
-                                    <label vnpt-checkbox vValue=""></label>
-                                </td>
-                    
-                            </tr>
-                            <tr>
-                                <td style="width: 20px;"></td>
-                                <td><a href="#"> UB MTTQ Việt Nam</a></td>
-                                
-                    
-                                <td class="text-center">
-                                    <label vnpt-checkbox vValue=""></label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="width: 20px;"></td>
-                                <td><a href="#"> UB MTTQ Việt Nam</a></td>
-                                <td class="text-center">
-                                    <label vnpt-checkbox vValue=""></label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="width: 20px;"></td>
-                                <td><a href="#"> UB MTTQ Việt Nam</a></td>
-                                <td class="text-center">
-                                    <label vnpt-checkbox vValue=""></label>
-                                </td>
-                            </tr>
+                                        <td class="text-center">
+                                            <label vnpt-checkbox vValue=""></label>
+                                        </td>
                             
-                        </tbody>
-                    </vnpt-table>
-                </div>
-                <vnpt-divider vText="Đơn vị nhận qua mail công vụ" class="mt-6 mb-4"></vnpt-divider>
-                <vnpt-form-item>
-                    <vnpt-input-group vPrefixIcon="Search" >
-                        <input type="text" vnpt-input placeholder="Nhập thông tin tìm kiếm" />
-                    </vnpt-input-group>
-                </vnpt-form-item>
-                <vnpt-divider vText="Đơn vị ngoài" class="mt-6 mb-4"></vnpt-divider>
-                <vnpt-form-item>
-                    <div class="box-top-search mb-0">
-                        <vnpt-input-group vPrefixIcon="Search" class="input-search">
-                            <input vnpt-input placeholder="Nhập thông tin tìm kiếm" />
-                        </vnpt-input-group>
-                        <button vnpt-button vType="primary" class="search-btn">Thêm</button>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 20px;"></td>
+                                        <td><a href="#"> UB MTTQ Việt Nam</a></td>
+                                        <td class="text-center">
+                                            <label vnpt-radio vValue=""></label>
+                                        </td>
+                            
+                                        <td class="text-center">
+                                            <label vnpt-checkbox vValue=""></label>
+                                        </td>
+                            
+                                        <td class="text-center">
+                                            <label vnpt-checkbox vValue=""></label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 20px;"></td>
+                                        <td><a href="#"> UB MTTQ Việt Nam</a></td>
+                                        <td class="text-center">
+                                            <label vnpt-radio vValue=""></label>
+                                        </td>
+                            
+                                        <td class="text-center">
+                                            <label vnpt-checkbox vValue=""></label>
+                                        </td>
+                            
+                                        <td class="text-center">
+                                            <label vnpt-checkbox vValue=""></label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 20px;"></td>
+                                        <td><a href="#"> UB MTTQ Việt Nam</a></td>
+                                        <td class="text-center">
+                                            <label vnpt-radio vValue=""></label>
+                                        </td>
+                            
+                                        <td class="text-center">
+                                            <label vnpt-checkbox vValue=""></label>
+                                        </td>
+                            
+                                        <td class="text-center">
+                                            <label vnpt-checkbox vValue=""></label>
+                                        </td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </vnpt-table>
+                        </div>
+                        <vnpt-divider vText="Đơn vị liên thông ngoài" class="mt-6 mb-4"></vnpt-divider>
+                        <vnpt-form-item>
+                            <vnpt-select vPlaceHolder="Tìm kiếm để chọn dữ liệu">
+                                <vnpt-option vLabel=""></vnpt-option>
+                            </vnpt-select>
+                        </vnpt-form-item>
+                        <div class="table-content">
+                            <vnpt-table vBordered vTemplateMode>
+                            
+                                <thead >
+                                    
+                                    <tr>
+                                        <th  class="bg-gray"></th>
+                                        <th class="bg-gray">Đơn vị</th>
+                                        <th class="text-center bg-gray">Xử lý</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td [vShowExpand]="true" style="width: 20px;"></td>
+                                        <td><a href="#"> UB MTTQ Việt Nam</a></td>
+                                        
+                                        <td class="text-center">
+                                            <label vnpt-checkbox vValue=""></label>
+                                        </td>
+                            
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 20px;"></td>
+                                        <td><a href="#"> UB MTTQ Việt Nam</a></td>
+                                        
+                            
+                                        <td class="text-center">
+                                            <label vnpt-checkbox vValue=""></label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 20px;"></td>
+                                        <td><a href="#"> UB MTTQ Việt Nam</a></td>
+                                        <td class="text-center">
+                                            <label vnpt-checkbox vValue=""></label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 20px;"></td>
+                                        <td><a href="#"> UB MTTQ Việt Nam</a></td>
+                                        <td class="text-center">
+                                            <label vnpt-checkbox vValue=""></label>
+                                        </td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </vnpt-table>
+                        </div>
+                        <vnpt-divider vText="Đơn vị nhận qua mail công vụ" class="mt-6 mb-4"></vnpt-divider>
+                        <vnpt-form-item>
+                            <vnpt-input-group vPrefixIcon="Search" >
+                                <input type="text" vnpt-input placeholder="Nhập thông tin tìm kiếm" />
+                            </vnpt-input-group>
+                        </vnpt-form-item>
+                        <vnpt-divider vText="Đơn vị ngoài" class="mt-6 mb-4"></vnpt-divider>
+                        <vnpt-form-item>
+                            <div class="box-top-search mb-0">
+                                <vnpt-input-group vPrefixIcon="Search" class="input-search">
+                                    <input vnpt-input placeholder="Nhập thông tin tìm kiếm" />
+                                </vnpt-input-group>
+                                <button vnpt-button vType="primary" class="search-btn">Thêm</button>
+                            </div>
+                        </vnpt-form-item>
+                        <vnpt-form-item>
+                            <vnpt-select vPlaceHolder="Tìm kiếm để chọn dữ liệu">
+                                <vnpt-option vLabel=""></vnpt-option>
+                            </vnpt-select>
+                        </vnpt-form-item>
+                        <div class="table-content">
+                            <vnpt-table vBordered vTemplateMode>
+                        
+                                <thead>
+                        
+                                    <tr>
+                                        <th class="bg-gray">Đơn vị</th>
+                                        <th  class="bg-gray"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><a href="#"> UB MTTQ Việt Nam</a></td>
+                        
+                                        <td class="text-center">
+                                            <label vnpt-checkbox vValue=""></label>
+                                        </td>
+                        
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#"> UB MTTQ Việt Nam</a></td>
+                        
+                        
+                                        <td class="text-center">
+                                            <label vnpt-checkbox vValue=""></label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#"> UB MTTQ Việt Nam</a></td>
+                                        <td class="text-center">
+                                            <label vnpt-checkbox vValue=""></label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#"> UB MTTQ Việt Nam</a></td>
+                                        <td class="text-center">
+                                            <label vnpt-checkbox vValue=""></label>
+                                        </td>
+                                    </tr>
+                        
+                                </tbody>
+                            </vnpt-table>
+                        </div>
                     </div>
-                </vnpt-form-item>
-                <vnpt-form-item>
-                    <vnpt-select vPlaceHolder="Tìm kiếm để chọn dữ liệu">
-                        <vnpt-option vLabel=""></vnpt-option>
-                    </vnpt-select>
-                </vnpt-form-item>
-                <div class="table-content">
-                    <vnpt-table vBordered vTemplateMode>
-                
-                        <thead>
-                
-                            <tr>
-                                <th class="bg-gray">Đơn vị</th>
-                                <th  class="bg-gray"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><a href="#"> UB MTTQ Việt Nam</a></td>
-                
-                                <td class="text-center">
-                                    <label vnpt-checkbox vValue=""></label>
-                                </td>
-                
-                            </tr>
-                            <tr>
-                                <td><a href="#"> UB MTTQ Việt Nam</a></td>
-                
-                
-                                <td class="text-center">
-                                    <label vnpt-checkbox vValue=""></label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><a href="#"> UB MTTQ Việt Nam</a></td>
-                                <td class="text-center">
-                                    <label vnpt-checkbox vValue=""></label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><a href="#"> UB MTTQ Việt Nam</a></td>
-                                <td class="text-center">
-                                    <label vnpt-checkbox vValue=""></label>
-                                </td>
-                            </tr>
-                
-                        </tbody>
-                    </vnpt-table>
-                </div>
-            </div>
-            <div vnpt-col [vLg]="12" [vXs]="24">
-                <div class="top mb-4">Tổng hợp ý kiến xử lý <a href="#" class="font-weight-bold" vnpt-button vType="link"> Ẩn thông tin</a> <span vnpt-icon vType="Up" vColor="primary"></span></div>
-                <div class="top mb-4">
-                    <div class="float-left font-weight-bold mt-2">
-                        Danh sách nhận
+                    <div vnpt-col [vLg]="12" [vXs]="24">
+                        <div class="top mb-4">Tổng hợp ý kiến xử lý <a href="#" class="font-weight-bold" vnpt-button vType="link"> Ẩn thông tin</a> <span vnpt-icon vType="Up" vColor="primary"></span></div>
+                        <div class="top mb-4">
+                            <div class="float-left font-weight-bold mt-2">
+                                Danh sách nhận
+                            </div>
+                            <div class="float-right">
+                                <button class="btn mr-1 mb-1" vnpt-button vType="primary">Chọn đơn vị nhận theo nhóm</button>
+                                <button class="btn mb-1" vnpt-button vType="primary">Chọn người nhận theo nhóm</button>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="table-content">
+                            <vnpt-table vBordered vTemplateMode>
+                        
+                                <thead>
+                                    
+                                    <tr>
+                                        <th class="bg-gray">Tên cá nhân/ Đơn vị</th>
+                                        <th class="bg-gray">Vai trò</th>
+                                        <th class="bg-gray text-center"  style="width: 20px;">Xóa</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><a href="#"> UB MTTQ Việt Nam</a></td>
+                                        <td>
+                                            <vnpt-form-item class="mb-0">
+                                                <vnpt-select ngModel="xuly" vBorderless>
+                                                    <vnpt-option vValue="xuly" vLabel="Xử lý"></vnpt-option>
+                                                    <vnpt-option vValue="xemdebiet" vLabel="Xem để biết"></vnpt-option>
+                                                    <vnpt-option vValue="phoihopxuly" vLabel="Phối hợp xử lý"></vnpt-option>
+                                                </vnpt-select>
+                                            </vnpt-form-item>
+                                        </td>
+                                        <td class="text-center">
+                                            <a href="#" vnpt-button vType="text"  class="act" vDanger>
+                                                <i vnpt-icon vType="Delete"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#"> UB MTTQ Việt Nam</a></td>
+                                        <td>
+                                            <vnpt-form-item class="mb-0">
+                                                <vnpt-select ngModel="xuly" vBorderless>
+                                                    <vnpt-option vValue="xuly" vLabel="Xử lý"></vnpt-option>
+                                                    <vnpt-option vValue="xemdebiet" vLabel="Xem để biết"></vnpt-option>
+                                                    <vnpt-option vValue="phoihopxuly" vLabel="Phối hợp xử lý"></vnpt-option>
+                                                </vnpt-select>
+                                            </vnpt-form-item>
+                                        </td>
+                                        <td class="text-center">
+                                            <a href="#" vnpt-button vType="text"  class="act">
+                                                <i vnpt-icon vType="Delete"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#"> UB MTTQ Việt Nam</a></td>
+                                        <td>
+                                            <vnpt-form-item class="mb-0">
+                                                <vnpt-select ngModel="xuly" vBorderless>
+                                                    <vnpt-option vValue="xuly" vLabel="Xử lý"></vnpt-option>
+                                                    <vnpt-option vValue="xemdebiet" vLabel="Xem để biết"></vnpt-option>
+                                                    <vnpt-option vValue="phoihopxuly" vLabel="Phối hợp xử lý"></vnpt-option>
+                                                </vnpt-select>
+                                            </vnpt-form-item>
+                                        </td>
+                                        <td class="text-center">
+                                            <a href="#" vnpt-button vType="text"  class="act">
+                                                <i vnpt-icon vType="Delete"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#"> UB MTTQ Việt Nam</a></td>
+                                        <td>
+                                            <vnpt-form-item class="mb-0">
+                                                <vnpt-select ngModel="xuly" vBorderless>
+                                                    <vnpt-option vValue="xuly" vLabel="Xử lý"></vnpt-option>
+                                                    <vnpt-option vValue="xemdebiet" vLabel="Xem để biết"></vnpt-option>
+                                                    <vnpt-option vValue="phoihopxuly" vLabel="Phối hợp xử lý"></vnpt-option>
+                                                </vnpt-select>
+                                            </vnpt-form-item>
+                                        </td>
+                                        <td class="text-center">
+                                            <a href="#" vnpt-button vType="text"  class="act">
+                                                <i vnpt-icon vType="Delete"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#"> UB MTTQ Việt Nam</a></td>
+                                        <td>
+                                            <vnpt-form-item class="mb-0">
+                                                <vnpt-select ngModel="xuly" vBorderless>
+                                                    <vnpt-option vValue="xuly" vLabel="Xử lý"></vnpt-option>
+                                                    <vnpt-option vValue="xemdebiet" vLabel="Xem để biết"></vnpt-option>
+                                                    <vnpt-option vValue="phoihopxuly" vLabel="Phối hợp xử lý"></vnpt-option>
+                                                </vnpt-select>
+                                            </vnpt-form-item>
+                                        </td>
+                                        <td class="text-center">
+                                            <a href="#" vnpt-button vType="text"  class="act">
+                                                <i vnpt-icon vType="Delete"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </vnpt-table>
+                        </div>
+                        <vnpt-divider vText="Đơn vị ngoài" class="mt-6 mb-4"></vnpt-divider>
+                        <div class="table-content">
+                            <vnpt-table vBordered vTemplateMode>
+                        
+                                <thead>
+                        
+                                    <tr>
+                                        <th class="bg-gray">Tên đơn vị</th>
+                                        <th class="bg-gray text-center" style="width: 20px;">Xóa</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><a href="#"> UB MTTQ Việt Nam</a></td>
+                                        
+                                        <td class="text-center">
+                                            <a href="#" vnpt-button vType="text" class="act" vDanger>
+                                                <i vnpt-icon vType="Delete"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#"> UB MTTQ Việt Nam</a></td>
+                                        
+                                        <td class="text-center">
+                                            <a href="#" vnpt-button vType="text" class="act">
+                                                <i vnpt-icon vType="Delete"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#"> UB MTTQ Việt Nam</a></td>
+                                       
+                                        <td class="text-center">
+                                            <a href="#" vnpt-button vType="text" class="act">
+                                                <i vnpt-icon vType="Delete"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#"> UB MTTQ Việt Nam</a></td>
+                                        <td class="text-center">
+                                            <a href="#" vnpt-button vType="text" class="act">
+                                                <i vnpt-icon vType="Delete"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#"> UB MTTQ Việt Nam</a></td>
+                                        <td class="text-center">
+                                            <a href="#" vnpt-button vType="text" class="act">
+                                                <i vnpt-icon vType="Delete"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </vnpt-table>
+                        </div>
                     </div>
-                    <div class="float-right">
-                        <button class="btn mr-1 mb-1" vnpt-button vType="primary">Chọn đơn vị nhận theo nhóm</button>
-                        <button class="btn mb-1" vnpt-button vType="primary">Chọn người nhận theo nhóm</button>
-                    </div>
-                    <div class="clearfix"></div>
                 </div>
-                <div class="table-content">
-                    <vnpt-table vBordered vTemplateMode>
-                
-                        <thead>
-                            
-                            <tr>
-                                <th class="bg-gray">Tên cá nhân/ Đơn vị</th>
-                                <th class="bg-gray">Vai trò</th>
-                                <th class="bg-gray text-center"  style="width: 20px;">Xóa</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><a href="#"> UB MTTQ Việt Nam</a></td>
-                                <td>
-                                    <vnpt-form-item class="mb-0">
-                                        <vnpt-select ngModel="xuly" vBorderless>
-                                            <vnpt-option vValue="xuly" vLabel="Xử lý"></vnpt-option>
-                                            <vnpt-option vValue="xemdebiet" vLabel="Xem để biết"></vnpt-option>
-                                            <vnpt-option vValue="phoihopxuly" vLabel="Phối hợp xử lý"></vnpt-option>
-                                        </vnpt-select>
-                                    </vnpt-form-item>
-                                </td>
-                                <td class="text-center">
-                                    <a href="#" vnpt-button vType="text"  class="act" vDanger>
-                                        <i vnpt-icon vType="Delete"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><a href="#"> UB MTTQ Việt Nam</a></td>
-                                <td>
-                                    <vnpt-form-item class="mb-0">
-                                        <vnpt-select ngModel="xuly" vBorderless>
-                                            <vnpt-option vValue="xuly" vLabel="Xử lý"></vnpt-option>
-                                            <vnpt-option vValue="xemdebiet" vLabel="Xem để biết"></vnpt-option>
-                                            <vnpt-option vValue="phoihopxuly" vLabel="Phối hợp xử lý"></vnpt-option>
-                                        </vnpt-select>
-                                    </vnpt-form-item>
-                                </td>
-                                <td class="text-center">
-                                    <a href="#" vnpt-button vType="text"  class="act">
-                                        <i vnpt-icon vType="Delete"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><a href="#"> UB MTTQ Việt Nam</a></td>
-                                <td>
-                                    <vnpt-form-item class="mb-0">
-                                        <vnpt-select ngModel="xuly" vBorderless>
-                                            <vnpt-option vValue="xuly" vLabel="Xử lý"></vnpt-option>
-                                            <vnpt-option vValue="xemdebiet" vLabel="Xem để biết"></vnpt-option>
-                                            <vnpt-option vValue="phoihopxuly" vLabel="Phối hợp xử lý"></vnpt-option>
-                                        </vnpt-select>
-                                    </vnpt-form-item>
-                                </td>
-                                <td class="text-center">
-                                    <a href="#" vnpt-button vType="text"  class="act">
-                                        <i vnpt-icon vType="Delete"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><a href="#"> UB MTTQ Việt Nam</a></td>
-                                <td>
-                                    <vnpt-form-item class="mb-0">
-                                        <vnpt-select ngModel="xuly" vBorderless>
-                                            <vnpt-option vValue="xuly" vLabel="Xử lý"></vnpt-option>
-                                            <vnpt-option vValue="xemdebiet" vLabel="Xem để biết"></vnpt-option>
-                                            <vnpt-option vValue="phoihopxuly" vLabel="Phối hợp xử lý"></vnpt-option>
-                                        </vnpt-select>
-                                    </vnpt-form-item>
-                                </td>
-                                <td class="text-center">
-                                    <a href="#" vnpt-button vType="text"  class="act">
-                                        <i vnpt-icon vType="Delete"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><a href="#"> UB MTTQ Việt Nam</a></td>
-                                <td>
-                                    <vnpt-form-item class="mb-0">
-                                        <vnpt-select ngModel="xuly" vBorderless>
-                                            <vnpt-option vValue="xuly" vLabel="Xử lý"></vnpt-option>
-                                            <vnpt-option vValue="xemdebiet" vLabel="Xem để biết"></vnpt-option>
-                                            <vnpt-option vValue="phoihopxuly" vLabel="Phối hợp xử lý"></vnpt-option>
-                                        </vnpt-select>
-                                    </vnpt-form-item>
-                                </td>
-                                <td class="text-center">
-                                    <a href="#" vnpt-button vType="text"  class="act">
-                                        <i vnpt-icon vType="Delete"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </vnpt-table>
-                </div>
-                <vnpt-divider vText="Đơn vị ngoài" class="mt-6 mb-4"></vnpt-divider>
-                <div class="table-content">
-                    <vnpt-table vBordered vTemplateMode>
-                
-                        <thead>
-                
-                            <tr>
-                                <th class="bg-gray">Tên đơn vị</th>
-                                <th class="bg-gray text-center" style="width: 20px;">Xóa</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><a href="#"> UB MTTQ Việt Nam</a></td>
-                                
-                                <td class="text-center">
-                                    <a href="#" vnpt-button vType="text" class="act" vDanger>
-                                        <i vnpt-icon vType="Delete"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><a href="#"> UB MTTQ Việt Nam</a></td>
-                                
-                                <td class="text-center">
-                                    <a href="#" vnpt-button vType="text" class="act">
-                                        <i vnpt-icon vType="Delete"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><a href="#"> UB MTTQ Việt Nam</a></td>
-                               
-                                <td class="text-center">
-                                    <a href="#" vnpt-button vType="text" class="act">
-                                        <i vnpt-icon vType="Delete"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><a href="#"> UB MTTQ Việt Nam</a></td>
-                                <td class="text-center">
-                                    <a href="#" vnpt-button vType="text" class="act">
-                                        <i vnpt-icon vType="Delete"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><a href="#"> UB MTTQ Việt Nam</a></td>
-                                <td class="text-center">
-                                    <a href="#" vnpt-button vType="text" class="act">
-                                        <i vnpt-icon vType="Delete"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </vnpt-table>
-                </div>
-            </div>
-        </div>
-    </vnpt-tab>
-    <vnpt-tab vTitle="Sơ đồ luồng văn bản">
-        Content of Tab Pane 3
-    </vnpt-tab>
-</vnpt-tabset>
+            </vnpt-tab>
+            <vnpt-tab vTitle="Sơ đồ luồng văn bản">
+                Content of Tab Pane 3
+            </vnpt-tab>
+        </vnpt-tabset>
+      </vnpt-main-content>
+    </vnpt-layout>
+  </vnpt-page>
 
 <bottom-bar>
     <div class="group-actions">

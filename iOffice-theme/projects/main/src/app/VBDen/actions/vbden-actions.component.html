@@ -1,9 +1,13 @@
 
 
-<h4 vnpt-typography>Quản lý văn bản đến </h4>
-
+<vnpt-page>
+    <vnpt-layout>
+        <vnpt-main-content [title]="'Quản lý văn bản đến'">
+        </vnpt-main-content>
+    </vnpt-layout>
+</vnpt-page>
 <bottom-bar>
-    <div class="group-actions" style="background-color: #fff;">
+    <div class="group-actions">
         <a routerLink="/qlvbden/danh-sach" class="btn m-1" vnpt-button vType="primary" vGhost>Danh sách</a>
         <a routerLink="/qlvbden/thong-tin-van-ban-den" class="btn m-1" vnpt-button vType="primary" vGhost>Thông tin văn bản đến</a>
     </div>

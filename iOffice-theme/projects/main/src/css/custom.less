@@ -273,17 +273,10 @@
 }
 .main-content{
     width: calc(100% - 300px);
-    padding: @padding-8 @padding-11;
     height: 100%;
     overflow: auto;
     position: relative;
     transition:  all 0.1s ease;
-    @media(max-width:1200px){
-        padding: @padding-4 @padding-7;
-    }
-    @media(max-width:768px){
-        padding: @padding-3;
-    }
 }
 
 .main-wrapper{
@@ -381,7 +374,7 @@
     .file-inner{
         
         border: 1px solid @gray-5;
-        padding: @padding-3;
+        padding: @padding-2;
         display: flex;
         .icon{
             width: 48px;
@@ -530,17 +523,7 @@
 
         }
     }
-    .main-menu{
-        position: fixed;
-        top: 79px;
-        left: -100%;
-        visibility: hidden;
-        opacity: 0;
-        bottom: 0px;
-        z-index: 100;
-        transition: all 0.1s ease;
-        
-    }
+    
     .sidebar-toggle-menu{
         left: 0px;
         box-shadow: 2px 0 8px fade(#000,15%);
@@ -563,4 +546,12 @@
         }
 
     }
+}
+
+.@{btn-prefix-cls}{
+    &-sm{
+        .@{iconfont-css-prefix}{
+            font-size: @font-size-base;
+        }
+    }   
 }

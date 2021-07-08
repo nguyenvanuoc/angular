@@ -1,6 +1,12 @@
 
 
-<h4 vnpt-typography>Văn bản đến</h4>
-<p>
-    <a routerLink="/qlvbden" vnpt-button vType="primary">Quản lý văn bản đến</a>
-</p>
+<vnpt-page [close]="false">
+    <vnpt-layout>
+        <vnpt-main-content [title]="'THÔNG TIN VĂN BẢN ĐẾN'">
+            <p>
+                <a routerLink="/qlvbden" vnpt-button vType="primary">Quản lý văn bản đến</a>
+            </p>
+        </vnpt-main-content>
+    </vnpt-layout>
+</vnpt-page>
+
