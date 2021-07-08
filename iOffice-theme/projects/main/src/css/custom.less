@@ -195,6 +195,7 @@
     visibility: visible;
     opacity: 1;
     transition:  all 0.1s ease;
+    border-right: solid 1px fade(#000,10%);
     &:hover{
         overflow-y: auto;
     }
@@ -271,13 +272,7 @@
         }
     }
 }
-.main-content{
-    width: calc(100% - 300px);
-    height: 100%;
-    overflow: auto;
-    position: relative;
-    transition:  all 0.1s ease;
-}
+
 
 .main-wrapper{
     position: relative;
@@ -286,21 +281,7 @@
     height: 100vh;
     width: 100%;
     position: relative;
-    &.sidebar-collapse{
-        .main-content{
-            width: 100%;
-            transition:  all 0.1s ease;
-        }
-        .sidebar-toggle-menu{
-            left: 0px;
-        }
-        .main-menu{
-            width: 0px;
-            visibility: hidden;
-            opacity: 0;
-            transition:  all 0.1s ease;
-        }
-    }
+   
 
 }
 .list-status{
@@ -435,23 +416,7 @@
 
 }
 
-.sidebar-toggle-menu{
-    width: @height-base;
-    height: @height-base;
-    position: fixed;
-    background-color: #fff;
-    z-index: 10;
-    top: 80px;
-    left: 300px;
-    text-align: center;
-    line-height: @height-base;
-    color: @blue-base;
-    cursor: pointer;
-    &:hover{
-        color: @blue-11;
-    }
-    
-}
+
 .oneui-picker{
     display: flex;
 }
@@ -528,24 +493,7 @@
         left: 0px;
         box-shadow: 2px 0 8px fade(#000,15%);
     }
-    .main-wrapper{
-        .main-content{
-            width: 100%;
-        }
-        &.sidebar-collapse{
-            .sidebar-toggle-menu{
-                left: 300px;
-            }
-            .main-menu{
-                width: 300px;
-                left: 0px;
-                visibility: visible;
-                opacity: 1;
-                transition: all 0.1s ease;
-            }
-        }
-
-    }
+    
 }
 
 .@{btn-prefix-cls}{
