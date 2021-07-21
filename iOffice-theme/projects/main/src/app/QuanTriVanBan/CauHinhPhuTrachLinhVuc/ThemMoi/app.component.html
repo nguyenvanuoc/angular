@@ -1,0 +1,92 @@
+<vnpt-page>
+    <vnpt-layout class="mb-11">
+        <vnpt-main-content [title]="'Thêm mới'">
+            <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+                <div vnpt-col [vXl]="12" [vMd]="24" [vXs]="24">
+                    <vnpt-form-item class="info-row">
+                        <div class="key w160">
+                            Lĩnh vực <span vnpt-typography vType="danger">*</span>
+                        </div>
+                        <div class="value">
+                            <vnpt-select vPlaceHolder="Chọn ">
+                                <vnpt-option vValue="1" vLabel="Loại 1">
+                                </vnpt-option>
+                                <vnpt-option vValue="2" vLabel="Loại 2">
+                                </vnpt-option>
+                            </vnpt-select>
+                        </div>
+                    </vnpt-form-item>
+                    <vnpt-form-item class="info-row">
+                        <div class="key w160">
+                            Đơn vị áp dụng <span vnpt-typography vType="danger">*</span>
+                        </div>
+                        <div class="value">
+                            <vnpt-select vPlaceHolder="Chọn ">
+                                <vnpt-option vValue="1" vLabel="Loại 1">
+                                </vnpt-option>
+                                <vnpt-option vValue="2" vLabel="Loại 2">
+                                </vnpt-option>
+                            </vnpt-select>
+                        </div>
+                    </vnpt-form-item>
+                    <vnpt-form-item class="info-row">
+                        <div class="key w160">
+                            Chọn lãnh đạo duyệt
+                        </div>
+                        <div class="value">
+                            <vnpt-input-group vAddOnAfterIcon="Edit">
+                                <vnpt-select vMode="tags" vPlaceHolder="Chọn" [(ngModel)]="listOfTagOptions">
+                                    <vnpt-option *ngFor="let option of listOfOption" [vLabel]="option.label" [vValue]="option.value"></vnpt-option>
+                                </vnpt-select>
+                            </vnpt-input-group>
+                        </div>
+                    </vnpt-form-item>
+                    <vnpt-form-item class="info-row">
+                        <div class="key w160">
+                            Chọn người xư lí chính
+                        </div>
+                        <div class="value">
+                            <vnpt-input-group vAddOnAfterIcon="Edit">
+                                <vnpt-select vMode="tags" vPlaceHolder="Chọn" [(ngModel)]="listOfTagOptions">
+                                    <vnpt-option *ngFor="let option of listOfOption" [vLabel]="option.label" [vValue]="option.value"></vnpt-option>
+                                </vnpt-select>
+                            </vnpt-input-group>
+                            
+                        </div>
+                    </vnpt-form-item>
+                    <vnpt-form-item class="info-row">
+                        <div class="key w160">
+                            Chọn người phối hợp
+                        </div>
+                        <div class="value">
+                            <vnpt-input-group vAddOnAfterIcon="Edit">
+                                <vnpt-select vMode="tags" vPlaceHolder="Chọn" [(ngModel)]="listOfTagOptions">
+                                    <vnpt-option *ngFor="let option of listOfOption" [vLabel]="option.label" [vValue]="option.value"></vnpt-option>
+                                </vnpt-select>
+                            </vnpt-input-group>
+                        </div>
+                    </vnpt-form-item>
+                    <vnpt-form-item class="info-row">
+                        <div class="key w160">
+                            Chọn người xem để biết
+                        </div>
+                        <div class="value">
+                            <vnpt-input-group vAddOnAfterIcon="Edit">
+                                <vnpt-select vMode="tags" vPlaceHolder="Chọn" [(ngModel)]="listOfTagOptions">
+                                    <vnpt-option *ngFor="let option of listOfOption" [vLabel]="option.label" [vValue]="option.value"></vnpt-option>
+                                </vnpt-select>
+                            </vnpt-input-group>
+                        </div>
+                    </vnpt-form-item>
+                </div>
+            </div>
+        </vnpt-main-content>
+    </vnpt-layout>
+</vnpt-page>
+<bottom-bar>
+    <div class="group-actions">
+        <button class="btn m-1" vnpt-button vType="primary">THÊM MỚI</button>
+        <button class="btn m-1" vnpt-button vType="primary">THÊM MỚI VÀ ĐÓNG</button>
+        <button class="btn m-1" vnpt-button vType="default">XÓA</button>
+    </div>
+</bottom-bar>

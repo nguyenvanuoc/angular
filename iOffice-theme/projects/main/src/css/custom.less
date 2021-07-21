@@ -166,7 +166,247 @@
 
 //custom some css in oneui code
 
+.header{
+    background-color: @blue-base;
+    color: #fff;
+    height: 42px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 100;
+    right: 0px;
+    display: flex;
+    justify-content: space-between;
+    .topbar-btn{
+        width: 42px;
+        height: 42px;
+        display: inline-block;
+        cursor: pointer;
+        text-align: center;
+        vertical-align: middle;
+        color:#fff;
+        padding-left: 0px;
+        padding-right: 0px;
+        margin-right: 0px;
+        margin-right: 7px;
+        &:hover{
+            background-color: fade(#000,10);
+        }
+        &.topbar-add-document{
+            width: auto;
+            height: 30px;
+            border: 1px solid #fff;
+            padding: 3px 10px;
+            .icon{
+                display: inline-block;
+                vertical-align: middle;
+                font-size: 14px;
+            }
 
+        }
+        .number-badge{
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: 8px;
+            box-shadow: none;
+            
+        }
+        .text-m{
+            display: none;
+        }
+    }
+    .header-logo{
+        display: inline-block;
+        vertical-align: middle;
+        height: 42px;
+    }
+    .btn-group-search{
+        margin-top: 7px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        border: 0px;
+        .btninput-detail{
+            height: 28px;
+        }
+    }
+    .header-right{
+        text-align: right;
+        padding-right: 7px;
+    }
+    .topbar-btn-menu-search,.topbar-btn-menu-more{
+        display: none;
+    }
+}
+.oneui-dropdown-menu-item{
+   
+    padding: 7px 20px;
+}
+.oneui-dropdown-menu{
+    box-shadow: 0 0.5rem 1rem fade(#000, 10%);
+    outline: 0;
+}
+
+.topbar-btn-avatar{
+    margin-top: -6px;
+}
+.user-info{
+    display: flex;
+    align-items: center;
+     min-width: 260px;
+    .menu-avatar{
+        width: 56px;
+        margin-right: 14px;
+    }
+    .truncate{
+        margin-bottom: 0px;
+    }
+    .email{
+        font-size: 12px;
+    }
+}
+.drawer-header{
+    border-bottom: 1px solid @gray-5;
+}
+.notification-list{
+    .notification-item{
+        display: flex;
+        padding: 14px 0px;
+
+        .noti-avatar{
+            width: 56px;
+            margin-right: 10px;
+            position: relative;
+            .icon-status-active{
+                position: absolute;
+                bottom: 0px;
+                right: 0px;
+                width: 20px;
+                height: 20px;
+                border-radius:50%;
+                background-color: #fff;
+                line-height: 20px;
+            }
+        }
+        .noti-content{
+            .top{
+                &:after{
+                    content: "";
+                    display: block;
+                    clear: both;
+                }
+                .username{
+                    float: left;
+                }
+                .noti-time{
+                    float: right;
+                    font-size: 12px;
+                }
+            }
+            .noti-desc{
+                font-size: 13px;
+                margin-bottom: 0px;
+            }
+        }
+    }
+
+}
+
+.all-notification{
+    padding: 14px 14px;
+    display: block;
+    text-align: center;
+}
+
+
+@media(max-width:991px){
+    
+    .header-mid{
+        position: absolute;
+        top: 42px;
+        left: 0px;
+        right: 0px;
+        background-color: #fff;
+        padding: 7px 14px;
+        box-shadow: 0 0.5rem 1rem #0000001a;
+        display: none;
+        &.show{
+            display: block;
+        }
+    }
+    .header{
+        .topbar-btn-menu-search,.topbar-btn-menu-more{
+            display: inline-block;
+        }
+        .oneui-vnpt-logo-vSize-customSvg .oneui-vnpt-logo-svg{
+            width: 42px;
+        }
+        .header-menu-dropdown{
+            position: absolute;
+            top: 42px;
+            right: 0px;
+            width: 260px;
+            background-color: #fff;
+            box-shadow: 0 0.5rem 1rem #0000001a;
+            display: none !important;
+            &.show{
+                display: block !important;
+            }
+            .topbar-btn{
+                display: block;
+                color: #000;
+                width: 100%;
+                height: auto;
+                padding: 14px 21px;
+                text-align: left;
+                .text-m{
+                    display: inline-block;
+                }
+                &:hover{
+                    background-color: @gray-3;
+                }
+                .ms-Icon{
+                    width: 24px;
+                    margin-right: 5px;
+                }
+            }
+            .number-badge{
+                top: 20px;
+                right: 10px;
+            }
+        }
+    }
+    
+}
+
+@media(max-width:600px){
+    .header{
+        .header-left{
+            width: 120px;
+            flex: none;
+        }
+        
+        .header-right{
+            flex: none;
+            width: calc(100% - 120px);
+            max-width: 100%;
+        }
+    }
+}
+
+@media(max-width:420px){
+    .header{
+        .topbar-add-document{
+            .icon{
+                font-size: 16px;
+            }
+            .text-name{
+                display: none;
+            }
+            
+        }
+    }
+}
 
 
 .oneui-badge-count{
@@ -334,6 +574,8 @@
     .key{
         background: @gray-2;
     }
+  
+    
     @media(max-width:768px){
         td,table,tr,thead,tbody{
             width: 100%;
@@ -350,6 +592,7 @@
         display: inline-block;
         max-width: 360px;
         width: 100%;
+        vertical-align: top;
         
     }
     .file-inner{
@@ -416,49 +659,73 @@
 
 }
 
-
+.oneui-table-thead > tr > th, .oneui-table-tbody > tr > td, .oneui-table tfoot > tr > th, .oneui-table tfoot > tr > td{
+    padding: 10px 10px;
+}
 .oneui-picker{
     display: flex;
 }
 
 .info-row{
-	display: table;
-	width: 100%;
+	display: flex;
+    justify-content: space-between;
 	.key,.value{
-		display: table-cell;
 		vertical-align: top;
-
-		
 	}
 	.key{
 		padding-right: 2px;
 		padding-top: 7px;
 		width: 110px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        & + .value{
+            width: calc(100% - 110px);
+        }
 		&.w120{
 			width: 120px;
+            & + .value{
+                width: calc(100% - 130px);
+            }
 		}
 		&.w130{
 			width: 130px;
+            & + .value{
+                width: calc(100% - 140px);
+            }
 		}
 		&.w140{
 			width: 140px;
+            & + .value{
+                width: calc(100% - 150px);
+            }
 		}
 		&.w150{
 			width: 150px;
+            & + .value{
+                width: calc(100% - 160px);
+            }
+            
 		}
 		&.w160{
 			width: 160px;
+            & + .value{
+                width: calc(100% - 170px);
+            }
 		}
 	}
 	.value{
-		padding-left: 5px;
+		margin-left: 0px;
+        width: 100%;
 	}
 
 	@media(max-width:991px){
 		margin-bottom: 15px;
+        display: block;
 		.key,.value{
 			display: block;
 			padding: 0px;
+            width: 100% !important;
 
 		}
 		.key{
@@ -474,6 +741,9 @@
 }
 .oneui-tabs-top > .oneui-tabs-nav, .oneui-tabs-bottom > .oneui-tabs-nav, .oneui-tabs-top > div > .oneui-tabs-nav, .oneui-tabs-bottom > div > .oneui-tabs-nav{
     margin-bottom: @padding-6;
+}
+.oneui-form-item .oneui-input-group .oneui-select, .oneui-form-item .oneui-input-group .oneui-cascader-picker{
+    width: 100%;
 }
 @media(max-width:991px){
     .oneui-table-pagination.oneui-pagination{
@@ -502,4 +772,11 @@
             font-size: @font-size-base;
         }
     }   
+}
+
+.oneui-input-group > .oneui-select:first-child{
+    .oneui-select-selector{
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
 }

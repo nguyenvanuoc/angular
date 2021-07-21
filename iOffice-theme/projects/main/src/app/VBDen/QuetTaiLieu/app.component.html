@@ -1,0 +1,42 @@
+<vnpt-page>
+    <vnpt-layout class="mb-11">
+        <vnpt-main-content [title]="'Quét tài liệu'">
+            <vnpt-checkbox-wrapper style="width: 100%;">
+                <div vnpt-row vJustify='center'>
+                    <div vnpt-col [vLg]="8" [vXs]="24">
+                        <div class="item mb-3">
+                            <label vnpt-checkbox vValue="A" [ngModel]="true">
+                                Cuộn giấy tự động (ADF)
+                            </label>
+                        </div>
+                        <div class="item">
+                            <label vnpt-checkbox vValue="A">
+                                Hiện giao diện
+                            </label>
+                        </div>
+                    </div>
+                    <div vnpt-col [vLg]="8" [vXs]="24">
+                        <div class="item mb-3">
+                            <label vnpt-checkbox vValue="A">
+                                Đen trắng
+                            </label>
+                        </div>
+                        <div class="item mb-3">
+                            <label vnpt-checkbox vValue="A">
+                                2 mặt
+                            </label>
+                        </div>
+                    </div>
+                    
+                </div>
+            </vnpt-checkbox-wrapper>
+        </vnpt-main-content>
+    </vnpt-layout>
+</vnpt-page>
+
+<bottom-bar>
+    <div class="group-actions">
+        <button class="btn m-1" vnpt-button vType="primary">SCAN</button>
+        <button class="btn m-1" vnpt-button vType="default">HỦY</button>
+    </div>
+</bottom-bar>

@@ -1,0 +1,47 @@
+<vnpt-page>
+    <vnpt-layout class="mb-11">
+        <vnpt-main-content [title]="'Lịch sử file'">
+            <vnpt-table #basicTable [vData]="listOfData">
+                <thead>
+                    <tr>
+            
+                        <th>
+                            STT
+                        </th>
+                        <th>
+                            Người sửa
+                        </th>
+                        <th>
+                            Thời gian 
+                        </th>
+                        <th>
+                            Tải file 
+                        </th>
+                        <th>
+                            Thao tác
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of basicTable.data; let i = index">
+                        <td>{{ i }}</td>
+                        <td>{{ data.nguoisua }}</td>
+                        <td>{{ data.thoigian }}</td>
+                        <td>{{ data.taifile }}</td>
+                        <td>
+                            <a href="javascript:void(0);" vnpt-button vType="text" [vSize]="small" class="px-1">
+                                <span vnpt-icon vType="Reply"></span>
+                            </a>
+                            <a href="javascript:void(0);" vnpt-button vType="text" [vSize]="small" class="px-1">
+                                <span vnpt-icon vType="View"></span>
+                            </a>
+                            <a href="javascript:void(0);" vnpt-button vType="text" [vSize]="small" class="px-1">
+                                <span vnpt-icon vType="Delete"></span>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </vnpt-table>
+        </vnpt-main-content>
+    </vnpt-layout>
+</vnpt-page>

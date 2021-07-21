@@ -1,0 +1,69 @@
+<vnpt-page>
+    <vnpt-layout class="mb-11">
+        <vnpt-main-content [title]="'Cấu hình phụ trách lĩnh vực'">
+            <div vnpt-row class="top-info mb-6">
+                <div vnpt-col [vLg]="{ span: 10 }" [vXs]="{ span: 24 }">
+                    
+                </div>
+                <div vnpt-col [vLg]="{ span: 14 }" [vXs]="{ span: 24 }">
+                    <div class="box-top-search">
+                        <vnpt-input-group vPrefixIcon="Search" class="input-search">
+                            <input vnpt-input placeholder="Nhập thông tin tìm kiếm" />
+                        </vnpt-input-group>
+                        <a vnpt-button vType="primary" routerLink="/cau-hinh-phu-trach-linh-vuc-them-moi" class="search-btn">THÊM MỚI</a>
+                    </div>
+                </div>
+            </div>
+            <div class="table-content table-cursor">
+                <vnpt-table #rowSelectionTable vShowSizeChanger [vData]="listOfData"
+                    (vCurrentPageDataChange)="onCurrentPageDataChange($event)">
+                    <thead>
+                        <tr>
+                            <th [(vChecked)]="checked" [vIndeterminate]="indeterminate"
+                                (vCheckedChange)="onAllChecked($event)" style="width: 30px;">
+                            </th>
+                            <th class="text-uppercase font-size-2">tên lĩnh vực  </th>
+                            <th class="text-uppercase font-size-2">đơn vị áp dụng </th>
+                            <th class="text-uppercase font-size-2">
+                                lãnh đạo duyệt 
+                            </th>
+                            <th class="text-uppercase font-size-2">
+                                xử lý chính 
+                            </th>
+                            <th class="text-uppercase font-size-2">
+                                phối hợp
+                            </th>
+                            <th class="text-uppercase font-size-2">
+                                xem để biết
+                            </th>
+                            <th class="text-uppercase font-size-2">THAO TÁC</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of rowSelectionTable.data; let i = index">
+                            <td [vChecked]="setOfCheckedId.has(data.id)"
+                                (vCheckedChange)="onItemChecked(data.id, $event)"></td>
+                            <td><a>{{ data.tenlinhvuc }}</a></td>
+                            <td>{{ data.donviapdung }}</td>
+                            <td>{{ data.lanhdaoduyet }}</td>
+                            <td>{{ data.xulychinh }}</td>
+                            <td>{{ data.phoihop }}</td>
+                            <td>{{ data.xemdebiet }}</td>
+                            <td>
+                                <a routerLink="/cau-hinh-phu-trach-linh-vuc-sua" class="btn pl-2 pr-2" vnpt-button vType="text" vSize="small">
+                                    <span vnpt-icon vType="Edit"></span>
+                                </a>  
+                                <button (click)="showDeleteConfirm()" class="btn pl-2 pr-2" vnpt-button vType="text" vSize="small">
+                                    <span vnpt-icon vType="Delete"></span>
+                                </button>  
+                            </td>
+                        </tr>
+                    </tbody>
+                </vnpt-table>
+
+            </div>
+
+        </vnpt-main-content>
+    </vnpt-layout>
+</vnpt-page>
+<!--Thong Tin Van Ban-->

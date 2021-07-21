@@ -1,0 +1,74 @@
+<vnpt-page>
+    <vnpt-layout class="mb-11">
+        <vnpt-main-content [title]="'Mẫu ý kiến'">
+            
+            <div class="table-content table-cursor">
+                <vnpt-radio-group  [(ngModel)]="radioValue"  style="width: 100%;">
+                    <vnpt-table vTemplateMode>
+                        <thead>
+                            <tr>
+                            
+                                <th colspan="2" class="text-left">ý kiến mẫu </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    Đang nhập mẫu nhập
+                                </td>
+                                <td class="w20 text-center" style="width: 20px;">
+                                    <label vnpt-radio ngModel vValue="A"></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Ý kiến
+                                </td>
+                                <td class="w20 text-center">
+                                    <label vnpt-radio ngModel vValue="1"></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Mẫu nhập 01
+                                </td>
+                                <td class="w20 text-center">
+                                    <label vnpt-radio ngModel vValue="2"></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Ý kiến
+                                </td>
+                                <td class="w20 text-center">
+                                    <label vnpt-radio ngModel vValue="3"></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Mẫu nhập 01
+                                </td>
+                                <td class="w20 text-center">
+                                    <label vnpt-radio ngModel vValue="4"></label>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </vnpt-table>
+                </vnpt-radio-group>
+                <textarea name="" vnpt-input id="" cols="30" rows="10" style="height: 80px;resize: vertical;"></textarea>
+
+            </div>
+
+        </vnpt-main-content>
+    </vnpt-layout>
+</vnpt-page>
+<!--Thong Tin Van Ban-->
+<bottom-bar>
+    <div class="group-actions">
+        <button class="btn m-1" vnpt-button vType="primary">THÊM MẪU</button>
+        <button class="btn m-1" vnpt-button vType="primary">CẬP NHẬT MẪU</button>
+        <button class="btn m-1" vnpt-button vType="primary">XÓA MẪU</button>
+        
+        <button class="btn m-1" vnpt-button vType="default">ĐÓNG</button>
+    </div>
+</bottom-bar>

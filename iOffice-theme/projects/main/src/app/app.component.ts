@@ -11,13 +11,13 @@ export class AppComponent {
     visibleSidebar = true;
     menuVisible: boolean = true;
 
-    tonggleMenu() {
+    toggleMenu() {
       this.menuVisible = !this.menuVisible;
       setTimeout(() => {
         window.dispatchEvent(new Event('resize'));
       }, 300);
     }
-  
+    
     itemClick() {
       if (window.innerWidth <= 768) {
         this.menuVisible = true;
@@ -35,5 +35,7 @@ export class AppComponent {
         nameMenu: 'Setting',
       },
     ];
+    
+    
     
 }

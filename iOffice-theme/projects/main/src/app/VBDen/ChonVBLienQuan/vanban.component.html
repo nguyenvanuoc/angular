@@ -1,0 +1,62 @@
+<vnpt-page>
+    <vnpt-layout class="mb-11">
+        <vnpt-main-content [title]="'Khai báo nội dung'">
+            <div vnpt-row class="top-info mb-6">
+                <div vnpt-col [vLg]="{ span: 10 }" [vXs]="{ span: 24 }">
+                    
+                </div>
+                <div vnpt-col [vLg]="{ span: 14 }" [vXs]="{ span: 24 }">
+                    <div class="box-top-search">
+                        <vnpt-input-group vPrefixIcon="Search" class="input-search">
+                            <input vnpt-input placeholder="Nhập thông tin tìm kiếm" />
+                        </vnpt-input-group>
+                    </div>
+                </div>
+            </div>
+            <div class="table-content table-cursor">
+                <vnpt-table #rowSelectionTable vShowSizeChanger [vFooter]="tbFooter" [vData]="listOfData"
+                    (vCurrentPageDataChange)="onCurrentPageDataChange($event)">
+                    <thead>
+                        <tr>
+                            <th [(vChecked)]="checked" [vIndeterminate]="indeterminate"
+                                (vCheckedChange)="onAllChecked($event)" style="width: 30px;">
+                            </th>
+                            <th>Trích yếu </th>
+                            <th>Số kỷ yếu </th>
+                            <th>
+                                số đến 
+                            </th>
+                            <th>
+                                đơn vị ban hành
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of rowSelectionTable.data; let i = index">
+                            <td [vChecked]="setOfCheckedId.has(data.id)"
+                                (vCheckedChange)="onItemChecked(data.id, $event)"></td>
+                            <td><a>{{ data.trichyeu }}</a></td>
+                            <td class="text-nowrap">{{ data.sokyhieu }}</td>
+                            <td>{{ data.soden }}</td>
+                            <td>{{ data.donvi }}</td>
+                        </tr>
+                    </tbody>
+                </vnpt-table>
+                <ng-template #tbFooter class="btnsearch-detail">
+                    <p class="table-note">( Dữ liệu mặc định lấy theo 30 ngày gần nhất. Thực hiện tìm kiếm sẽ tra cứu theo tất cả các năm. Để tìm kiếm cụ thể chọn
+                    “Tìm kiếm nâng cao”)</p>
+                </ng-template>
+
+            </div>
+
+        </vnpt-main-content>
+    </vnpt-layout>
+</vnpt-page>
+<!--Thong Tin Van Ban-->
+<bottom-bar>
+    <div class="group-actions">
+        <button class="btn m-1" vnpt-button vType="primary">CHỌN</button>
+        
+        <button class="btn m-1" vnpt-button vType="default">ĐÓNG</button>
+    </div>
+</bottom-bar>

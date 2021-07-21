@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,HostListener } from '@angular/core';
 
 
 @Component({
@@ -10,6 +10,7 @@ export class HeaderComponent {
   visibleNoti = false;
   visibleMobileSearch = false;
   visibleMobileSetting = false;
+  changeLogoMobile=false;
   openNoti(): void {
     this.visibleNoti = true;
   }
@@ -33,6 +34,26 @@ export class HeaderComponent {
   }
 
   counter(i: number) {
-      return new Array(i);
+    return new Array(i);
+  }
+  public innerWidth: any;
+  ngOnInit() {
+    
+  }
+  @HostListener('window:resize', ['$event'])
+  detectScreenSize():void{
+    this.innerWidth = window.innerWidth;
+    if(this.innerWidth<=600){
+      this.changeLogoMobile=true;
+    }else{
+      this.changeLogoMobile=false;
+    }
+  }
+  
+  onResize(event) {
+    this.detectScreenSize();
+  }
+  ngAfterContentInit() {
+    this.detectScreenSize();
   }
 }

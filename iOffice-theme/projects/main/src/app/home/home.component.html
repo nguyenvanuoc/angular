@@ -2,10 +2,25 @@
 
 <vnpt-page [close]="false">
     <vnpt-layout>
-        <vnpt-main-content [title]="'THÔNG TIN VĂN BẢN ĐẾN'">
-            <p>
-                <a routerLink="/qlvbden" vnpt-button vType="primary">Quản lý văn bản đến</a>
-            </p>
+        <vnpt-main-content [title]="'Danh sách ứng dụng'">
+            <vnpt-divider vText="Danh sách văn bản đến" class="mt-7"></vnpt-divider>
+            <div class="group-buttons">
+                <a routerLink="/qlvbden" class="btn m-1" vnpt-button vType="primary" vGhost>Danh sách</a>
+                <a routerLink="/qlvbden/thong-tin-van-ban-den" class="btn m-1" vnpt-button vType="primary" vGhost>Thông tin chi tiết</a>
+                <a routerLink="/qlvbden/quet-tai-lieu" class="btn m-1" vnpt-button vType="primary" vGhost>Quét tài liệu</a>
+                <a routerLink="/qlvbden/chon-vb-lien-quan" class="btn m-1" vnpt-button vType="primary" vGhost>Chọn văn bản liên quan</a>
+                <a routerLink="/qlvbden/mau-y-kien" class="btn m-1" vnpt-button vType="primary" vGhost>Mẫu ý kiến</a>
+                <a routerLink="/qlvbden/lich-su-file" class="btn m-1" vnpt-button vType="primary" vGhost>Lịch sử file</a>
+            </div>
+            <vnpt-divider vText="Danh sách văn bản đi" class="mt-7"></vnpt-divider>
+            <div class="group-buttons">
+                <a routerLink="/qlvbdi" class="btn m-1" vnpt-button vType="primary" vGhost>Danh sách</a>
+            </div>
+            <vnpt-divider vText="Quản trị Văn bản" class="mt-7"></vnpt-divider>
+            <div class="group-buttons">
+                <a routerLink="/cau-hinh-phu-trach-linh-vuc" class="btn m-1" vnpt-button vType="primary" vGhost>Cấu hình phụ trách lĩnh vực</a>
+                
+            </div>
         </vnpt-main-content>
     </vnpt-layout>
 </vnpt-page>

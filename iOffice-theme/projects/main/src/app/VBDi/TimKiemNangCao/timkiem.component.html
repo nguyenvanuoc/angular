@@ -1,0 +1,102 @@
+<vnpt-page>
+    <vnpt-layout class="mb-11">
+        <vnpt-main-content [title]="'Tìm kiếm nâng cao'">
+            <div class="mt-7">
+                <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+                    <div vnpt-col [vLg]="12" [vXs]="24">
+                        <vnpt-form-item class="info-row">
+                            <div class="key w120">
+                                Số ký hiệu
+                            </div>
+                            <div class="value">
+                                <input type="text" vnpt-input>
+                            </div>
+                        </vnpt-form-item>
+                    </div>
+                    <div vnpt-col [vLg]="12" [vXs]="24">
+                        <vnpt-form-item class="info-row">
+                            <div class="key w130">
+                                Số ký hiệu
+                            </div>
+                            <div class="value">
+                                <input type="text" vnpt-input>
+                            </div>
+                        </vnpt-form-item>
+                    </div>
+                </div>
+                <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+                    <div vnpt-col [vLg]="12" [vXs]="24">
+                        <vnpt-form-item class="info-row">
+                            <div class="key w120">
+                                Đơn vị soạn thảo
+                            </div>
+                            <div class="value">
+                                <input type="text" vnpt-input>
+                            </div>
+                        </vnpt-form-item>
+                    </div>
+                    <div vnpt-col [vLg]="12" [vXs]="24">
+                        <vnpt-form-item class="info-row">
+                            <div class="key w130">
+                                Đơn vị soạn thảo
+                            </div>
+                            <div class="value">
+                                <vnpt-select vPlaceHolder="">
+
+                                </vnpt-select>
+                            </div>
+                        </vnpt-form-item>
+                    </div>
+                </div>
+                <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+                    <div vnpt-col [vLg]="12" [vXs]="24">
+                        <vnpt-form-item class="info-row">
+                            <div class="key w120">
+                                Độ khẩn
+                            </div>
+                            <div class="value">
+                                <input type="text" vnpt-input>
+                            </div>
+                        </vnpt-form-item>
+                    </div>
+                    <div vnpt-col [vLg]="12" [vXs]="24">
+                        <vnpt-form-item class="info-row">
+                            <div class="key w130">
+                                Hạn xử lý
+                            </div>
+                            <div class="value">
+                                <vnpt-range-picker [vSuffixIcon]="SuffixIcon"></vnpt-range-picker>
+                                <ng-template #SuffixIcon>
+                                    <span vnpt-icon vType="Calendar" [vSize]="'xs'"></span>
+                                </ng-template>
+                            </div>
+                        </vnpt-form-item>
+                    </div>
+                </div>
+                <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+                    
+                    <div vnpt-col [vLg]="12" [vXs]="24">
+                        <vnpt-form-item class="info-row">
+                            <div class="key w120">
+                                Ngày soạn thảo
+                            </div>
+                            <div class="value">
+                                <vnpt-range-picker [vSuffixIcon]="SuffixIcon"></vnpt-range-picker>
+                                <ng-template #SuffixIcon>
+                                    <span vnpt-icon vType="Calendar" [vSize]="'xs'"></span>
+                                </ng-template>
+                            </div>
+                        </vnpt-form-item>
+                    </div>
+                </div>
+            </div>
+        </vnpt-main-content>
+    </vnpt-layout>
+</vnpt-page>
+<!--Thong Tin Van Ban-->
+<bottom-bar>
+    <div class="group-actions">
+        <button class="btn m-1" vnpt-button vType="primary" vGhost>Hủy</button>
+        <button class="btn m-1" vnpt-button vType="primary">TÌM KIẾM</button>
+    </div>
+</bottom-bar>

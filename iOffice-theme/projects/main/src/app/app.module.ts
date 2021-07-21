@@ -4,15 +4,30 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { HomeComponent } from './home/home.component';
 
 import { HeaderComponent } from './navigation/header/header.component';
 import { BreadcrumbComponent } from './navigation/breadcrumb/breadcrumb.component';
 import { SidebarComponent } from './navigation/sidebar/sidebar.component';
+
+import { HomeVBDenComponent } from './VBDen/home/home.component';
 import { VBDenComponent } from './VBDen/danhsach/vanban.component';
 import { TTVBDenComponent } from './VBDen/TTVanBan/TTVanBanDen.component';
-import { MainPageQLVBDComponent } from './VBDen/mainpage/mainpage.component';
-import { VBDenActionsComponent } from './VBDen/actions/vbden-actions.component';
-import { HomeComponent } from './home/home.component';
+import { QuetTaiLieuComponent } from './VBDen/QuetTaiLieu/app.component';
+import { ChonVBLienQuanComponent } from './VBDen/ChonVBLienQuan/vanban.component';
+import { MauYKienComponent } from './VBDen/MauYKien/vanban.component';
+import { LichSuFileComponent } from './VBDen/LichSuFile/app.component';
+
+
+import { VBDiComponent } from './VBDi/danhsach/vanban.component';
+import { VBDiTimKiemComponent } from './VBDi/TimKiemNangCao/timkiem.component';
+import { HomeVBDiComponent } from './VBDi/home/home.component';
+
+import { CauHinhVanBanComponent } from './QuanTriVanBan/CauHinhPhuTrachLinhVuc/danhsach/vanban.component';
+import { CauHinhLinhVucThemMoiComponent } from './QuanTriVanBan/CauHinhPhuTrachLinhVuc/ThemMoi/app.component';
+import { CauHinhLinhVucSuaComponent } from './QuanTriVanBan/CauHinhPhuTrachLinhVuc/Sua/app.component';
+
+
 
 import { registerLocaleData } from '@angular/common';
 import localeVi from '@angular/common/locales/vi';
@@ -106,11 +121,19 @@ registerLocaleData(localeVi);
     SidebarComponent,
     VBDenComponent,
     TTVBDenComponent,
-    MainPageQLVBDComponent,
     HomeComponent,
-    VBDenActionsComponent,
-    QuickMenuComponent
-    
+    QuickMenuComponent,
+    VBDiComponent,
+    VBDiTimKiemComponent,
+    HomeVBDenComponent,
+    HomeVBDiComponent,
+    QuetTaiLieuComponent,
+    ChonVBLienQuanComponent,
+    MauYKienComponent,
+    LichSuFileComponent,
+    CauHinhVanBanComponent,
+    CauHinhLinhVucThemMoiComponent,
+    CauHinhLinhVucSuaComponent  
 
   ],
   imports: [

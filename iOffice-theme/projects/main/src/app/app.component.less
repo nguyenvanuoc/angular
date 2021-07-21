@@ -21,6 +21,7 @@
 
 .right-content {
     height: 100%;
+    width: 100%;
     overflow-y: auto;
 }
 .top-bar{
@@ -51,7 +52,11 @@
 .menu-tonggle-btn:hover i {
     color: #092c4c !important;
 }
-
+.overlay-common.mobile{
+    &.show{
+        display: none;
+    }
+}
 @media only screen and (max-width: 576px) {
     :host ::ng-deep .actionbar-left {
         padding-left: 30px;
@@ -67,7 +72,13 @@
     //     left: 300px;
     //     }
     // }
+    .overlay-common.mobile{
+        &.show{
+            display: block;
+        }
+    }
 
+    
     .vertical-submenu {
         position: fixed;
         z-index: 99;

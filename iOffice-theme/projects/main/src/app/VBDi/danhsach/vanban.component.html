@@ -1,0 +1,431 @@
+<vnpt-page>
+    <vnpt-layout class="mb-11">
+        <vnpt-main-content [title]="'DANH SÁCH'">
+            <div vnpt-row class="top-info mb-6">
+                <div vnpt-col [vLg]="{ span: 10 }" [vXs]="{ span: 24 }">
+                    <div class="list-status mt-2">
+                        <div class="item">
+                            <vnpt-badge vColor="#B11226" vText="Hỏa tốc"></vnpt-badge>
+                        </div>
+                        <div class="item">
+                            <vnpt-badge vColor="#F05A05" vText="Khẩn"></vnpt-badge>
+                        </div>
+                        <div class="item">
+                            <vnpt-badge vColor="#1363B9" vText="Chỉ đạo"></vnpt-badge>
+                        </div>
+                    </div>
+
+                </div>
+                <div vnpt-col [vLg]="{ span: 14 }" [vXs]="{ span: 24 }">
+                    <div class="box-top-search">
+                        <vnpt-input-group vPrefixIcon="Search" class="input-search">
+                            <input vnpt-input placeholder="Nhập thông tin tìm kiếm" />
+                        </vnpt-input-group>
+                        <a vnpt-button vType="primary" routerLink="/qlvbdi/tim-kiem-nang-cao" class="search-btn">TÌM KIẾM NÂNG CAO</a>
+                    </div>
+                </div>
+            </div>
+            <div class="table-content table-cursor">
+                <vnpt-table #rowSelectionTable vShowSizeChanger [vFooter]="tbFooter" [vData]="listOfData"
+                    (vCurrentPageDataChange)="onCurrentPageDataChange($event)">
+                    <thead>
+                        <tr>
+                            <th [(vChecked)]="checked" [vIndeterminate]="indeterminate"
+                                (vCheckedChange)="onAllChecked($event)" style="width: 30px;"></th>
+                            <th>
+                                <span vnpt-icon class="featured active" vType="FavoriteStarFill"></span>
+                            </th>
+                            <th>STT</th>
+                            <th>TRÍCH YẾU</th>
+                            <th *ngFor="let column of listOfColumns;" [(vSortOrder)]="column.sortOrder"
+                                [vSortFn]="column.sortFn">
+                                {{ column.name }}
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of rowSelectionTable.data; let i = index" (click)="closeVBDetail()">
+                            <td [vChecked]="setOfCheckedId.has(data.id)"
+                                (vCheckedChange)="onItemChecked(data.id, $event)"></td>
+                            <td class="text-center"><span vnpt-icon class="featured" vType="FavoriteStar"></span></td>
+                            <td>{{ i }}</td>
+                            <td><a>{{ data.name }}</a></td>
+                            <td class="text-nowrap">{{ data.kyhieu }}</td>
+                            <td>{{ data.hinhthuc }}</td>
+                            <td>{{ data.ngaybanhanh }}</td>
+                            <td>{{ data.ngaysoanthao }}</td>
+                            <td>{{ data.donvisoanthao }}</td>
+                            <td>{{ data.nguoiky }}</td>
+                        </tr>
+                    </tbody>
+                </vnpt-table>
+                <ng-template #tbFooter class="btnsearch-detail">
+                    <p class="table-note">Dữ liệu mặc định lấy theo 30 ngày gần nhất. Thực hiện tìm kiếm sẽ tra cứu theo
+                        tất cả các
+                        năm</p>
+                </ng-template>
+
+            </div>
+            <div *ngIf="visibleDetail">
+
+                <h4 vnpt-typography class="mt-6">Thông tin văn bàn đi</h4> 
+
+                <div class="file-canvas mt-6" style="height:500px;border: 1px solid #d9d9d9;">
+                </div>
+                <div class="table-vb-info mt-6">
+                    <vnpt-table class="table-info" vBordered vTemplateMode>
+
+                        <tbody>
+                            <tr>
+                                <td class="key">Thông tin văn bàn đi</td>
+                                <td class="value" colspan="3">
+                                    Test vb đến check full log1
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="key">Hình Thức</td>
+                                <td class="value" colspan="3">
+                                    Test vb đến check full log1
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="key">Độ khẩn</td>
+                                <td class="value" colspan="3">
+                                    Văn bản thường
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="key">File đính kèm:</td>
+                                <td class="value" colspan="3">
+                                    <vnpt-divider vText="File trình ký" class="text-danger"></vnpt-divider>
+                                    <div class="list-files">
+                                        <div class="item mb-3">
+                                            <div class="file-inner oneui-row-middle oneui-row-space-between">
+                                                <span class="icon d-block mr-3" vnpt-icon vSrc="../assets/icons/pdf.svg">
+                                        
+                                                </span>
+                                                <span vnpt-typography class="text-m" vEllipsis>
+                                                    apple_core_pouch_pattern.pdf <br />
+                                                    <span vnpt-typography vType="secondary" class="font-size-2 text-wrap">Quản trị hệ thống - 27/05/2021
+                                                        13:48:43</span>
+                                                </span>
+                                        
+                                        
+                                                <div class="acts">
+                                                    <a href="javascript:void();" class="act pl-1 pr-1" vnpt-button vType="text" [vSize]="'small'" vnpt-tooltip
+                                                        vTooltipTitle="Xem">
+                                                        <span vnpt-icon vType="View"></span>
+                                                    </a>
+                                                    <a href="javascript:void();" class="act pl-1 pr-1" vnpt-button vType="text" [vSize]="'small'" vnpt-tooltip
+                                                        vTooltipTitle="Xem tab mới">
+                                                        <span vnpt-icon vType="OpenInNewTab"></span>
+                                                    </a>
+                                                </div>
+                                        
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <vnpt-divider vText="File phát hành" class="text-danger"></vnpt-divider>
+                                    <div class="list-files">
+                                        <div class="item mr-3 mb-3">
+                                            <div class="file-inner oneui-row-middle oneui-row-space-between">
+                                                <span class="icon d-block mr-3" vnpt-icon vSrc="../assets/icons/pdf.svg">
+                                        
+                                                </span>
+                                                <span vnpt-typography class="text-m" vEllipsis>
+                                                    apple_core_pouch_pattern.pdf <br />
+                                                    <span vnpt-typography vType="secondary" class="font-size-2 text-wrap">Quản trị hệ thống -
+                                                        27/05/2021 13:48:43</span>
+                                                </span>
+                                        
+                                        
+                                                <div class="acts">
+                                                    <a href="javascript:void();" class="act pl-1 pr-1" vnpt-button vType="text" [vSize]="'small'" vnpt-tooltip
+                                                        vTooltipTitle="Xem">
+                                                        <span vnpt-icon vType="View"></span>
+                                                    </a>
+                                                    <a href="javascript:void();" class="act pl-1 pr-1" vnpt-button vType="text" [vSize]="'small'" vnpt-tooltip
+                                                        vTooltipTitle="Xem tab mới">
+                                                        <span vnpt-icon vType="OpenInNewTab"></span>
+                                                    </a>
+                                                </div>
+                                        
+                                            </div>
+                                        </div>
+                                        <div class="item mb-3">
+                                            <h5 vnpt-typography class="font-size-3 mb-1">Thông tin ký số</h5>
+                                            
+                                            <div class="list-files-trinhky">
+                                                <div class="item">
+                                                    <span class="number">01.</span>
+                                                    <div class="item-content">
+                                                        <div class="box-top">
+                                                            <span>Trần Anh Tuấn</span>- <span vnpt-typography vType="danger">Chữ ký không
+                                                                hợp lệ</span>
+                                                        </div>
+                                                    
+                                                        <span vnpt-typography class="info" vType="secondary">
+                                                            6/05/2021 23:00:45
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="list-files">
+                                        <div class="item mr-3 mb-3">
+                                            <div class="file-inner oneui-row-middle oneui-row-space-between">
+                                                <span class="icon d-block mr-3" vnpt-icon vSrc="../assets/icons/word.svg">
+                                        
+                                                </span>
+                                                <span vnpt-typography class="text-m" vEllipsis>
+                                                    apple_core_pouch_pattern.pdf <br />
+                                                    <span vnpt-typography vType="secondary" class="font-size-2 text-wrap">Quản trị hệ thống -
+                                                        27/05/2021 13:48:43</span>
+                                                </span>
+                                        
+                                        
+                                                <div class="acts">
+                                                    <a href="javascript:void();" class="act pl-1 pr-1" vnpt-button vType="text" [vSize]="'small'" vnpt-tooltip
+                                                        vTooltipTitle="Xem">
+                                                        <span vnpt-icon vType="View"></span>
+                                                    </a>
+                                                    <a href="javascript:void();" class="act pl-1 pr-1" vnpt-button vType="text" [vSize]="'small'" vnpt-tooltip
+                                                        vTooltipTitle="Xem tab mới">
+                                                        <span vnpt-icon vType="OpenInNewTab"></span>
+                                                    </a>
+                                                </div>
+                                        
+                                            </div>
+                                        </div>
+                                        <div class="item mb-3">
+                                            <h5 vnpt-typography class="font-size-3 mb-1">Thông tin ký số</h5>
+                                            
+                                            <div class="list-files-trinhky">
+                                                <div class="item">
+                                                    <span class="number">01.</span>
+                                                    <div class="item-content">
+                                                        <div class="box-top">
+                                                            <span>Trần Anh Tuấn</span>- <span vnpt-typography vType="success">Chữ ký hợp lệ</span>
+                                                        </div>
+                                                    
+                                                        <span vnpt-typography class="info" vType="secondary">
+                                                            6/05/2021 23:00:45
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <button vnpt-button class="mr-2 mb-2" vType="primary" [vSize]="'small'" vGhost>
+                                        <span vnpt-icon vType="Upload"></span> Nén và tải tất cả
+                                    </button>
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="key">Văn bản liên quan</td>
+
+                                <td class="value" colspan="3">
+                                    <vnpt-divider vText="Văn bản kiên quan" class="text-danger"></vnpt-divider>
+                                    <div class="list-files-trinhky">
+                                        <div class="item mb-3">
+                                            <span class="number">01.</span>
+                                            <div class="item-content">
+                                                <div class="box-top">
+                                                    <span class="font-weight-bold">Trích yếu: </span>
+                                                    <a href="javascript:void(0)">   Vb đến trình LĐ check log</a> <br/> <span class="font-weight-bold">Số ký hiệu:</span> Test
+                                                </div>
+                                    
+                                                <span vnpt-typography class="info" vType="secondary">
+                                                    Người gửi: Quản trị hệ thống - 27/05/2021 11:27:23
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <span class="number">02.</span>
+                                            <div class="item-content">
+                                                <div class="box-top">
+                                                    <span class="font-weight-bold">Trích yếu: </span>
+                                                    <a href="javascript:void(0)">   Vb đến trình LĐ check log</a> <br/> <span class="font-weight-bold">Số ký hiệu:</span> Test
+                                                </div>
+                                    
+                                                <span vnpt-typography class="info" vType="secondary">
+                                                    Người gửi: Quản trị hệ thống - 27/05/2021 11:27:23
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <vnpt-divider vText="Tài liệu liên quan" class="text-danger"></vnpt-divider>
+                                    <div class="list-files">
+                                        <div class="item mb-3">
+                                            <div class="file-inner oneui-row-middle oneui-row-space-between">
+                                                <span class="icon d-block mr-3" vnpt-icon vSrc="../assets/icons/pdf.svg">
+                                    
+                                                </span>
+                                                <span vnpt-typography class="text-m" vEllipsis>
+                                                    apple_core_pouch_pattern.pdf <br />
+                                                    <span vnpt-typography vType="secondary" class="font-size-2 text-wrap">Quản trị hệ thống - 27/05/2021
+                                                        13:48:43</span>
+                                                </span>
+                                    
+                                    
+                                                <div class="acts">
+                                                    <a href="javascript:void();" class="act pl-1 pr-1" vnpt-button vType="text" [vSize]="'small'"
+                                                        vnpt-tooltip vTooltipTitle="Xem">
+                                                        <span vnpt-icon vType="View"></span>
+                                                    </a>
+                                                    <a href="javascript:void();" class="act pl-1 pr-1" vnpt-button vType="text" [vSize]="'small'"
+                                                        vnpt-tooltip vTooltipTitle="Xem tab mới">
+                                                        <span vnpt-icon vType="OpenInNewTab"></span>
+                                                    </a>
+                                                </div>
+                                    
+                                            </div>
+                                        </div>
+                                    
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                    </vnpt-table>
+                </div>
+                
+                <vnpt-divider vText="Tổng hợp ý kiến" class="mt-6"></vnpt-divider>
+                <vnpt-collapse vAccordion>
+                    <vnpt-collapse-panel *ngFor="let panel of panels" [vHeader]="colheader" [vActive]="panel.active"
+                        [vExtra]="extraTpl" [vDisabled]="panel.disabled">
+                        <ng-template #colheader>
+                            <span class="font-weight-bold " vnpt-typography>{{panel.name}}</span>
+                        </ng-template>
+                        <div class="table-content">
+                            <vnpt-table vTemplateMode>
+                                <thead>
+                                    <tr class="text-uppercase font-size-2">
+                                        <th>STT</th>
+                                        <th>Người gửi</th>
+                                        <th>lãnh đạo chỉ dạo</th>
+                                        <th>Chưa xử lý</th>
+                                        <th>đang xử lý</th>
+                                        <th>đã xử lý</th>
+                                        <th>nội dung</th>
+                                        <th>file văn bản</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Bùi Thị Minh Hải</td>
+                                        <td>Bùi Thị Minh Hải</td>
+                                        <td class="text-center text-danger">
+                                            <div vnpt-typography vType="danger">
+                                                <span vnpt-icon vType="CheckMark"></span>
+                                                <br />
+                                                <span>30/03/2021 16:29</span>
+                                            </div>
+
+                                        </td>
+                                        <td class="text-center">
+                                            <div vnpt-typography vType="success">
+                                                <span vnpt-icon vType="CheckMark"></span>
+                                                <br />
+                                                <span>30/03/2021 16:29</span>
+                                            </div>
+                                        </td>
+
+                                        <td class="text-center">
+                                            <div vnpt-typography>
+                                                <span vnpt-icon vType="CheckMark"></span>
+                                                <br />
+                                                <span>30/03/2021 16:29</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div vnpt-typography>
+                                                Chuyển tới: <span class="font-weight-bold">Lãnh đạo
+                                                    QH(lanhdaoqh.lt@vnpt.vn)</span>
+                                                <br />
+                                                Thao tác: <span class="font-weight-bold">Chuyển Lãnh đạo đơn vị</span>
+                                                <br />
+                                                <a href="#" class="text-decoration-underline">Nhật ký công việc</a>
+                                            </div>
+
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Bùi Thị Minh Hải</td>
+                                        <td>Bùi Thị Minh Hải</td>
+                                        <td class="text-center text-danger">
+                                            <div vnpt-typography vType="danger">
+                                                <span vnpt-icon vType="CheckMark"></span>
+                                                <br />
+                                                <span>30/03/2021 16:29</span>
+                                            </div>
+
+                                        </td>
+                                        <td class="text-center">
+                                            <div vnpt-typography vType="success">
+                                                <span vnpt-icon vType="CheckMark"></span>
+                                                <br />
+                                                <span>30/03/2021 16:29</span>
+                                            </div>
+                                        </td>
+
+                                        <td class="text-center">
+                                            <div vnpt-typography>
+                                                <span vnpt-icon vType="CheckMark"></span>
+                                                <br />
+                                                <span>30/03/2021 16:29</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div vnpt-typography>
+                                                Chuyển tới: <span class="font-weight-bold">Lãnh đạo
+                                                    QH(lanhdaoqh.lt@vnpt.vn)</span>
+                                                <br />
+                                                Thao tác: <span class="font-weight-bold">Chuyển Lãnh đạo đơn vị</span>
+                                                <br />
+                                                <a href="#" class="text-decoration-underline">Nhật ký công việc</a>
+                                            </div>
+
+                                        </td>
+                                        <td></td>
+                                    </tr>
+
+                                </tbody>
+                            </vnpt-table>
+                        </div>
+                    </vnpt-collapse-panel>
+                </vnpt-collapse>
+
+                <ng-template #extraTpl>
+                    <!-- You can use stopPropagation if you don't want the panel to toggle -->
+                    <a href="javascript:void();" vType="link" style="text-decoration: none;">Xem toàn bộ</a>
+                </ng-template>
+
+            </div>
+
+        </vnpt-main-content>
+    </vnpt-layout>
+</vnpt-page>
+<!--Thong Tin Van Ban-->
+<bottom-bar>
+    <div class="group-actions">
+        <button class="btn m-1" vnpt-button vType="primary">LẤY LẠI</button>
+        <button class="btn m-1" vnpt-button vType="primary">XỬ LÝ LẠI</button>
+        <button class="btn m-1" vnpt-button vType="primary">QUÊN XỬ LÝ</button>
+        <button class="btn m-1" vnpt-button vType="primary">XEM</button>
+        <button class="btn m-1" vnpt-button vType="primary">LƯU HỒ SƠ</button>
+        <button class="btn m-1" vnpt-button vType="primary">TẠO VIỆC</button>
+        <button class="btn m-1" vnpt-button vType="primary">BỎ ĐÁNH DẤU</button>
+        <button class="btn m-1" vnpt-button vType="primary">LƯU HỒ SƠ LƯU TRỮ</button>
+        <button class="btn m-1" vnpt-button vType="primary">TRẠNG THÁI LIÊN THÔNG</button>
+        <button class="btn m-1" vnpt-button vType="primary" vDanger>XÓA</button>
+    </div>
+</bottom-bar>

@@ -4,11 +4,19 @@
         [vLg]="{ span: 6 }" 
         [vXl]="{ span: 6 }" 
         [vXs]="{ span: 12 }">
-        <!-- <button vnpt-button  vType="text" class="topbar-btn nav-toggle">
+        
+        <!-- <button *ngIf="changeLogoMobile" vnpt-button  vType="text" class="topbar-btn nav-toggle">
             <span vnpt-icon [vType]="'WaffleOffice365'"></span>
         </button> -->
         <a routerLink="/" class="header-logo pl-2">
-            <vnpt-logo [vColor]="'#fff'" [vSize]="{'size':'lg'}" [vTitle]="'eGov'"></vnpt-logo>
+            <div *ngIf="changeLogoMobile; then showLogoMobile else showLogoWeb"></div>
+            <ng-template #showLogoWeb>
+                <vnpt-logo [vColor]="'#fff'" [vSize]="{'size':'lg'}" [vTitle]="'eGov'"></vnpt-logo>
+            </ng-template>
+            <ng-template #showLogoMobile>
+                <vnpt-logo [vColor]="'#fff'" [vSize]="{'size':'lg','liteMode':true }" [vTitle]="'eGov'"></vnpt-logo>
+            </ng-template>
+            
         </a>
     </div>
     <div class="header-mid {{visibleMobileSearch ? 'show' : 'hidden'}}" 
@@ -26,7 +34,7 @@
         [vLg]="{ span: 9 }" 
         [vXl]="{ span: 9 }" 
         [vXs]="{ span: 12 }">
-        <button vnpt-button vType="text" vnpt-dropdown vTrigger="click"  [vDropdownMenu]="addDocument" class="topbar-btn topbar-add-document mr-3">
+        <button vnpt-button vType="text" vnpt-dropdown vTrigger="click"  [vDropdownMenu]="addDocument" class="topbar-btn topbar-add-document mr-1 mr-sm-3">
             <i vnpt-icon vType="TextDocumentEdit" class="icon"></i>
             <span class="text-name">Tạo văn bản</span>
         </button>

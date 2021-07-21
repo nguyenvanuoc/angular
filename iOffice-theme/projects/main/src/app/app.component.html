@@ -1,26 +1,26 @@
 <app-header></app-header>
 
+<div class="overlay-common mobile {{menuVisible ? 'hide' : 'show'}}" (click)="toggleMenu()"></div>
+
 <div class="main-wrapper">
-    <vnpt-layout>
-        <div class="quick-menu-sidebar pt-3">
-            <app-quick-menu [quickmenu]="menuConfig"></app-quick-menu>
-        </div>
-        <vnpt-sider vCollapsible [(vCollapsed)]="menuVisible" vBreakpoint="lg" [vCollapsedWidth]="0" [vWidth]="280"
-            class="vertical-submenu main-menu pt-2">
-            <app-sidebar></app-sidebar>
-        </vnpt-sider>
-        <vnpt-content class="right-content">
-            <vnpt-affix vOffsetTop="42">
-                <div class="top-bar">
-                    <button vnpt-button vType="default" title="Đóng/Mở Menu" (click)="tonggleMenu()"
-                        class="menu-tonggle-btn {{menuVisible ? 'hide' : 'show'}}">
-                        <i *ngIf="!menuVisible" vnpt-icon vType="IncreaseIndentMirrored" [vColor]="'primary'"></i>
-                        <i *ngIf="menuVisible" vnpt-icon vType="NumberedListText" [vColor]="'primary'"></i>
-                    </button>
-                    <breadcrumb-app></breadcrumb-app>
-                </div>
-            </vnpt-affix>
-            <router-outlet></router-outlet>
-        </vnpt-content>
-    </vnpt-layout>
+   
+    <div class="quick-menu-sidebar pt-3">
+        <app-quick-menu [quickmenu]="menuConfig"></app-quick-menu>
+    </div>
+    <vnpt-sider vCollapsible [(vCollapsed)]="menuVisible" vBreakpoint="lg" [vCollapsedWidth]="0" [vWidth]="280"
+        class="vertical-submenu main-menu pt-2">
+        <app-sidebar></app-sidebar>
+    </vnpt-sider>
+    <div class="right-content">
+        <vnpt-affix vOffsetTop="42">
+            <div class="top-bar">
+                <button vnpt-button vType="default" title="Đóng/Mở Menu" (click)="toggleMenu()" class="menu-tonggle-btn {{menuVisible ? 'hide' : 'show'}}">
+                    <i *ngIf="!menuVisible" vnpt-icon vType="IncreaseIndentMirrored" [vColor]="'primary'"></i>
+                    <i *ngIf="menuVisible" vnpt-icon vType="NumberedListText" [vColor]="'primary'"></i>
+                </button>
+                <breadcrumb-app></breadcrumb-app>
+            </div>
+        </vnpt-affix>
+        <router-outlet></router-outlet>
+    </div>
 </div>
