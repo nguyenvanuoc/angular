@@ -1,7 +1,7 @@
 <vnpt-page>
-    <vnpt-layout class="mb-11">
+    <vnpt-layout class="pb-11">
         <vnpt-main-content [title]="'Cập nhật'">
-            <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+            <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, xxl: 32 }">
                 <div vnpt-col [vXl]="12" [vMd]="24" [vXs]="24">
                     <vnpt-form-item class="info-row">
                         <div class="key w160">
@@ -87,6 +87,6 @@
     <div class="group-actions">
         <button class="btn m-1" vnpt-button vType="primary">CẬP NHẬT</button>
         <button class="btn m-1" vnpt-button vType="primary">CẬP NHẬT VÀ ĐÓNG</button>
-        <button class="btn m-1" vnpt-button vType="default">đóng</button>
+        <button class="btn m-1" vnpt-button vType="danger" vGhost>đóng</button>
     </div>
 </bottom-bar>

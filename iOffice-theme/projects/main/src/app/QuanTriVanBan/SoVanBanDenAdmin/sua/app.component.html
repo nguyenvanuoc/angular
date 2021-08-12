@@ -1,0 +1,202 @@
+<vnpt-page>
+    <vnpt-layout class="pb-11">
+        <vnpt-main-content [title]="'Cập nhật sổ văn bản đi'">
+            <vnpt-tabset [vAnimated]="false">
+                <vnpt-tab vTitle="Thông tin số văn bản ">
+                    <vnpt-form-item class="info-row">
+                        <div class="key w140">
+                            Tên sổ văn bản <span vnpt-typography vType="danger">*</span>
+                        </div>
+                        <div class="value">
+                            <vnpt-select vPlaceHolder="Chọn ">
+                                <vnpt-option vValue="1" vLabel="Loại 1">
+                                </vnpt-option>
+                                <vnpt-option vValue="2" vLabel="Loại 2">
+                                </vnpt-option>
+                            </vnpt-select>
+                        </div>
+                    </vnpt-form-item>
+                    <vnpt-form-item class="info-row">
+                        <div class="key w140">
+                            Đơn vị áp dụng <span vnpt-typography vType="danger">*</span>
+                        </div>
+                        <div class="value">
+                            <vnpt-select vPlaceHolder="Chọn ">
+                                <vnpt-option vValue="1" vLabel="Loại 1">
+                                </vnpt-option>
+                                <vnpt-option vValue="2" vLabel="Loại 2">
+                                </vnpt-option>
+                            </vnpt-select>
+                        </div>
+                    </vnpt-form-item>
+                    <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, xxl: 32 }">
+                        <div vnpt-col [vXl]="12" [vMd]="24" [vXs]="24">
+                    
+                            <vnpt-form-item class="info-row">
+                                <div class="key w140">
+                                    Ngày tạo sổ <span vnpt-typography vType="danger">*</span>
+                                </div>
+                                <div class="value">
+                                    <vnpt-date-picker></vnpt-date-picker>
+                                </div>
+                            </vnpt-form-item>
+                        </div>
+                        <div vnpt-col [vXl]="12" [vMd]="24" [vXs]="24">
+                    
+                            <vnpt-form-item class="info-row">
+                                <div class="key w140">
+                                    Ngày đóng sổ <span vnpt-typography vType="danger">*</span>
+                                </div>
+                                <div class="value">
+                                    <vnpt-date-picker></vnpt-date-picker>
+                                </div>
+                            </vnpt-form-item>
+                        </div>
+                    </div>
+                    <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, xxl: 32 }">
+                        <div vnpt-col [vXl]="12" [vMd]="24" [vXs]="24">
+                    
+                            <vnpt-form-item class="info-row">
+                                <div class="key w140">
+                                    Số thứ tự hiển thị <span vnpt-typography vType="danger">*</span>
+                                </div>
+                                <div class="value">
+                                    <vnpt-input-number [vMin]="1" [vMax]="10" [vStep]="1"></vnpt-input-number>
+                                </div>
+                            </vnpt-form-item>
+                        </div>
+                        <div vnpt-col [vXl]="12" [vMd]="24" [vXs]="24">
+                    
+                            <vnpt-form-item class="info-row">
+                                <div class="key w140">
+                                    Số bắt đầu <span vnpt-typography vType="danger">*</span>
+                                </div>
+                                <div class="value">
+                                    <vnpt-input-number [vMin]="1" [vMax]="10" [vStep]="1"></vnpt-input-number>
+                                </div>
+                            </vnpt-form-item>
+                        </div>
+                    </div>
+                    <vnpt-form-item class="info-row">
+                        <div class="key w140">
+                            Người theo dõi
+                        </div>
+                        <div class="value">
+                            <div class="input-group">
+                                <vnpt-tree-select [(ngModel)]="value" [vNodes]="nodes" class="input-control" (ngModelChange)="onChange($event)"
+                                    vShowSearch vCheckable vPlaceHolder="Please select">
+                                </vnpt-tree-select>
+                                <button class="btn pl-2 pr-2" vnpt-button vType="primary" vGhost>
+                                    <span vnpt-icon vType="Edit"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </vnpt-form-item>
+                    <vnpt-form-item class="info-row">
+                        <div class="key w140">
+                            Người quản trị
+                        </div>
+                        <div class="value">
+                            <div class="input-group">
+                                <vnpt-tree-select [(ngModel)]="value" [vNodes]="nodes" class="input-control" (ngModelChange)="onChange($event)"
+                                    vShowSearch vCheckable vPlaceHolder="Please select">
+                                </vnpt-tree-select>
+                                <button class="btn pl-2 pr-2" vnpt-button vType="primary" vGhost>
+                                    <span vnpt-icon vType="Edit"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </vnpt-form-item>
+                </vnpt-tab>
+                <vnpt-tab vTitle="Mẫu số ký hiệu">
+                    <vnpt-form-item class="info-row">
+                        <div class="key" style="width: 200px;">
+                            Nhảy số theo  <span vnpt-typography vType="danger">*</span>
+                        </div>
+                        <div class="value">
+                            <vnpt-radio-group [(ngModel)]="radioValue">
+                                <label vnpt-radio vValue="A">Số văn bản</label>
+                                <label vnpt-radio vValue="B">Số văn bản và hình thức văn bản</label>
+                            </vnpt-radio-group>
+                        </div>
+                    </vnpt-form-item>
+                    <vnpt-form-item class="info-row">
+                        <div class="key" style="width: 200px;">
+                            Mẫu số ký hiệu  <span vnpt-typography vType="danger">*</span>
+                        </div>
+                        <div class="value">
+                            <vnpt-select vShowSearch vAllowClear vPlaceHolder="Chọn mẫu số ">
+                                <vnpt-option vLabel="Value 1" vValue="M01"></vnpt-option>
+                                <vnpt-option vLabel="Value 2" vValue="M02"></vnpt-option>
+                                <vnpt-option vLabel="Value 3" vValue="M03"></vnpt-option>
+                            </vnpt-select>
+                        </div>
+                    </vnpt-form-item>
+                    <vnpt-form-item class="info-row">
+                        <div class="key" style="width: 200px;">
+                            Hình thức văn bản sử dụng   <span vnpt-typography vType="danger">*</span>
+                        </div>
+                        <div class="value">
+                            <vnpt-select vShowSearch vAllowClear vPlaceHolder="Chọn hình thức">
+                                <vnpt-option vLabel="Value 1" vValue="HT01"></vnpt-option>
+                                <vnpt-option vLabel="Value 2" vValue="HT02"></vnpt-option>
+                                <vnpt-option vLabel="Value 3" vValue="HT03"></vnpt-option>
+                            </vnpt-select>
+                        </div>
+                    </vnpt-form-item>
+                    <div class="table-content table-cursor mt-7">
+                        <vnpt-table #rowSelectionTable vBordered vShowSizeChanger [vData]="listOfData">
+                            <thead>
+                                <tr>
+                                    
+                                    <th class="text-uppercase bg-gray font-size-2">Nhảy số theo</th>
+                                    <th class="text-uppercase bg-gray font-size-2">hình thức văn bản sử dụng </th>
+                                    <th class="text-uppercase bg-gray font-size-2">
+                                        mãu sinh số ký hiệu
+                                    </th>
+                                    <th class="text-uppercase bg-gray font-size-2">
+                                        Số bắt đầu
+                                    </th>
+                                    <th class="text-uppercase bg-gray font-size-2">
+                                        Số hiện tại
+                                    </th>
+                                   
+                                    <th class="text-uppercase bg-gray font-size-2">THAO TÁC</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let data of rowSelectionTable.data; let i = index">
+                                    <td><a>{{ data.nhayso }}</a></td>
+                                    <td>{{ data.hinhthuc }}</td>
+                                    <td>{{ data.mausinh }}</td>
+                                    <td>{{ data.sobatdau }}</td>
+                                    <td>{{ data.sohientai }}</td>
+                    
+                                    <td>
+                    
+                                        <button (click)="showDeleteConfirm()" class="btn pl-2 pr-2" vnpt-button vType="text" vSize="small">
+                                            <span vnpt-icon vType="Edit"></span>
+                                        </button>
+                                        
+                                        <button (click)="showDeleteConfirm()" class="btn pl-2 pr-2" vnpt-button vType="text" vSize="small">
+                                            <span vnpt-icon vType="Delete"></span>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </vnpt-table>
+                    
+                    </div>
+                </vnpt-tab>
+            </vnpt-tabset>
+            
+        </vnpt-main-content>
+    </vnpt-layout>
+</vnpt-page>
+<bottom-bar>
+    <div class="group-actions">
+        <button class="btn m-1" vnpt-button vType="primary">CẬP NHẬT</button>
+        <button class="btn m-1" vnpt-button vType="primary">CẬP NHẬT VÀ ĐÓNG</button>
+        <button class="btn m-1" vnpt-button vType="danger" vGhost>Đóng</button>
+    </div>
+</bottom-bar>

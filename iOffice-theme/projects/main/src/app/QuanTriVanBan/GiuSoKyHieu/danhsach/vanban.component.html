@@ -1,0 +1,78 @@
+<vnpt-page>
+    <vnpt-layout class="pb-11">
+        <vnpt-main-content [title]="'Giữ số ký hiệu'">
+            <div vnpt-row class="top-info mb-6">
+                <div vnpt-col [vLg]="{ span: 10 }" [vXs]="{ span: 24 }">
+                    <a vnpt-button  vType="default" vDanger class="search-btn" (click)="showDeleteConfirm()" *ngIf="indeterminate || checked">
+                        <i vnpt-icon vType="Delete" [vColor]="'danger'"></i> Xóa
+                    </a>
+
+                </div>
+                <div vnpt-col [vLg]="{ span: 14 }" [vXs]="{ span: 24 }">
+                    <div class="box-top-search">
+                        <vnpt-input-group vPrefixIcon="Search" class="input-search">
+                            <input vnpt-input placeholder="Nhập thông tin tìm kiếm" />
+                        </vnpt-input-group>
+                        <a vnpt-button vType="primary" routerLink="/giu-so-ky-hieu-them-moi" class="search-btn">THÊM MỚI</a>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="table-content table-cursor">
+                <vnpt-table #rowSelectionTable vShowSizeChanger [vData]="listOfData"
+                    (vCurrentPageDataChange)="onCurrentPageDataChange($event)">
+                    <thead>
+                        <tr>
+                            <th [(vChecked)]="checked" [vIndeterminate]="indeterminate"
+                                (vCheckedChange)="onAllChecked($event)" style="width: 30px;">
+                            </th>
+                            <th class="text-uppercase font-size-2">tên sổ văn bản </th>
+                            <th class="text-uppercase font-size-2">Hình thức </th>
+                            <th class="text-uppercase font-size-2">
+                                Mẫu số ký hiệu 
+                            </th>
+                            <th class="text-uppercase font-size-2">
+                                số đã giữ 
+                            </th>
+                            <th class="text-uppercase font-size-2">
+                                người giữ 
+                            </th>
+                            <th class="text-uppercase font-size-2">
+                                trạng thái 
+                            </th>
+                            <th class="text-uppercase font-size-2">
+                                người sử dụng
+                            </th>
+                            <th class="text-uppercase font-size-2">THAO TÁC</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of rowSelectionTable.data; let i = index">
+                            <td [vChecked]="setOfCheckedId.has(data.id)"
+                                (vCheckedChange)="onItemChecked(data.id, $event)"></td>
+                            <td><a>{{ data.tensovb }}</a></td>
+                            <td>{{ data.hinhthuc }}</td>
+                            <td>{{ data.mauso }}</td>
+                            <td>{{ data.sodagiu }}</td>
+                            <td>{{ data.nguoigiu }}</td>
+                            <td>
+                                <vnpt-badge *ngIf="data.trangthai=='sudung'" vStatus="success"vText="Đã sử dụng"></vnpt-badge> 
+                                <vnpt-badge *ngIf="data.trangthai=='chuasudung'" vStatus="default" vText="Chưa sử dụng"></vnpt-badge>
+                            </td>
+                            <td>{{ data.nguoisudung }}</td>
+                            <td>
+                                
+                                <button (click)="showDeleteConfirm()" class="btn pl-2 pr-2" vnpt-button vType="text" vSize="small">
+                                    <span vnpt-icon vType="Delete"></span>
+                                </button>  
+                            </td>
+                        </tr>
+                    </tbody>
+                </vnpt-table>
+
+            </div>
+
+        </vnpt-main-content>
+    </vnpt-layout>
+</vnpt-page>
+<!--Thong Tin Van Ban-->

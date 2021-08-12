@@ -1,0 +1,70 @@
+<vnpt-page>
+    <vnpt-layout class="pb-11">
+        <vnpt-main-content [title]="'Giữ số ký hiệu'">
+            <vnpt-form-item class="info-row">
+                <div class="key w160">
+                    Tên số văn bản<span vnpt-typography vType="danger">*</span>
+                </div>
+                <div class="value">
+                    <vnpt-select vPlaceHolder="Chọn ">
+                        <vnpt-option vValue="1" vLabel="Loại 1">
+                        </vnpt-option>
+                        <vnpt-option vValue="2" vLabel="Loại 2">
+                        </vnpt-option>
+                    </vnpt-select>
+                </div>
+            </vnpt-form-item>
+            
+            <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, xxl: 32 }">
+                <div vnpt-col [vXl]="12" [vMd]="24" [vXs]="24">
+                    
+                    <vnpt-form-item class="info-row">
+                        <div class="key w160">
+                            Hình thức<span vnpt-typography vType="danger">*</span>
+                        </div>
+                        <div class="value">
+                            <vnpt-select vPlaceHolder="Chọn ">
+                                <vnpt-option vValue="1" vLabel="Loại 1">
+                                </vnpt-option>
+                                <vnpt-option vValue="2" vLabel="Loại 2">
+                                </vnpt-option>
+                            </vnpt-select>
+                        </div>
+                    </vnpt-form-item>
+                </div>
+                <div vnpt-col [vXl]="12" [vMd]="24" [vXs]="24">
+                    <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, xxl: 32 }">
+                        <div vnpt-col [vXl]="12" [vMd]="24" [vXs]="24">
+                            <vnpt-form-item class="info-row">
+                                <div class="key w80">
+                                    Số bắt đầu <span vnpt-typography vType="danger">*</span>
+                                </div>
+                                <div class="value">
+                                    <vnpt-input-number [vMin]="1" [vStep]="1"></vnpt-input-number>
+                                </div>
+                            </vnpt-form-item>
+                        </div>
+                        <div vnpt-col [vXl]="12" [vMd]="24" [vXs]="24">
+                            <vnpt-form-item class="info-row">
+                                <div class="key w80">
+                                    Số bắt đầu <span vnpt-typography vType="danger">*</span>
+                                </div>
+                                <div class="value">
+                                    <vnpt-input-number [vMin]="1" [vStep]="1"></vnpt-input-number>
+                                </div>
+                            </vnpt-form-item>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </vnpt-main-content>
+    </vnpt-layout>
+</vnpt-page>
+<bottom-bar>
+    <div class="group-actions">
+        <button class="btn m-1" vnpt-button vType="primary">THÊM MỚI</button>
+        <button class="btn m-1" vnpt-button vType="primary">THÊM MỚI VÀ ĐÓNG</button>
+        <button class="btn m-1" vnpt-button vType="danger" vGhost>Đóng</button>
+    </div>
+</bottom-bar>

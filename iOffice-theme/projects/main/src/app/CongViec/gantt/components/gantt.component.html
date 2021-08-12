@@ -1,0 +1,19 @@
+
+<div vnpt-row class="top-info mb-4">
+	<div vnpt-col [vLg]="{ span: 8 }" [vXs]="{ span: 24 }">
+		<button vnpt-button vType="default" (click)="zoomIn()" class="mr-1 pl-2 pr-2">
+			<span vnpt-icon vType="ZoomIn"></span>
+		</button>
+		<button vnpt-button vType="default" (click)="zoomOut()"  class="pl-2 pr-2">
+			<span vnpt-icon vType="ZoomOut"></span>
+		</button>
+	</div>
+	<div vnpt-col [vLg]="{ span: 16 }" [vXs]="{ span: 24 }" class="text-right">
+		<vnpt-radio-group [(ngModel)]="radioValue" (ngModelChange)="changeDateType()" vButtonStyle="solid">
+			<label vnpt-radio-button vValue="day">Ngày</label>
+			<label vnpt-radio-button vValue="week">Tuần</label>
+			<label vnpt-radio-button vValue="month">Tháng</label>
+		</vnpt-radio-group>
+	</div>
+</div>
+<div #gantt_here class='gantt-chart'></div>

@@ -1,0 +1,64 @@
+<vnpt-page>
+    <vnpt-layout class="pb-11">
+        <vnpt-main-content [title]="'Xuất báo cáo'">
+            <vnpt-form-item class="info-row">
+                <div class="key w100">
+                    Loại báo cáo 
+                </div>
+                <div class="value">
+                    <vnpt-select vPlaceHolder="Chọn ">
+                        <vnpt-option vValue="1" vLabel="Loại 1">
+                        </vnpt-option>
+                        <vnpt-option vValue="2" vLabel="Loại 2">
+                        </vnpt-option>
+                    </vnpt-select>
+                </div>
+            </vnpt-form-item>
+            <vnpt-form-item class="info-row">
+                <div class="key w100">
+                    Hình thức
+                </div>
+                <div class="value">
+                    <vnpt-select vPlaceHolder="Chọn ">
+                        <vnpt-option vValue="1" vLabel="Loại 1">
+                        </vnpt-option>
+                        <vnpt-option vValue="2" vLabel="Loại 2">
+                        </vnpt-option>
+                    </vnpt-select>
+                </div>
+            </vnpt-form-item>
+            <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, xxl: 32 }">
+                <div vnpt-col [vXl]="12" [vMd]="24" [vXs]="24">
+            
+                    <vnpt-form-item class="info-row">
+                        <div class="key w100">
+                            Từ ngày
+                        </div>
+                        <div class="value">
+                            <vnpt-date-picker></vnpt-date-picker>
+                        </div>
+                    </vnpt-form-item>
+                </div>
+                <div vnpt-col [vXl]="12" [vMd]="24" [vXs]="24">
+            
+                    <vnpt-form-item class="info-row">
+                        <div class="key w100">
+                            Đến ngày
+                        </div>
+                        <div class="value">
+                            <vnpt-date-picker></vnpt-date-picker>
+                        </div>
+                    </vnpt-form-item>
+                </div>
+            </div>
+            
+        </vnpt-main-content>
+    </vnpt-layout>
+</vnpt-page>
+<bottom-bar>
+    <div class="group-actions">
+        <button class="btn m-1" vnpt-button vType="primary">THỰC HIỆN</button>
+       
+        <button class="btn m-1" vnpt-button vType="danger" vGhost>Đóng</button>
+    </div>
+</bottom-bar>

@@ -4,7 +4,7 @@
         [ngClass]="((activeRouter|activeUrlCheck:item.routerLink) ? 'active':'')">
         <a [(vRouterLink)]="item.routerLink" vnpt-button vType="text" class="quick-menu-btn" vTooltipPlacement="right"
             vnpt-tooltip [vTooltipTitle]="item.nameMenu">
-            <i vnpt-icon [vSrc]="item.iconName | assetUrl"></i>
+            <i vnpt-icon vSize="xs" [vSrc]="item.iconName | assetUrl"></i>
         </a>
     </div>
 </ng-template>
@@ -13,12 +13,12 @@
         [ngClass]="(((activeRouter|activeUrlCheck:item.routerLink) ) ? 'active':'')">
         <a [(vRouterLink)]="item.routerLink" vnpt-button vType="text" class="quick-menu-btn" vTooltipPlacement="right"
             vnpt-tooltip [vTooltipTitle]="item.nameMenu">
-            <i vnpt-icon [vSrc]="item.iconName | assetUrl"></i>
+            <i vnpt-icon vSize="xs" [vSrc]="item.iconName | assetUrl"></i>
         </a>
     </div>
     <a vnpt-button vType="text" class="quick-menu-btn" vTooltipPlacement="right" vnpt-tooltip
         [vTooltipColor]="'#ffffff'" [vTooltipTitle]="more" href="javascript:void(0)">
-        <i vnpt-icon [vSrc]="'more.png' | assetUrl"></i>
+        <i vnpt-icon vSize="xs" [vSrc]="'more.png' | assetUrl"></i>
     </a>
 </ng-template>
 <ng-template #more>
@@ -26,7 +26,7 @@
         [ngClass]="((activeRouter|activeUrlCheck:item.routerLink)? 'active':'')">
         <a vnpt-menu-item [(vRouterLink)]="item.routerLink" vnpt-button vBlock vType="text"
             class="quick-menu-btn-child">
-            <i vnpt-icon [vSrc]="item.iconName | assetUrl" [vSize]="'sm'"></i>
+            <i vnpt-icon vSize="xs" [vSrc]="item.iconName | assetUrl" [vSize]="'sm'"></i>
             <span>{{ item.nameMenu }}</span>
         </a>
     </div>

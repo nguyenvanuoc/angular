@@ -8,36 +8,193 @@
         <!-- <button *ngIf="changeLogoMobile" vnpt-button  vType="text" class="topbar-btn nav-toggle">
             <span vnpt-icon [vType]="'WaffleOffice365'"></span>
         </button> -->
-        <a routerLink="/" class="header-logo pl-2">
-            <div *ngIf="changeLogoMobile; then showLogoMobile else showLogoWeb"></div>
-            <ng-template #showLogoWeb>
-                <vnpt-logo [vColor]="'#fff'" [vSize]="{'size':'lg'}" [vTitle]="'eGov'"></vnpt-logo>
-            </ng-template>
-            <ng-template #showLogoMobile>
-                <vnpt-logo [vColor]="'#fff'" [vSize]="{'size':'lg','liteMode':true }" [vTitle]="'eGov'"></vnpt-logo>
-            </ng-template>
-            
-        </a>
+        <ng-container *ngIf="theme=='ioffice'">
+            <a routerLink="/" class="header-logo pl-2">
+                <div *ngIf="changeLogoMobile; then showLogoMobile else showLogoWeb"></div>
+                <ng-template #showLogoWeb>
+                    <vnpt-logo [vColor]="'#fff'" [vSize]="{'size':'lg'}" [vTitle]="'eGov'"></vnpt-logo>
+                </ng-template>
+                <ng-template #showLogoMobile>
+                    <vnpt-logo [vColor]="'#fff'" [vSize]="{'size':'lg','liteMode':true }" [vTitle]="'eGov'"></vnpt-logo>
+                </ng-template>
+            </a>
+        </ng-container>
+        <ng-container *ngIf="theme=='iworkplace'">
+            <a routerLink="/" class="header-logo pl-2">
+                <div *ngIf="changeLogoMobile; then showLogoMobile else showLogoWeb"></div>
+                <ng-template #showLogoWeb>
+                    <vnpt-logo [vColor]="'#fff'" [vSize]="{'size':'lg'}" [vTitle]="'My Ministry'"></vnpt-logo>
+                </ng-template>
+                <ng-template #showLogoMobile>
+                    <vnpt-logo [vColor]="'#fff'" [vSize]="{'size':'lg','liteMode':true }" [vTitle]="'My Ministry'"></vnpt-logo>
+                </ng-template>
+            </a>
+        </ng-container>
+        
     </div>
     <div class="header-mid {{visibleMobileSearch ? 'show' : 'hidden'}}" 
         vnpt-col 
         [vLg]="{ span: 9 }" 
         [vXl]="{ span: 9 }" 
         [vXs]="{ span: 0 }" >
-        <vnpt-input-group vSearch vPrefixIcon="Search" class="btn-group-search">
-            <input type="text" vnpt-input placeholder="Nhập từ khóa để tìm kiếm" class="btninput-detail" />
+        <vnpt-input-group vSearch vPrefixIcon="Search" class="btn-group-search" vnpt-dropdown vTrigger="click" [vDropdownMenu]="searchBox" [vClickHide]="hiddenSearch">
+            <input type="text" vnpt-input (keydown.enter)="search($event)" placeholder="Nhập từ khóa để tìm kiếm" class="btninput-detail" />
         </vnpt-input-group>
-        
+        <vnpt-dropdown-menu #searchBox="vDropdownMenu">
+            <div class="search-box-dropdown py-3 px-4">
+                <div class="title-box">
+                    <h5 vnpt-typography class="font-size-3">Công việc</h5> 
+                </div>
+                <vnpt-divider class="mt-2 mb-2"></vnpt-divider>
+                <div class="tags-box mb-4">
+                    <vnpt-tag class="tag">
+                        <span vnpt-typography class="font-size-3">
+                            Hoàn thành hồ sơ mô hình  <a href="#">chuyển đổ số ...</a>
+                        </span>
+                    </vnpt-tag>
+                    <vnpt-tag class="tag">
+                        <span vnpt-typography class="font-size-3">
+                            Công tác  <a href="#">chuyển đổ số ...</a>
+                        </span>
+                    </vnpt-tag>
+                    <vnpt-tag class="tag">
+                        <span vnpt-typography class="font-size-3">
+                            Khảo sát thực trạng  <a href="#">chuyển đổ số </a> doanh nghiệp
+                        </span>
+                    </vnpt-tag>
+                    <button vnpt-button vType="text" class="tag more">
+                        <span vnpt-icon vType="ChevronDown" vSize="sm"></span>
+                    </button>
+                </div>
+                <div class="title-box">
+                    <h5 vnpt-typography class="font-size-3">Ghi chú</h5> 
+                </div>
+                <vnpt-divider class="mt-2 mb-2"></vnpt-divider>
+                <div class="tags-box mb-4">
+                    <vnpt-tag class="tag">
+                        <span vnpt-typography class="font-size-3">
+                            Hoàn thành hồ sơ mô hình  <a href="#">chuyển đổ số ...</a>
+                        </span>
+                    </vnpt-tag>
+                    <vnpt-tag class="tag">
+                        <span vnpt-typography class="font-size-3">
+                            Công tác  <a href="#">chuyển đổ số ...</a>
+                        </span>
+                    </vnpt-tag>
+                    <vnpt-tag class="tag">
+                        <span vnpt-typography class="font-size-3">
+                            Khảo sát thực trạng  <a href="#">chuyển đổ số </a> doanh nghiệp
+                        </span>
+                    </vnpt-tag>
+                </div>
+                <div class="title-box">
+                    <h5 vnpt-typography class="font-size-3">Lịch họp</h5>
+                </div>
+                <vnpt-divider class="mt-2 mb-2"></vnpt-divider>
+                <div class="tags-box mb-4">
+                    <vnpt-tag class="tag">
+                        <span vnpt-typography class="font-size-3">
+                            Khảo sát thực trạng <a href="#">chuyển đổ số </a> doanh nghiệp
+                        </span>
+                    </vnpt-tag>
+                </div>
+                <div class="title-box">
+                    <h5 vnpt-typography class="font-size-3">Dự án</h5>
+                </div>
+                <vnpt-divider class="mt-2 mb-2"></vnpt-divider>
+                <div class="tags-box mb-4">
+                    <div class="user">
+                        <vnpt-avatar [vSize]="24" vSrc="assets/avatar-default.png"></vnpt-avatar>
+                        <span vnpt-typography class="font-size-3">
+                            Khảo sát thực trạng <a href="#">chuyển đổ số </a> doanh nghiệp
+                        </span>
+                    </div>
+                </div>
+                <div class="title-box">
+                    <h5 vnpt-typography class="font-size-3">Nhân sự</h5>
+                </div>
+                <vnpt-divider class="mt-2 mb-2"></vnpt-divider>
+                <div class="tags-box mb-4">
+                    <vnpt-tag class="tag">
+                        <vnpt-avatar [vSize]="24" vSrc="assets/avatar-default.png"></vnpt-avatar>
+                        <span vnpt-typography class="font-size-3">
+                            Nguyễn Văn  <a href="#">Chuyển</a> 
+                        </span>
+                    </vnpt-tag>
+                    <vnpt-tag class="tag">
+                        <vnpt-avatar [vSize]="24" vSrc="assets/avatar-default.png"></vnpt-avatar>
+                        <span vnpt-typography class="font-size-3">
+                            Nguyễn Văn  <a href="#">Chuyển</a> 
+                        </span>
+                    </vnpt-tag>
+                </div>
+                <div class="title-box">
+                    <h5 vnpt-typography class="font-size-3">Tìm kiếm</h5>
+                    <a vnpt-button vType="text" vSize="small" routerLink="/cai-dat" >
+                        <span vnpt-icon vType="Settings"></span>
+                    </a>
+                </div>
+                <vnpt-divider class="mt-2 mb-2"></vnpt-divider>
+                <div class="tags-box">
+                    <button class="btn mr-1 mb-1" vnpt-button>Công việc</button>
+                    <button class="btn mr-1 mb-1" vnpt-button>Ghi chú</button>
+                    <button class="btn mr-1 mb-1" vnpt-button>Nhân sự</button>
+                    <button class="btn mr-1 mb-1" vnpt-button>Văn bản</button>
+                    <button class="btn mr-1 mb-1" vnpt-button>Lịch họp</button>
+                    <button class="btn mr-1 mb-1" vnpt-button>Cổng dịch vụ công</button>
+                    <button class="btn mr-1 mb-1" vnpt-button>Phòng họp không giấy tờ</button>
+                    <button class="btn mr-1 mb-1" vnpt-button>Một cửa điện tử</button>
+                    <button class="btn mr-1 mb-1" vnpt-button vType="text">
+                        <span vnpt-icon vType="ChevronDown" vSize="sm"></span>
+                    </button>
+                </div>
+            </div>
+        </vnpt-dropdown-menu>
     </div>
     <div class="header-right" 
         vnpt-col 
         [vLg]="{ span: 9 }" 
         [vXl]="{ span: 9 }" 
         [vXs]="{ span: 12 }">
-        <button vnpt-button vType="text" vnpt-dropdown vTrigger="click"  [vDropdownMenu]="addDocument" class="topbar-btn topbar-add-document mr-1 mr-sm-3">
-            <i vnpt-icon vType="TextDocumentEdit" class="icon"></i>
-            <span class="text-name">Tạo văn bản</span>
-        </button>
+        <ng-container *ngIf="theme=='ioffice'">
+            <button vnpt-button vType="text" vnpt-dropdown vTrigger="click"  [vDropdownMenu]="addDocument" class="topbar-btn topbar-add-document mr-1 mr-sm-3">
+                <i vnpt-icon vType="TextDocumentEdit" class="icon"></i>
+                <span class="text-name">Tạo văn bản</span>
+            </button>
+            <!---add Document-->
+            <vnpt-dropdown-menu #addDocument="vDropdownMenu">
+                <ul vnpt-menu>
+                    <li vnpt-menu-item>
+                        <a href="#"><i vnpt-icon vType="TextDocument"></i>Tạo văn bản đến </a>
+                    </li>
+                    <li vnpt-menu-item>
+                        <a href="#"><i vnpt-icon vType="TextDocument"></i>Tạo văn bản đi</a>
+                    </li>
+                </ul>
+            </vnpt-dropdown-menu>
+            
+            <!---End Document-->
+        </ng-container>
+        <ng-container *ngIf="theme=='iworkplace'">
+            <button vnpt-button vType="text" vnpt-dropdown vTrigger="click"  [vDropdownMenu]="addDocument" class="topbar-btn topbar-add-document mr-1 mr-sm-3">
+                <i vnpt-icon vType="TextDocumentEdit" class="icon"></i>
+                <span class="text-name">Tạo công việc</span>
+            </button>
+            <!---add Document-->
+            <vnpt-dropdown-menu #addDocument="vDropdownMenu">
+                <ul vnpt-menu>
+                    <li vnpt-menu-item>
+                        <a href="#"><i vnpt-icon vType="TextDocument"></i>Tạo công việc </a>
+                    </li>
+                    <li vnpt-menu-item>
+                        <a href="#"><i vnpt-icon vType="TextDocument"></i>Tạo công việc nhanh</a>
+                    </li>
+                </ul>
+            </vnpt-dropdown-menu>
+            
+            <!---End Document-->
+        </ng-container>
+
         <button vnpt-button vType="text" class="topbar-btn topbar-btn-menu-search" (click)="openMobileSearch()">
             <i vnpt-icon vType="Search"></i>
         
@@ -61,7 +218,7 @@
                 <i vnpt-icon vType="Settings"></i>
                 <span class="text-m">Cài đặt </span>
             </button>
-            <button vnpt-button vType="text" class="topbar-btn topbar-btn-menu-detail mr-1">
+            <button vnpt-button vType="text" class="topbar-btn topbar-btn-menu-detail mr-1" vnpt-dropdown vTrigger="click"  [vDropdownMenu]="appList">
                 <i vnpt-icon vType="WaffleOffice365"></i>
                 <span class="text-m">Ứng dụng </span>
             </button>
@@ -101,19 +258,31 @@
 </vnpt-dropdown-menu>
 
 <!---End User-->
-<!---add Document-->
-<vnpt-dropdown-menu #addDocument="vDropdownMenu" >
-    <ul vnpt-menu>
-        <li vnpt-menu-item>
-            <a href="#"><i vnpt-icon vType="TextDocument"></i>Tạo văn bản đến </a>
-        </li>
-        <li vnpt-menu-item>
-            <a href="#"><i vnpt-icon vType="TextDocument"></i>Tạo văn bản đi</a>
-        </li>
-    </ul>
+
+<!---List App-->
+<vnpt-dropdown-menu #appList="vDropdownMenu" >
+    <div class="list-apps">
+        <a class="item">
+            
+            <span class="icon" vnpt-icon vSrc="/assets/quickmenu/google-docs.svg"></span>
+            <span class="text-m">Quản lý văn bản</span>
+        </a>
+        <a class="item">
+            <span class="icon" vnpt-icon vSrc="/assets/quickmenu/customer.svg"></span>
+            <span class="text-m">iWorkplace</span>
+        </a>
+        <a class="item">
+            <span class="icon" vnpt-icon vSrc="/assets/quickmenu/suitcase.svg"></span>
+            <span class="text-m">Quản lý công việc</span>
+        </a>
+        <a class="item">
+            <span class="icon" vnpt-icon vSrc="/assets/quickmenu/news.svg"></span>
+            <span class="text-m">Tin tức</span>
+        </a>
+    </div>
 </vnpt-dropdown-menu>
 
-<!---End User-->
+<!---End App-->
 
 <!---Notifications-->
 <vnpt-drawer 

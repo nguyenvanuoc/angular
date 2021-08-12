@@ -1,5 +1,6 @@
 import { Component,HostListener } from '@angular/core';
-
+import { Router } from '@angular/router';
+import { VContextMenuService, VDropdownMenuComponent } from '@vnpt/oneui-ui/dropdown';
 
 @Component({
   selector: 'app-header',
@@ -11,6 +12,7 @@ export class HeaderComponent {
   visibleMobileSearch = false;
   visibleMobileSetting = false;
   changeLogoMobile=false;
+  theme=localStorage.getItem('theme');
   openNoti(): void {
     this.visibleNoti = true;
   }
@@ -38,7 +40,6 @@ export class HeaderComponent {
   }
   public innerWidth: any;
   ngOnInit() {
-    
   }
   @HostListener('window:resize', ['$event'])
   detectScreenSize():void{
@@ -56,4 +57,13 @@ export class HeaderComponent {
   ngAfterContentInit() {
     this.detectScreenSize();
   }
+  hiddenSearch = true;
+  constructor(private readonly router: Router,private vContextMenuService: VContextMenuService) { }
+  search(event) {
+    console.log("You entered: ", event.target.value);
+    this.router.navigateByUrl("/ket-qua-tim-kiem");
+    this.hiddenSearch = false;
+  }
+  
+
 }

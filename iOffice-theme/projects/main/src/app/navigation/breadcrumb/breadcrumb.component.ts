@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component,HostListener } from '@angular/core';
+import { $ } from 'protractor';
 
 @Component({
   selector: 'breadcrumb-app',
@@ -6,4 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./breadcrumb.component.less']
 })
 export class BreadcrumbComponent {
+  @HostListener('window:resize', ['$event'])
+
+  
+  onResize(event) {
+    event.target.innerWidth;
+  }
+  ngAfterContentInit() {
+  }
 }

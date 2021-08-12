@@ -3,24 +3,67 @@
 <vnpt-page [close]="false">
     <vnpt-layout>
         <vnpt-main-content [title]="'Danh sách ứng dụng'">
-            <vnpt-divider vText="Danh sách văn bản đến" class="mt-7"></vnpt-divider>
-            <div class="group-buttons">
-                <a routerLink="/qlvbden" class="btn m-1" vnpt-button vType="primary" vGhost>Danh sách</a>
-                <a routerLink="/qlvbden/thong-tin-van-ban-den" class="btn m-1" vnpt-button vType="primary" vGhost>Thông tin chi tiết</a>
-                <a routerLink="/qlvbden/quet-tai-lieu" class="btn m-1" vnpt-button vType="primary" vGhost>Quét tài liệu</a>
-                <a routerLink="/qlvbden/chon-vb-lien-quan" class="btn m-1" vnpt-button vType="primary" vGhost>Chọn văn bản liên quan</a>
-                <a routerLink="/qlvbden/mau-y-kien" class="btn m-1" vnpt-button vType="primary" vGhost>Mẫu ý kiến</a>
-                <a routerLink="/qlvbden/lich-su-file" class="btn m-1" vnpt-button vType="primary" vGhost>Lịch sử file</a>
-            </div>
-            <vnpt-divider vText="Danh sách văn bản đi" class="mt-7"></vnpt-divider>
-            <div class="group-buttons">
-                <a routerLink="/qlvbdi" class="btn m-1" vnpt-button vType="primary" vGhost>Danh sách</a>
-            </div>
-            <vnpt-divider vText="Quản trị Văn bản" class="mt-7"></vnpt-divider>
-            <div class="group-buttons">
-                <a routerLink="/cau-hinh-phu-trach-linh-vuc" class="btn m-1" vnpt-button vType="primary" vGhost>Cấu hình phụ trách lĩnh vực</a>
-                
-            </div>
+            <p vnpt-typography>Nhấn vào nút để chọn theme</p>
+            <vnpt-radio-group vButtonStyle="solid" [(ngModel)]="radioChangeTheme" (ngModelChange)="changeThem()">
+                <label vnpt-radio-button vValue="ioffice">iOffice </label>
+                <label vnpt-radio-button vValue="iworkplace">iWorkplace</label>
+            </vnpt-radio-group>
+            <ng-container *ngIf="theme=='ioffice'">
+                <vnpt-divider vText="Danh sách văn bản đến" class="mt-7"></vnpt-divider>
+                <div class="group-buttons">
+                    <a routerLink="/qlvbden" class="btn m-1" vnpt-button vType="primary" vGhost>Danh sách</a>
+                    <a routerLink="/qlvbden/thong-tin-van-ban-den" class="btn m-1" vnpt-button vType="primary" vGhost>Thông tin chi
+                        tiết</a>
+                    <a routerLink="/qlvbden/quet-tai-lieu" class="btn m-1" vnpt-button vType="primary" vGhost>Quét tài liệu</a>
+                    <a routerLink="/qlvbden/chon-vb-lien-quan" class="btn m-1" vnpt-button vType="primary" vGhost>Chọn văn bản liên
+                        quan</a>
+                    <a routerLink="/qlvbden/mau-y-kien" class="btn m-1" vnpt-button vType="primary" vGhost>Mẫu ý kiến</a>
+                    <a routerLink="/qlvbden/lich-su-file" class="btn m-1" vnpt-button vType="primary" vGhost>Lịch sử file</a>
+                </div>
+                <vnpt-divider vText="Danh sách văn bản đi" class="mt-7"></vnpt-divider>
+                <div class="group-buttons">
+                    <a routerLink="/qlvbdi" class="btn m-1" vnpt-button vType="primary" vGhost>Danh sách</a>
+                    <a routerLink="/qlvbdi/tim-kiem-nang-cao" class="btn m-1" vnpt-button vType="primary" vGhost>Tìm kiếm nâng cao</a>
+                </div>
+                <vnpt-divider vText="Cấu hình phụ trách lĩnh vực" class="mt-7"></vnpt-divider>
+                <div class="group-buttons">
+                    <a routerLink="/cau-hinh-phu-trach-linh-vuc" class="btn m-1" vnpt-button vType="primary" vGhost>Danh sách</a>
+                    <a routerLink="/cau-hinh-phu-trach-linh-vuc-them-moi" class="btn m-1" vnpt-button vType="primary" vGhost>Thêm
+                        mới</a>
+                    <a routerLink="/cau-hinh-phu-trach-linh-vuc-sua" class="btn m-1" vnpt-button vType="primary" vGhost>Sửa</a>
+                </div>
+                <vnpt-divider vText="Giữ số ký hiệu" class="mt-7"></vnpt-divider>
+                <div class="group-buttons">
+                    <a routerLink="/giu-so-ky-hieu" class="btn m-1" vnpt-button vType="primary" vGhost>Danh sách</a>
+                    <a routerLink="/giu-so-ky-hieu-them-moi" class="btn m-1" vnpt-button vType="primary" vGhost>Thêm mới</a>
+                </div>
+                <vnpt-divider vText="Sổ văn bản đến admin" class="mt-7"></vnpt-divider>
+                <div class="group-buttons">
+                    <a routerLink="/so-van-ban-den-admin" class="btn m-1" vnpt-button vType="primary" vGhost>Danh sách</a>
+                    <a routerLink="/so-van-ban-den-admin-them-moi" class="btn m-1" vnpt-button vType="primary" vGhost>Thêm mới</a>
+                    <a routerLink="/so-van-ban-den-admin-sua" class="btn m-1" vnpt-button vType="primary" vGhost>Sửa</a>
+                    <a routerLink="/so-van-ban-den-admin-xuatbc" class="btn m-1" vnpt-button vType="primary" vGhost>Xuất báo cáo</a>
+                    <a routerLink="/so-van-ban-den-admin-nhan-ban" class="btn m-1" vnpt-button vType="primary" vGhost>Nhân bản</a>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="theme=='iworkplace'">
+                <vnpt-divider vText="Công việc" class="mt-7"></vnpt-divider>
+                <div class="group-buttons">
+                    <a routerLink="/cong-viec" class="btn m-1" vnpt-button vType="primary" vGhost>Công việc</a>
+                    <a routerLink="/cong-viec-list" class="btn m-1" vnpt-button vType="primary" vGhost>Công việc List</a>
+                    <a routerLink="/cong-viec-them-moi" class="btn m-1" vnpt-button vType="primary" vGhost>Thêm mới</a>
+                    <a routerLink="/cong-viec-chi-tiet" class="btn m-1" vnpt-button vType="primary" vGhost>Chi Tiết</a>
+                    <a routerLink="/cong-viec-gantt" class="btn m-1" vnpt-button vType="primary" vGhost>Gantt</a>
+                    <a routerLink="/cong-viec-card" class="btn m-1" vnpt-button vType="primary" vGhost>Card</a>
+                    <a routerLink="/cong-viec-qua-han" class="btn m-1" vnpt-button vType="primary" vGhost>Công việc quá hạn</a>
+                    <a routerLink="/ket-qua-tim-kiem" class="btn m-1" vnpt-button vType="primary" vGhost>Kết quả tìm kiếm</a>
+                </div>
+                <vnpt-divider vText="Cài đặt " class="mt-7"></vnpt-divider>
+                <div class="group-buttons">
+                    <a routerLink="/cai-dat" class="btn m-1" vnpt-button vType="primary" vGhost>Cài đặt</a>
+                    <a routerLink="/thong-ke" class="btn m-1" vnpt-button vType="primary" vGhost>Thống kê </a>
+                </div>
+            </ng-container>
         </vnpt-main-content>
     </vnpt-layout>
 </vnpt-page>

@@ -1,6 +1,9 @@
 import { Component} from '@angular/core';
-import { QuickMenuModel } from './shared-components/models/appmodel';
-
+export interface QuickMenuModel {
+  routerLink: string;
+  iconName: string;
+  nameMenu: string;
+}
 @Component({
   selector: 'mainapp-root',
   templateUrl: './app.component.html',
@@ -8,31 +11,42 @@ import { QuickMenuModel } from './shared-components/models/appmodel';
 })
 export class AppComponent {
     title = 'main';
-    visibleSidebar = true;
-    menuVisible: boolean = true;
-
-    toggleMenu() {
-      this.menuVisible = !this.menuVisible;
-      setTimeout(() => {
-        window.dispatchEvent(new Event('resize'));
-      }, 300);
-    }
-    
-    itemClick() {
-      if (window.innerWidth <= 768) {
-        this.menuVisible = true;
-      }
-    }
+    theme=localStorage.getItem("theme");
     menuConfig: QuickMenuModel[] = [
       {
         routerLink: '/home',
-        iconName: 'dashboard.png',
-        nameMenu: 'Trang chủ',
+        iconName: '/quickmenu/suitcase.svg',
+        nameMenu: 'Công việc',
       },
       {
         routerLink: '/home/settings',
-        iconName: 'settings.svg',
-        nameMenu: 'Setting',
+        iconName: '/quickmenu/google-docs.svg',
+        nameMenu: 'Văn bản',
+      },
+      {
+        routerLink: '/home/settings',
+        iconName: '/quickmenu/calendar.svg',
+        nameMenu: 'Lịch họp',
+      },
+      {
+        routerLink: '/home/settings',
+        iconName: '/quickmenu/customer.svg',
+        nameMenu: 'Nhân sự',
+      },
+      {
+        routerLink: '/home/settings',
+        iconName: '/quickmenu/news.svg',
+        nameMenu: 'Tin tức',
+      },
+      {
+        routerLink: '/home/settings',
+        iconName: '/quickmenu/note.svg',
+        nameMenu: 'Ghi chú',
+      },
+      {
+        routerLink: '/home/settings',
+        iconName: '/quickmenu/add.svg',
+        nameMenu: 'Thêm...',
       },
     ];
     

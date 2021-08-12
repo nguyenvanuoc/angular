@@ -1,0 +1,98 @@
+<vnpt-page>
+    <vnpt-layout class="pb-11">
+        <vnpt-main-content [title]="'Cài đặt tìm kiếm'">
+            <div vnpt-typography class="mb-5"> Thiết lập kết quả tìm kiếm ưu tiên theo các nghiệp vụ của bạn</div>
+            <div class="table-content">
+                <vnpt-table vTemplateMode>
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Nghiệp vụ </th>
+                            <th>Thứ tự ưu tiên </th>
+                            <th>Sắp xếp ưu tiên kết quả hiển thị theo trường thông tin</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="width: 20px;">
+                                1
+                            </td>
+                            <td>Một cửa điện tử</td>
+                            <td>7</td>
+                            <td>Ngày tạo</td>
+                            
+                        </tr>
+                        <tr>
+                            <td style="width: 20px;">
+                                1
+                            </td>
+                            <td>Một cửa điện tử</td>
+                            <td>7</td>
+                            <td>Ngày tạo</td>
+                            
+                        </tr>
+                        <tr>
+                            <td style="width: 20px;">
+                                1
+                            </td>
+                            <td>Một cửa điện tử</td>
+                            <td>7</td>
+                            <td>Ngày tạo</td>
+                            
+                        </tr>
+                        <tr>
+                            <td style="width: 20px;">
+                                1
+                            </td>
+                            <td>Một cửa điện tử</td>
+                            <td>7</td>
+                            <td>Ngày tạo</td>
+                            
+                        </tr>
+                        <tr>
+                            <td style="width: 20px;">
+                                1
+                            </td>
+                            <td>Một cửa điện tử</td>
+                            <td>
+                                <vnpt-input-number vSize="small"></vnpt-input-number>
+                            </td>
+                            <td>
+                                <button vnpt-button vnpt-dropdown vSize="small" vTrigger="click" [vClickHide]="'false'"  [vDropdownMenu]="menuDropdownCat" class="fullw text-left btn-group">
+                                    <span class="text">
+                                        Hạn xử lý, Tiêu đề, Người xử lý chính
+                                    </span>
+                                    <span vnpt-icon vType="ChevronDown" [vSize]="'xs'"></span>
+                                </button>
+                            
+                            </td>
+                            
+                        </tr>
+                        
+                    </tbody>
+                </vnpt-table>
+            </div>
+        </vnpt-main-content>
+    </vnpt-layout>
+</vnpt-page>
+<vnpt-dropdown-menu #menuDropdownCat="vDropdownMenu" >
+    <ul vnpt-menu>
+        <li vnpt-menu-item>
+            <label vnpt-checkbox [ngModel]="false">Hạn xử lý</label>
+        </li>
+        <li vnpt-menu-item>
+            <label vnpt-checkbox [ngModel]="true">Tiêu đề</label>
+        </li>
+        <li vnpt-menu-item>
+            <label vnpt-checkbox [ngModel]="true">Người xử lý chính</label>
+        </li>
+        <li vnpt-menu-item>
+            <label vnpt-checkbox [ngModel]="true">Người giao</label>
+        </li>
+        <li vnpt-menu-item>
+            <label vnpt-checkbox [ngModel]="true">Ngày giao</label>
+        </li>
+        
+    </ul>
+   
+</vnpt-dropdown-menu>

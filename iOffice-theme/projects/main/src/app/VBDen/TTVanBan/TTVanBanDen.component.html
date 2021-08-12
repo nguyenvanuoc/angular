@@ -1,5 +1,5 @@
 <vnpt-page>
-    <vnpt-layout class="mb-11">
+    <vnpt-layout class="pb-11">
         <vnpt-main-content [title]="'THÔNG TIN VĂN BẢN ĐẾN'">
             <vnpt-tabset [vAnimated]="false">
                 <vnpt-tab vTitle="Thông tin văn bản">
@@ -12,7 +12,7 @@
                             <textarea vnpt-input style="height: 64px;"></textarea>
                         </div>
                     </vnpt-form-item>
-                    <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+                    <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, xxl: 32 }">
                         <div vnpt-col [vLg]="8" [vXs]="24">
                             <vnpt-form-item class="info-row">
                                 <div class="key w120">
@@ -49,7 +49,7 @@
                         </div>
 
                     </div>
-                    <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+                    <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, xxl: 32 }">
                         <div vnpt-col [vLg]="8" [vXs]="24">
                             <vnpt-form-item class="info-row">
                                 <div class="key w120">
@@ -91,7 +91,7 @@
                         </div>
 
                     </div>
-                    <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+                    <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, xxl: 32 }">
                         <div vnpt-col [vLg]="8" [vXs]="24">
                             <vnpt-form-item class="info-row">
                                 <div class="key w120">
@@ -129,7 +129,7 @@
                         </div>
 
                     </div>
-                    <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+                    <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, xxl: 32 }">
                         <div vnpt-col [vLg]="8" [vXs]="24">
                             <vnpt-form-item class="info-row">
                                 <div class="key w120">
@@ -172,7 +172,7 @@
                         </div>
 
                     </div>
-                    <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+                    <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, xxl: 32 }">
                         <div vnpt-col [vLg]="8" [vXs]="24">
                             <vnpt-form-item class="info-row">
                                 <div class="key w120">
@@ -220,7 +220,7 @@
                         </div>
 
                     </div>
-                    <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+                    <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, xxl: 32 }">
                         <div vnpt-col [vLg]="8" [vXs]="24">
                             <vnpt-form-item class="info-row">
                                 <div class="key w120">
@@ -256,7 +256,7 @@
                     </div>
                     <vnpt-checkbox-group [(ngModel)]="checkOptionsTypeVB">
                     </vnpt-checkbox-group>
-                    <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+                    <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, xxl: 32 }">
                         <div vnpt-col [vLg]="12" [vXs]="24">
                             <vnpt-divider vText="File đính kèm" class="mt-6 mb-4"></vnpt-divider>
                             <div class="group-buttons mb-4">
@@ -485,7 +485,7 @@
                     </div>
                 </vnpt-tab>
                 <vnpt-tab vTitle="Thông tin nhận">
-                    <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+                    <div vnpt-row [vGutter]="{ xs: 8, sm: 16, md: 24, xxl: 32 }">
                         <div vnpt-col [vLg]="12" [vXs]="24">
                             <vnpt-form-item>
                                 <vnpt-input-group [vPrefix]="prefixTemplateUser">
@@ -1023,6 +1023,6 @@
         <button class="btn m-1" vnpt-button vType="primary">Cho ý kiến</button>
         <button class="btn m-1" vnpt-button vType="primary">Tạo việc</button>
         <button class="btn m-1" vnpt-button vType="primary">Lưu hồ sơ dự trữ</button>
-        <button class="btn m-1" vnpt-button vType="default">XÓA</button>
+        <button class="btn m-1" vnpt-button vType="danger" vGhost>XÓA</button>
     </div>
 </bottom-bar>

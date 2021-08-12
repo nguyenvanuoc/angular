@@ -31,7 +31,7 @@
                             "projects/main/src/assets"
                         ],
                         "styles": [
-                            "projects/main/src/styles.less"
+                            "projects/main/src/css/styles.less"
                         ],
                         "scripts": []
                     },

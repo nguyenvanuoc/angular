@@ -1,0 +1,96 @@
+<vnpt-page>
+    <vnpt-layout class="pb-11">
+        <vnpt-main-content [title]="'Sổ văn bản đến admin'">
+            <div vnpt-row class="top-info mb-6">
+                <div vnpt-col [vLg]="{ span: 10 }" [vXs]="{ span: 24 }">
+                    <ng-container *ngIf="indeterminate || checked">
+                        <a vnpt-button vType="primary" vGhost class="search-btn mr-1">
+                            NHÂN BẢN
+                        </a>
+                        <a vnpt-button vType="default" vDanger class="search-btn" (click)="showDeleteConfirm()">
+                            <i vnpt-icon vType="Delete" [vColor]="'danger'"></i> Xóa
+                        </a>
+                    </ng-container>
+                    
+
+                </div>
+                <div vnpt-col [vLg]="{ span: 14 }" [vXs]="{ span: 24 }">
+                    <div class="box-top-search">
+                        <vnpt-input-group vPrefixIcon="Search" class="input-search">
+                            <input vnpt-input placeholder="Nhập thông tin tìm kiếm" />
+                        </vnpt-input-group>
+                        <a vnpt-button vType="primary" routerLink="/giu-so-ky-hieu-them-moi" class="search-btn">THÊM MỚI</a>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="table-content table-cursor">
+                <vnpt-table #rowSelectionTable vShowSizeChanger [vData]="listOfData"
+                    (vCurrentPageDataChange)="onCurrentPageDataChange($event)">
+                    <thead>
+                        <tr>
+                            <th [(vChecked)]="checked" [vIndeterminate]="indeterminate"
+                                (vCheckedChange)="onAllChecked($event)" style="width: 30px;">
+                            </th>
+                            <th class="text-uppercase font-size-2">tên sổ văn bản </th>
+                            <th class="text-uppercase font-size-2">Đơn vị áp dụng  </th>
+                            <th class="text-uppercase font-size-2">
+                                sổ bắt đầu 
+                            </th>
+                            <th class="text-uppercase font-size-2">
+                                ngày áp dụng
+                            </th>
+                            <th class="text-uppercase font-size-2">
+                                ngày kết thúc
+                            </th>
+                            <th class="text-uppercase font-size-2">
+                                STT hiện tại
+                            </th>
+                            <th class="text-uppercase font-size-2">
+                                Người theo dõi 
+                            </th>
+                            <th class="text-uppercase font-size-2">
+                                người quản trị 
+                            </th>
+                            <th class="text-uppercase font-size-2">THAO TÁC</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of rowSelectionTable.data; let i = index">
+                            <td [vChecked]="setOfCheckedId.has(data.id)"
+                                (vCheckedChange)="onItemChecked(data.id, $event)"></td>
+                            <td><a>{{ data.tensovb }}</a></td>
+                            <td>{{ data.donviapdung }}</td>
+                            <td>{{ data.sobatdau }}</td>
+                            <td>{{ data.ngayapdung }}</td>
+                            <td>{{ data.ngayketthuc }}</td>
+                            <td>{{ data.stthientai }}</td>
+                            <td>{{ data.nguoitheodoi }}</td>
+                            <td>{{ data.nguoiquantri }}</td>
+                           
+                            <td class="text-nowrap">
+                                
+                                <button (click)="showDeleteConfirm()" class="btn pl-2 pr-2" vnpt-button vType="text" vSize="small" vnpt-tooltip vTooltipTitle="Sửa">
+                                    <span vnpt-icon vType="Edit"></span>
+                                </button>  
+                                <button (click)="showDeleteConfirm()" class="btn pl-2 pr-2" vnpt-button vType="text" vSize="small" vnpt-tooltip vTooltipTitle="Xuất báo cáo"> 
+                                    <span vnpt-icon vType="ExcelDocument"></span>
+                                </button>  
+                                
+                                <button (click)="showDeleteConfirm()" class="btn pl-2 pr-2" vnpt-button vType="text" vSize="small" vnpt-tooltip vTooltipTitle="Nhân bản ">
+                                    <span vnpt-icon vType="Copy"></span>
+                                </button>  
+                                <button (click)="showDeleteConfirm()" class="btn pl-2 pr-2" vnpt-button vType="text" vSize="small" vDanger vnpt-tooltip vTooltipTitle="Xóa">
+                                    <span vnpt-icon vType="Delete"></span>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </vnpt-table>
+
+            </div>
+
+        </vnpt-main-content>
+    </vnpt-layout>
+</vnpt-page>
+<!--Thong Tin Van Ban-->

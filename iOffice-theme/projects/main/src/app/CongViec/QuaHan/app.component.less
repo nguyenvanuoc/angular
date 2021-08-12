@@ -1,0 +1,44 @@
+
+.task-schedules{
+    height: 600px;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    .item{
+        height: 100%;
+        overflow-y: auto;
+        width: 300px;
+        display: inline-block;
+        margin-right: 30px;
+        &:last-child{
+            border-right: 0px;
+            padding-right: 0px;
+            margin-right: 0px;
+        }
+
+    }
+    .card{
+        margin-bottom: 28px;
+    }
+    .head{
+        padding: 7px 14px;
+        background-color: fade(#8A8886,10%);
+        border-bottom: 4px solid #8A8886;
+        margin-bottom: 21px;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+    }
+    .head-danger{
+        border-color: #A80000;
+        background-color: fade(#A80000,10%);
+    }
+    .head-success{
+        border-color: #107C10;
+        background-color: fade(#107C10,10%);
+    }
+    .head-primary{
+        border-color: #1363B9;
+        background-color: fade(#1363B9,10%);
+    }
+    
+}

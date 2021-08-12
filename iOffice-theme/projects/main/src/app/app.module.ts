@@ -27,7 +27,28 @@ import { CauHinhVanBanComponent } from './QuanTriVanBan/CauHinhPhuTrachLinhVuc/d
 import { CauHinhLinhVucThemMoiComponent } from './QuanTriVanBan/CauHinhPhuTrachLinhVuc/ThemMoi/app.component';
 import { CauHinhLinhVucSuaComponent } from './QuanTriVanBan/CauHinhPhuTrachLinhVuc/Sua/app.component';
 
+import { GiuSoKyHieuComponent } from './QuanTriVanBan/GiuSoKyHieu/danhsach/vanban.component';
+import { GiuSoKyHieuThemMoiComponent } from './QuanTriVanBan/GiuSoKyHieu/ThemMoi/app.component';
 
+import { SoVBDenAdminComponent } from './QuanTriVanBan/SoVanBanDenAdmin/danhsach/vanban.component';
+import { SoVBDenAdminThemMoiComponent } from './QuanTriVanBan/SoVanBanDenAdmin/ThemMoi/app.component';
+import { SoVBDenAdminSuaComponent } from './QuanTriVanBan/SoVanBanDenAdmin/sua/app.component';
+import { SoVBDenAdminXuatBCComponent } from './QuanTriVanBan/SoVanBanDenAdmin/XuatBC/app.component';
+import { SoVBDenAdminNhanBanComponent } from './QuanTriVanBan/SoVanBanDenAdmin/NhanBan/app.component';
+
+/*Myministry */
+import {CongViecComponent} from './CongViec/grid/app.component';
+import {CongViecListComponent} from './CongViec/List/app.component';
+import {CongViecThemMoiComponent} from './CongViec/ThemMoi/app.component';
+import {CongViecChiTietComponent} from './CongViec/ChiTiet/app.component';
+import {GanttAppComponent} from './CongViec/gantt/app.component';
+import {GanttComponent} from './CongViec/gantt/components/gantt.component';
+import {CongViecCardComponent} from './CongViec/card/app.component';
+import {CongViecQuaHanComponent} from './CongViec/QuaHan/app.component';
+import {SearchResultComponent} from './CongViec/SearchResult/app.component';
+import {CongViecSettingsComponent} from './CongViec/settings/app.component';
+import {CongViecThongKeComponent} from './CongViec/thongke/app.component';
+/* End Myministry*/
 
 import { registerLocaleData } from '@angular/common';
 import localeVi from '@angular/common/locales/vi';
@@ -86,6 +107,8 @@ import { VBackTopModule } from '@vnpt/oneui-ui/back-top';
 import { VAffixModule } from '@vnpt/oneui-ui/affix';
 import { VTimelineModule } from '@vnpt/oneui-ui/timeline';
 import { VLogoModule } from '@vnpt/oneui-ui/logo';
+import { VImageModule } from '@vnpt/oneui-ui/image';
+import { OneuiChartsModule } from '@vnpt/oneui-charts';
 import { BlankPageComponent } from './shared-components/blank.page.component/blank.page.component';
 import { ContexualActionBarComponent } from './shared-components/contex.action.bar/action.bar.component';
 import { ActionItemComponent } from './shared-components/contex.action.bar/action.item.component/action.item.component';
@@ -99,6 +122,10 @@ import { ToolbarComponent } from './shared-components/toolbar.component/toolbar.
 import { ToolbarItemComponent } from './shared-components/toolbar.component/toolbar.item.component/toolbar.item.component';
 import { BottombarComponent } from './shared-components/bottombar/bottombar.component';
 import { QuickMenuComponent } from './shared-components/quick-menu/quick-menu.component';
+
+import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
+import {InMemoryDataService}  from './CongViec/gantt/services/in-memory-data.service'
+
 registerLocaleData(localeVi);
 
 @NgModule({
@@ -133,7 +160,25 @@ registerLocaleData(localeVi);
     LichSuFileComponent,
     CauHinhVanBanComponent,
     CauHinhLinhVucThemMoiComponent,
-    CauHinhLinhVucSuaComponent  
+    CauHinhLinhVucSuaComponent ,
+    GiuSoKyHieuComponent,
+    GiuSoKyHieuThemMoiComponent,
+    SoVBDenAdminComponent,
+    SoVBDenAdminThemMoiComponent,
+    SoVBDenAdminSuaComponent,
+    SoVBDenAdminXuatBCComponent,
+    SoVBDenAdminNhanBanComponent,
+    CongViecComponent,
+    CongViecThemMoiComponent,
+    CongViecListComponent,
+    CongViecChiTietComponent,
+    GanttAppComponent,
+    GanttComponent,
+    CongViecCardComponent,
+    CongViecQuaHanComponent,
+    SearchResultComponent,
+    CongViecSettingsComponent,
+    CongViecThongKeComponent
 
   ],
   imports: [
@@ -167,6 +212,7 @@ registerLocaleData(localeVi);
     VCalendarModule,
     VCardModule,
     VCollapseModule,
+    VImageModule,
     VListModule,
     VPopoverModule,
     VTableModule,
@@ -194,7 +240,9 @@ registerLocaleData(localeVi);
     VAffixModule,
     VTimelineModule,
     VTreeViewModule,
-    VLogoModule
+    VLogoModule,
+    OneuiChartsModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService)
   ],
   providers: [],
   bootstrap: [AppComponent]

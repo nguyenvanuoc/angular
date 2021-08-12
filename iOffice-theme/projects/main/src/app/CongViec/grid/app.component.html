@@ -1,0 +1,519 @@
+<vnpt-page>
+    <vnpt-layout class="pb-11">
+        <vnpt-main-content [title]="'CÔNG VIỆC CỦA TÔI'">
+            <div vnpt-row class="top-info mb-7">
+                <div vnpt-col [vLg]="{ span: 8 }" [vXs]="{ span: 24 }">
+                    <div vnpt-dropdown vTrigger="click" class="d-inline" [vDropdownMenu]="ViewType" >
+                        <button vnpt-button  vType="text" class="pl-1" >
+                            <span class="icon" vnpt-icon vSize="sm" class="icon" vType="Table" vColor="primary"></span>
+                            Dạng bảng
+                            <span class="icon" vnpt-icon vSize="sm" class="icon" vType="ChevronDown" vSize="xs"></span>
+                        </button>
+                    </div>
+                    <vnpt-dropdown-menu #ViewType="vDropdownMenu">
+                        <ul vnpt-menu>
+                            <li vnpt-menu-item>
+                                <a href="javascript:void(0);">
+                                    <span vnpt-icon vSize="sm" class="icon" vType="BulletedList2" vColor="primary"></span> Hiển thị danh sách
+                                </a>
+                            </li>
+                            <li vnpt-menu-item>
+                                <a href="javascript:void(0);">
+                                    <span class="icon" vnpt-icon vSize="sm" class="icon" vType="Table" vColor="primary"></span> Hiển thị bảng 
+                                </a>
+                            </li>
+                            <li vnpt-menu-item>
+                                <a href="javascript:void(0);">
+                                    <span vnpt-icon vSize="sm" class="icon" vType="GridViewSmall" vColor="primary"></span> Hiển thị ô 
+                                </a>
+                            </li>
+                        </ul>
+                    </vnpt-dropdown-menu>
+                </div>
+                <div vnpt-col [vLg]="{ span: 16 }" [vXs]="{ span: 24 }">
+                    <div class="box-top-search">
+                        <vnpt-input-group vPrefixIcon="Filter" class="input-search" vTrigger="click" vnpt-dropdown [vDropdownMenu]="ViewFilterBox" >
+                            <input vnpt-input placeholder="Nhập thông tin tìm kiếm" />
+                        </vnpt-input-group>
+                        
+                        <a vnpt-button vType="primary" routerLink="/cong-viec-them-moi" class="search-btn">Công việc mới</a>
+                        <button vnpt-button vType="primary" class="search-btn" (click)="openThemNhanh()">Thêm nhanh</button>
+                    </div>
+                    <vnpt-dropdown-menu #ViewFilterBox="vDropdownMenu">
+                        <div class="box-filter-box">
+                            <div class="filter-sidebar">
+                                <ul>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            Bộ lọc
+                                        </a>
+                                        <button vnpt-button vType="text" vSize="small">
+                                            <span class="filter" vSize="sm" vnpt-icon vType="Filter"></span>
+                                        </button>
+                                        
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            Tôi chủ trì
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            Tôi thực hiện
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            Tôi giao việc
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            Tôi đánh giá
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            Tôi quan tâm
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            Tất cả
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            Khác
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="filter-content">
+                                <div class="box-form">
+                                    <vnpt-form-item class="info-row">
+                                        <div class="key w140">
+                                            Vai trò
+                                        </div>
+                                        <div class="value">
+                                            <div class="input-group">
+                                                <div class="tags input-control">
+                                                    <vnpt-tag vMode="closeable" class="tag">
+                                                        <vnpt-avatar [vSize]="24"
+                                                            vSrc="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjvSTK_NBkd5pfKXkHNmHkq-cpJMmgRCCDZg&usqp=CAU">
+                                                        </vnpt-avatar>
+                                                        <span class="text-m font-size-3 ml-1" vnpt-typography>Hồng hạnh (<a vnpt-typography >  Giao</a>)</span>
+                                                    </vnpt-tag>
+                                                    <vnpt-tag vMode="closeable" class="tag">
+                                                        <vnpt-avatar [vSize]="24"
+                                                            vSrc="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjvSTK_NBkd5pfKXkHNmHkq-cpJMmgRCCDZg&usqp=CAU">
+                                                        </vnpt-avatar>
+                                                        <span class="text-m font-size-3 ml-1" vnpt-typography>Hồng hạnh (<a vnpt-typography >  Giao</a>)</span>
+                                                    </vnpt-tag>
+                                                    <vnpt-tag vMode="closeable" class="tag">
+                                                        <vnpt-avatar [vSize]="24"
+                                                            vSrc="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjvSTK_NBkd5pfKXkHNmHkq-cpJMmgRCCDZg&usqp=CAU">
+                                                        </vnpt-avatar>
+                                                        <span class="text-m font-size-3 ml-1" vnpt-typography>Hồng hạnh (<a vnpt-typography >  Giao</a>)</span>
+                                                    </vnpt-tag>
+                                                    <vnpt-tag vMode="closeable" class="tag">
+                                                        <vnpt-avatar [vSize]="24"
+                                                            vSrc="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjvSTK_NBkd5pfKXkHNmHkq-cpJMmgRCCDZg&usqp=CAU">
+                                                        </vnpt-avatar>
+                                                        <span class="text-m font-size-3 ml-1" vnpt-typography>Hồng hạnh (<a vnpt-typography >  Giao</a>)</span>
+                                                    </vnpt-tag>
+                                                </div>
+                                                <button class="btn pl-2 pr-2" vnpt-button vSize="small" vType="text">
+                                                    <span class="icon" vnpt-icon vType="Cancel"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </vnpt-form-item>
+                                    <vnpt-form-item class="info-row">
+                                        <div class="key w140">
+                                            Tiêu đề
+                                        </div>
+                                        <div class="value">
+                                            <div class="input-group">
+                                                <div class="input-control">
+                                                    <input type="text" vnpt-input>
+                                                </div>
+                                                <button class="btn pl-2 pr-2" vnpt-button vSize="small" vType="text">
+                                                    <span class="icon" vnpt-icon vType="Cancel"></span>
+                                                </button>
+                                            </div>
+                                            
+                                        </div>
+                                    </vnpt-form-item>
+                                    <vnpt-form-item class="info-row">
+                                        <div class="key w140">
+                                            Trạng thái công
+                                            việc
+                                        </div>
+                                        <div class="value">
+                                            <div class="input-group">
+                                                <div class="input-control">
+                                                    <div class="tags">
+                                                        <vnpt-tag vColor="success">
+                                                            <span class="text-m font-size-3 ml-1">Giao việc</span>
+                                                        </vnpt-tag>
+                                                        <vnpt-tag vColor="processing">
+                                                            <span class="text-m font-size-3 ml-1">Giao việc</span>
+                                                        </vnpt-tag>
+                                                        <vnpt-tag vColor="error">
+                                                            <span class="text-m font-size-3 ml-1">Giao việc</span>
+                                                        </vnpt-tag>
+                                                        <vnpt-tag vColor="warning">
+                                                            <span class="text-m font-size-3 ml-1">Giao việc</span>
+                                                        </vnpt-tag>
+                                                        <vnpt-tag vColor="default">
+                                                            <span class="text-m font-size-3 ml-1">Giao việc</span>
+                                                        </vnpt-tag>
+                                                    </div>
+                                                </div>
+                                                <button class="btn pl-2 pr-2" vnpt-button vSize="small" vType="text">
+                                                    <span class="icon" vnpt-icon vType="Cancel"></span>
+                                                </button>
+                                            </div>
+                                            
+                                        </div>
+                                    </vnpt-form-item>
+                                    <vnpt-form-item class="info-row">
+                                        <div class="key w140">
+                                            Dự án
+                                        </div>
+                                        <div class="value">
+                                            <div class="input-group">
+                                                <div class="tags input-control">
+                                                    <vnpt-tag vMode="closeable" class="tag">
+                                                        <vnpt-avatar [vSize]="24"
+                                                            vSrc="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjvSTK_NBkd5pfKXkHNmHkq-cpJMmgRCCDZg&usqp=CAU">
+                                                        </vnpt-avatar>
+                                                        <span class="text-m font-size-3 ml-1" vnpt-typography>Hồng hạnh</span>
+                                                    </vnpt-tag>
+                                                    <vnpt-tag vMode="closeable" class="tag">
+                                                        <vnpt-avatar [vSize]="24"
+                                                            vSrc="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjvSTK_NBkd5pfKXkHNmHkq-cpJMmgRCCDZg&usqp=CAU">
+                                                        </vnpt-avatar>
+                                                        <span class="text-m font-size-3 ml-1" vnpt-typography>Hồng hạnh</span>
+                                                    </vnpt-tag>
+                                                    <vnpt-tag vMode="closeable" class="tag">
+                                                        <vnpt-avatar [vSize]="24"
+                                                            vSrc="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjvSTK_NBkd5pfKXkHNmHkq-cpJMmgRCCDZg&usqp=CAU">
+                                                        </vnpt-avatar>
+                                                        <span class="text-m font-size-3 ml-1" vnpt-typography>Hồng hạnh</span>
+                                                    </vnpt-tag>
+                                                    <vnpt-tag vMode="closeable" class="tag">
+                                                        <vnpt-avatar [vSize]="24"
+                                                            vSrc="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjvSTK_NBkd5pfKXkHNmHkq-cpJMmgRCCDZg&usqp=CAU">
+                                                        </vnpt-avatar>
+                                                        <span class="text-m font-size-3 ml-1" vnpt-typography>Hồng hạnh</span>
+                                                    </vnpt-tag>
+                                                </div>
+                                                <button class="btn pl-2 pr-2" vnpt-button vSize="small" vType="text">
+                                                    <span class="icon" vnpt-icon vType="Cancel"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </vnpt-form-item>
+                                    <vnpt-form-item class="info-row">
+                                        <div class="key w140">
+                                            Hạn thực hiện
+                                        </div>
+                                        <div class="value">
+                                            <div class="input-group">
+                                                <div class="input-control">
+                                                    <vnpt-range-picker></vnpt-range-picker>
+                                                </div>
+                                                <button class="btn pl-2 pr-2" vnpt-button vSize="small" vType="text">
+                                                    <span class="icon" vnpt-icon vType="Cancel"></span>
+                                                </button>
+                                            </div>
+                                            
+                                        </div>
+                                    </vnpt-form-item>
+                                    <vnpt-form-item class="info-row">
+                                        <div class="key w140">
+                                        </div>
+                                        <div class="value">
+                                            <a vnpt-button vType="link" vSize="small">Thêm trường</a>
+                                            <a vnpt-button vType="link" vSize="small"><span vnpt-typography>  Lấy lại trường tìm kiếm mặc định</span></a>
+                                            
+                                        </div>
+                                    </vnpt-form-item>
+                                </div>
+                                <div class="bottom-actions">
+                                    <button class="btn mr-1" vnpt-button vType="primary">
+                                        Lưu
+                                    </button>
+                                    <button class="btn" vnpt-button vType="danger" vGhost>
+                                        Hủy bỏ
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </vnpt-dropdown-menu>
+                </div>
+            </div>
+            <div class="table-content table-cursor">
+
+                <vnpt-table #rowSelectionTable vShowSizeChanger [vData]="listOfData"
+                    (vCurrentPageDataChange)="onCurrentPageDataChange($event)">
+                    <thead>
+                        <tr>
+                            <th [(vChecked)]="checked" [vIndeterminate]="indeterminate" (vCheckedChange)="onAllChecked($event)"
+                                style="width: 20px;" class="font-size-2 text-uppercase"></th>
+                            <th  class="text-center">
+                                <button class="btn pl-2 pr-2" vnpt-button vType="text" vSize="small">
+                                    <span vnpt-icon vType="Settings"></span>
+                                </button>
+                            </th>
+                            <th  class="font-size-2 text-uppercase">Stt</th>
+                            <th  class="font-size-2 text-uppercase">Công việc</th>
+                            <th  class="font-size-2 text-uppercase" *ngFor="let column of listOfColumns;" [(vSortOrder)]="column.sortOrder" [vSortFn]="column.sortFn">
+                                {{ column.name }}
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of rowSelectionTable.data; let i = index">
+                            <td [vChecked]="setOfCheckedId.has(data.id)" (vCheckedChange)="onItemChecked(data.id, $event)"></td>
+                            <td  class="text-center">
+                                <button class="btn pl-2 pr-2" vnpt-button vType="text" vSize="small" vnpt-dropdown vTrigger="click" [vDropdownMenu]="gridDropdownMenu">
+                                    <span vnpt-icon vType="GlobalNavButton"></span>
+                                </button>
+                                <vnpt-dropdown-menu #gridDropdownMenu="vDropdownMenu">
+                                    <ul vnpt-menu vSelectable style="height: 200px;overflow: auto;">
+                                        <li vnpt-menu-item><span class="icon" vnpt-icon vColor="primary" vType="Pinned" vSize="sm"></span>Ghim/ Bỏ ghim</li>
+                                        <li vnpt-menu-item><span class="icon" vnpt-icon vColor="primary" vType="Ringer" vSize="sm"></span>Bật/ Tắt thông báo</li>
+                                        <li vnpt-menu-item><span class="icon" vnpt-icon vColor="primary" vType="Play" vSize="sm"></span>Bắt đầu</li>
+                                        <li vnpt-menu-item><span class="icon" vnpt-icon vColor="primary" vType="CheckMark" vSize="sm"></span>Hoàn thành</li>
+                                        <li vnpt-menu-item><span class="icon" vnpt-icon vColor="primary" vType="FavoriteStar" vSize="sm"></span>Đánh giá</li>
+                                        <li vnpt-menu-item><span class="icon" vnpt-icon vColor="primary" vType="CircleStop" vSize="sm"></span>Dừng</li>
+                                        <li vnpt-menu-item><span class="icon" vnpt-icon vColor="primary" vType="Cancel" vSize="sm"></span>Đóng</li>
+                                        <li vnpt-menu-item><span class="icon" vnpt-icon vColor="primary" vType="OpenFolderHorizontal" vSize="sm"></span>Mở lại</li>
+                                        <li vnpt-menu-item><span class="icon" vnpt-icon vColor="primary" vType="Edit" vSize="sm"></span>Sửa</li>
+                                        <li vnpt-menu-item><span class="icon" vnpt-icon vColor="danger" vType="Delete" vSize="sm"></span>Xóa</li>
+                                        <li vnpt-menu-item><span class="icon" vnpt-icon vColor="primary" vType="Copy" vSize="sm"></span>Sao chép</li>
+                                        <li vnpt-menu-item><span class="icon" vnpt-icon vColor="primary" vType="View" vSize="sm"></span>Xem</li>
+                                        <li vnpt-menu-item><span class="icon" vnpt-icon vColor="primary" vType="ClipboardListReply" vSize="sm"></span>Gia hạn</li>
+                                        <li vnpt-menu-item><span class="icon" vnpt-icon vColor="primary" vType="SwitchUser" vSize="sm"></span>Thay đổi nhân sự tham gia</li>
+                                        <li vnpt-menu-item><span class="icon" vnpt-icon vColor="primary" vType="TextDocumentEdit" vSize="sm"></span>Tạo công việc con</li>
+                                    </ul>
+                                </vnpt-dropdown-menu>
+                            </td>
+                            <td>{{ i }}</td>
+                            <td><a>{{ data.congviec }}</a></td>
+                            <td class="text-nowrap">{{ data.dangthuchien }}</td>
+                            <td>
+                                <div class="user">
+                                    <vnpt-avatar [vSize]="24"
+                                        vSrc="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjvSTK_NBkd5pfKXkHNmHkq-cpJMmgRCCDZg&usqp=CAU">
+                                    </vnpt-avatar> {{ data.xlchinh }}
+                                </div>
+                            </td>
+                            <td>
+                                <div class="user">
+                                    <vnpt-avatar [vSize]="24"
+                                        vSrc="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjvSTK_NBkd5pfKXkHNmHkq-cpJMmgRCCDZg&usqp=CAU">
+                                    </vnpt-avatar> {{ data.phoihop }}
+                                </div>
+                            </td>
+                            <td>
+                                <div class="user">
+                                    <vnpt-avatar [vSize]="24"
+                                        vSrc="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjvSTK_NBkd5pfKXkHNmHkq-cpJMmgRCCDZg&usqp=CAU">
+                                    </vnpt-avatar> {{ data.duan }}
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </vnpt-table>
+            </div>
+        </vnpt-main-content>
+    </vnpt-layout>
+</vnpt-page>
+
+<bottom-bar *ngIf="checked || indeterminate">
+    <div class="group-actions">
+        <button class="btn m-1" vnpt-button vType="primary">Bắt đầu</button>
+        <button class="btn m-1" vnpt-button vType="primary">Hoàn thành</button>
+        <button class="btn m-1" vnpt-button vType="primary" (click)="openGiaHan()">Gia hạn</button>
+        <button class="btn m-1" vnpt-button vType="primary">Thay đổi nhân sự tham gia</button>
+        <button class="btn m-1" vnpt-button vType="primary">Đóng</button>
+        <button class="btn m-1" vnpt-button vType="primary" vnpt-dropdown [vDropdownMenu]="menuOthers" vTrigger="click">
+            Khác
+            <span vnpt-icon vSize="xs" vType="ChevronUp"></span>
+        </button>
+        <vnpt-dropdown-menu #menuOthers="vDropdownMenu">
+            <ul vnpt-menu>
+                <li vnpt-menu-item><span class="icon" vnpt-icon vColor="primary" vType="Ringer" vSize="sm"></span>Bật/ Tắt thông báo
+                </li>
+                
+                <li vnpt-menu-item><span class="icon" vnpt-icon vColor="primary" vType="FavoriteStar" vSize="sm"></span>Đánh giá</li>
+                <li vnpt-menu-item><span class="icon" vnpt-icon vColor="primary" vType="CircleStop" vSize="sm"></span>Dừng</li>
+                <li vnpt-menu-item><span class="icon" vnpt-icon vColor="primary" vType="Cancel" vSize="sm"></span>Đóng</li>
+                <li vnpt-menu-item><span class="icon" vnpt-icon vColor="primary" vType="OpenFolderHorizontal" vSize="sm"></span>Mở lại
+                </li>
+                <li vnpt-menu-item><span class="icon" vnpt-icon vColor="danger" vType="Delete" vSize="sm"></span>Xóa</li>
+            </ul>
+        </vnpt-dropdown-menu>
+    </div>
+</bottom-bar>
+
+<vnpt-drawer [vClosable]="false" 
+    [vVisible]="visibleShowThemNhanh" 
+    vPlacement="right" vTitle="THÊM NHANH CÔNG VIỆC" 
+    (vOnClose)="closeThemNhanh()"
+    [vClosable]="true" 
+    [vMaskStyle]="{ opacity: 0, animation: 'none' }" 
+    [vWidth]="600"
+    [vMaskClosable]="true" [vFooter]="tplFooterThemNhanh">
+    <ng-container *vDrawerContent>
+        <vnpt-form-item class="info-row">
+            <div class="key w140">
+                Tiêu đề công việc
+            </div>
+            <div class="value">
+                <input type="text" vnpt-input>
+            </div>
+        </vnpt-form-item>
+        <vnpt-form-item class="info-row">
+            <div class="key w140">
+                Nội dung công việc
+            </div>
+            <div class="value">
+                <textarea type="text" vnpt-input style="height: 120px;resize: vertical;"></textarea>
+            </div>
+        </vnpt-form-item>
+        <vnpt-form-item class="info-row">
+            <div class="key w140">
+                Dự án
+            </div>
+            <div class="value">
+                <input type="text" vnpt-input>
+            </div>
+        </vnpt-form-item>
+        <vnpt-form-item class="info-row">
+            <div class="key w140">
+                Dự án
+            </div>
+            <div class="value">
+                <input type="text" vnpt-input>
+            </div>
+        </vnpt-form-item>
+        <vnpt-form-item class="info-row">
+            <div class="key w140">
+                Văn bản cứ
+            </div>
+            <div class="value">
+                <input type="text" vnpt-input>
+            </div>
+        </vnpt-form-item>
+    </ng-container>
+    <ng-template #tplFooterThemNhanh>
+        <div class="group-actions">
+            <button class="btn m-1" vnpt-button vType="primary">Lưu</button>
+            <button class="btn m-1" vnpt-button vType="danger" vGhost>Hủy bỏ</button>
+        </div>
+    </ng-template>
+</vnpt-drawer>
+<vnpt-drawer [vClosable]="false" 
+    [vVisible]="visibleShowGiaHan" 
+    vPlacement="right" vTitle="GIA HẠN" 
+    (vOnClose)="closeGiaHan()"
+    [vClosable]="true" 
+    [vMaskStyle]="{ opacity: 0, animation: 'none' }" 
+    [vWidth]="600"
+    [vMaskClosable]="true" [vFooter]="tplFooterGiaHan">
+    <ng-container *vDrawerContent>
+        <vnpt-form-item>
+            <div class="d-block mb-2">
+                Hạn thực hiện công việc
+            </div>
+            <div class="d-block fullw">
+                <vnpt-date-picker></vnpt-date-picker>
+            </div>
+        </vnpt-form-item>
+        <vnpt-form-item>
+            <div class="d-block mb-2">
+                Hạn theo đơn vị / cá nhân xử lý
+            </div>
+            <div class="d-block fullw">
+                <div class="tags"
+                    vnpt-popover
+                    vPopoverTitle="Mọi người và đơn vị"
+                    vPopoverTrigger="click"
+                    [vPopoverContent]="contentTemplate">
+                    <vnpt-tag vMode="closeable" class="tag" (click)="searchInputGiaHan.focus()">
+                        <vnpt-avatar [vSize]="24"
+                            vSrc="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjvSTK_NBkd5pfKXkHNmHkq-cpJMmgRCCDZg&usqp=CAU">
+                        </vnpt-avatar>
+                        <span class="text-m font-size-3 ml-1">
+                            <span  vnpt-typography class="font-weight-bold">
+                                Hồng hạnh
+                            </span>
+                            <a vnpt-typography> (Giao)</a>
+                            <span   vnpt-typography vType="secondary" class="font-size-2">21/01/2021</span>
+                        </span>
+
+                    </vnpt-tag>
+                    <vnpt-tag vMode="closeable" class="tag">
+                        <vnpt-avatar [vSize]="24"
+                            vSrc="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjvSTK_NBkd5pfKXkHNmHkq-cpJMmgRCCDZg&usqp=CAU">
+                        </vnpt-avatar>
+                        <span class="text-m font-size-3 ml-1">
+                            <span  vnpt-typography class="font-weight-bold">
+                                Hồng hạnh
+                            </span>
+                            <a vnpt-typography> (Giao)</a>
+                            <span   vnpt-typography vType="secondary" class="font-size-2">21/01/2021</span>
+                        </span>
+
+                    </vnpt-tag>
+                    <vnpt-tag vMode="closeable" class="tag">
+                        <vnpt-avatar [vSize]="24"
+                            vSrc="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjvSTK_NBkd5pfKXkHNmHkq-cpJMmgRCCDZg&usqp=CAU">
+                        </vnpt-avatar>
+                        <span class="text-m font-size-3 ml-1">
+                            <span  vnpt-typography class="font-weight-bold">
+                                Hồng hạnh
+                            </span>
+                            <a vnpt-typography> (Giao)</a>
+                            <span vnpt-typography vType="secondary" class="font-size-2">21/01/2021</span>
+                        </span>
+
+                    </vnpt-tag>
+                    <input type="text" class="form-control" vSize="small" [(ngModel)]="searchValue" #searchInputGiaHan vnpt-input>   
+                </div>
+                <ng-template #contentTemplate>
+                    <vnpt-tree vShowExpand="false" vMultiple [vSearchValue]="searchValue" [vData]="nodesGiaHan" 
+                        [vTreeTemplate]="vTreeTemplate" (vSearchValueChange)="vEvent($event)"></vnpt-tree>
+                    <ng-template #vTreeTemplate let-node let-origin="origin">
+                        <div class="user">
+                            <vnpt-avatar [vSize]="32"
+                                vSrc="{{origin.avatar}}">
+                            </vnpt-avatar>
+                            <div class="info">
+                                <span  class="name font-weight-bold" vnpt-typography>{{ node.title }}</span>
+                                <div class="pos">
+                                    <span vnpt-typography *ngFor="let tag of origin.tags" vType="secondary">
+                                        ({{tag.name}})
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </ng-template>
+                </ng-template>
+            </div>
+        </vnpt-form-item>
+       
+    </ng-container>
+    <ng-template #tplFooterGiaHan>
+        <div class="group-actions">
+            <button class="btn m-1" vnpt-button vType="primary">Lưu</button>
+            <button class="btn m-1" vnpt-button vType="danger" vGhost>Hủy bỏ</button>
+        </div>
+    </ng-template>
+</vnpt-drawer>
